@@ -1,80 +1,16 @@
 # David's BSc Computing Portfolio
 
-A web-based independent study and professional development portfolio for BSc Computing Level 5.
+This repository contains my Level 5 Computing Independent Study Portfolio.
 
-The project is designed as a living academic knowledge base. It records research notes, technical explanations, diagrams, comparison tables, reflections, references and evidence of professional development.
+Rather than producing the portfolio as a collection of Word documents or a traditional written report, I chose to develop it as a responsive website. This approach better reflects both my learning style and my interests in web development while allowing me to demonstrate practical technical skills alongside the required academic content.
 
----
+Building the portfolio as a website enabled me to:
 
-## Project Purpose
+organise content into a clear and intuitive navigation structure
+create a consistent visual design across all four weeks of study
+integrate diagrams, figures and interactive navigation directly into the content
+apply HTML5 semantic markup, CSS and responsive design techniques studied during the module
+improve accessibility through structured layouts, headings and navigation
+demonstrate practical web development skills rather than only describing them
 
-The portfolio supports four areas of independent study:
-
-1. Web Development, Web Infrastructure and Advanced Programming
-2. Data Structures, Algorithms, Complexity and Data Analysis
-3. Cloud Computing, Networks and Cybersecurity
-4. Artificial Intelligence, Ethics and Professional Development
-
-The website also demonstrates practical use of:
-
-- HTML5 semantic markup
-- CSS responsive design
-- JavaScript
-- Accessibility principles
-- Structured project organisation
-- Technical writing
-- Academic reflection
-
----
-
-## Current Project Structure
-
-```text
-Computing-Portfolio
-│
-├── assets
-│   ├── css
-│   │   └── style.css
-│   │
-│   ├── images
-│   │
-│   └── js
-│       └── script.js
-│
-├── profession-development
-│   ├── smart-targets.html
-│   └── swot.html
-│
-├── reflections
-│   ├── final-review.html
-│   └── weekly-reflection.html
-│
-├── research
-│   ├── glossary.html
-│   └── references.html
-│
-├── weeks
-│   ├── week1-content
-│   │   ├── architecture.html
-│   │   ├── html-css.html
-│   │   ├── javascript.html
-│   │   ├── programming.html
-│   │   ├── references.html
-│   │   └── reflection.html
-│   │
-│   ├── week1.html
-│   ├── week2.html
-│   ├── week3.html
-│   └── week4.html
-│
-├── index.html
-└── README.md
-
-
-
-
-
-to do:
-Find newer references for all subjects
-Check SPAG
-fix the flex of the tags
+This format also mirrors how I naturally organise information. I find that interconnected web pages make it easier to manage large amounts of content than multiple independent documents
