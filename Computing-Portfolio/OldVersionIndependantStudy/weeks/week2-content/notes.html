@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Week 2 Notes | David's Computing Portfolio
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../../assets/css/style.css"
+    >
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="container">
+
+        <h1>
+            Structured Academic Notes
+        </h1>
+
+        <p>
+            Data Structures, Algorithms, Complexity and Data Analysis
+        </p>
+
+    </div>
+
+</header>
+
+<nav
+    class="navigation"
+    aria-label="Week 2 navigation"
+>
+
+    <div class="container">
+
+        <a href="../../index.html">Home</a>
+        <a href="../week2.html">Week 2</a>
+        <a href="notes.html">Notes</a>
+        <a href="data-structures.html">Data Structures</a>
+        <a href="searching.html">Searching</a>
+        <a href="complexity.html">Complexity</a>
+        <a href="databases.html">Databases</a>
+        <a href="reflection.html">Reflection</a>
+        <a href="references.html">References</a>
+
+    </div>
+
+</nav>
+
+<main class="container">
+
+    <section class="card">
+
+        <h2>
+            Introduction
+        </h2>
+
+        <p>
+            Software systems depend on data being organised in a
+            form that supports the operations they need to perform.
+            A suitable data structure can make searching, insertion
+            and removal efficient, while an unsuitable choice can
+            create unnecessary processing and memory costs.
+        </p>
+
+        <p>
+            Algorithms must also be evaluated according to how their
+            behaviour changes as the amount of data increases.
+            Cormen et al. (2022) show that asymptotic analysis allows
+            algorithms to be compared independently of a particular
+            machine. Performance should therefore be considered
+            during software design, while later profiling should
+            confirm whether the theoretical model reflects the real
+            workload.
+        </p>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            1. Data Structures
+        </h2>
+
+        <h3>
+            Stacks
+        </h3>
+
+        <p>
+            A stack follows the Last In, First Out principle. The
+            most recently added item is the first item removed.
+            Adding an item is commonly called a push operation,
+            while removing the top item is called a pop operation.
+        </p>
+
+        <p>
+            Stacks are used for undo systems, function calls,
+            browser history and expression evaluation. Their main
+            limitation is that only the top item is directly
+            accessible.
+        </p>
+
+        <pre><code>stack = []
+
+stack.append("Page 1")
+stack.append("Page 2")
+
+current_page = stack.pop()</code></pre>
+
+        <h3>
+            Queues
+        </h3>
+
+        <p>
+            A queue follows the First In, First Out principle. The
+            first item added is the first item processed. Queues are
+            suitable where tasks should normally be handled in the
+            order they arrive.
+        </p>
+
+        <p>
+            Examples include print queues, customer-service systems,
+            message processing and job scheduling. Priority queues
+            modify the basic rule by allowing more urgent tasks to
+            be processed first.
+        </p>
+
+        <h3>
+            Linked Lists
+        </h3>
+
+        <p>
+            A linked list contains nodes. Each node stores a value
+            and a reference to another node. In a singly linked list,
+            each node points to the next node. In a doubly linked
+            list, each node also points to the previous node.
+        </p>
+
+        <p>
+            Linked lists support efficient insertion and deletion
+            when the relevant node is already known. However, they
+            do not provide direct indexed access. To reach a later
+            item, the program must normally move through earlier
+            nodes. Wengrow (2020) emphasises that the practical value
+            of a structure depends on the operations performed most
+            frequently, rather than on one isolated complexity
+            measure.
+        </p>
+
+        <h3>
+            Binary Search Trees
+        </h3>
+
+        <p>
+            A binary search tree stores values in nodes with no more
+            than two children. Values smaller than a node are
+            normally placed on the left, while larger values are
+            placed on the right.
+        </p>
+
+        <p>
+            A balanced tree supports efficient searching, insertion
+            and deletion. However, an unbalanced tree can begin to
+            behave like a linked list, reducing performance from
+            logarithmic to linear time.
+        </p>
+
+        <h3>
+            Graphs
+        </h3>
+
+        <p>
+            A graph represents relationships using vertices and
+            edges. A graph may be directed or undirected, and its
+            edges may contain weights such as distance, time or
+            financial cost.
+        </p>
+
+        <p>
+            Graphs are used in social networks, route planning,
+            recommendation systems, dependency management and
+            computer networks. They are flexible, but graph
+            algorithms can become computationally expensive on
+            large or highly connected datasets.
+        </p>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            2. Searching and Sorting Algorithms
+        </h2>
+
+        <h3>
+            Linear Search
+        </h3>
+
+        <p>
+            Linear search checks items one at a time until the target
+            is found or the collection ends. It works with sorted
+            and unsorted data and is simple to implement.
+        </p>
+
+        <p>
+            Its worst-case time complexity is O(n), because every
+            item may need to be checked. It remains appropriate for
+            small collections or data that is searched infrequently.
+        </p>
+
+        <h3>
+            Binary Search
+        </h3>
+
+        <p>
+            Binary search repeatedly checks the middle item of a
+            sorted collection. It removes half of the remaining
+            search area after each comparison.
+        </p>
+
+        <p>
+            Its time complexity is O(log n), making it much more
+            efficient for large datasets. However, the collection
+            must be sorted and should support efficient access to its
+            middle items. The cost of creating and maintaining that
+            order must therefore be included when deciding whether
+            binary search is appropriate (Cormen et al., 2022).
+        </p>
+
+        <h3>
+            Merge Sort
+        </h3>
+
+        <p>
+            Merge sort uses a divide-and-conquer approach. It divides
+            data into smaller sections, sorts those sections and
+            merges them back together.
+        </p>
+
+        <p>
+            Its time complexity is O(n log n) in the best, average
+            and worst cases. It is stable and predictable, but it
+            usually requires additional memory for the merging
+            process.
+        </p>
+
+        <h3>
+            Quick Sort
+        </h3>
+
+        <p>
+            Quick sort selects a pivot and partitions values so that
+            smaller values appear before it and larger values appear
+            after it. The same process is then applied recursively.
+        </p>
+
+        <p>
+            Average performance is O(n log n), and it often performs
+            well in practice. Its worst case is O(n²), although a
+            suitable pivot-selection strategy reduces the likelihood
+            of this occurring.
+        </p>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            3. Algorithmic Efficiency
+        </h2>
+
+        <h3>
+            Time Complexity
+        </h3>
+
+        <p>
+            Time complexity describes how the number of operations
+            grows as the input size increases. It does not normally
+            measure exact execution time because that depends on
+            hardware, programming language and implementation.
+        </p>
+
+        <h3>
+            Space Complexity
+        </h3>
+
+        <p>
+            Space complexity describes how memory requirements grow
+            with the input size. An algorithm may complete quickly
+            but require a large amount of additional memory.
+        </p>
+
+        <h3>
+            Big-O Notation
+        </h3>
+
+        <p>
+            Big-O notation describes an upper bound on an algorithm's
+            growth rate. It allows algorithms to be compared without
+            depending on a particular computer.
+        </p>
+
+        <ul>
+            <li>
+                <strong>O(1):</strong>
+                constant growth
+            </li>
+
+            <li>
+                <strong>O(log n):</strong>
+                logarithmic growth
+            </li>
+
+            <li>
+                <strong>O(n):</strong>
+                linear growth
+            </li>
+
+            <li>
+                <strong>O(n log n):</strong>
+                linearithmic growth
+            </li>
+
+            <li>
+                <strong>O(n²):</strong>
+                quadratic growth
+            </li>
+        </ul>
+
+        <p>
+            Big-O is useful, but it is not a complete measurement.
+            Real performance also depends on constants, memory
+            access, input distribution and the size of the dataset.
+            Consequently, complexity analysis should guide design
+            decisions rather than replace benchmarking and profiling
+            with representative data.
+        </p>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            4. Data Storage Formats
+        </h2>
+
+        <h3>
+            CSV
+        </h3>
+
+        <p>
+            CSV stores tabular data as plain text, with each line
+            representing a row and delimiters separating values.
+            It is simple, compact and widely supported.
+        </p>
+
+        <p>
+            CSV does not reliably preserve data types, nested
+            structures or relationships. Different delimiter and
+            character-encoding conventions can also create
+            compatibility problems.
+        </p>
+
+        <h3>
+            JSON
+        </h3>
+
+        <p>
+            JSON represents information using objects, arrays,
+            numbers, strings, Boolean values and null values. It is
+            widely used by web APIs because it maps naturally to
+            structures used in programming languages.
+        </p>
+
+        <p>
+            JSON supports nested data but is more verbose than CSV
+            for simple tables. It also does not provide the query,
+            validation and transaction capabilities of a database.
+        </p>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            5. Databases
+        </h2>
+
+        <h3>
+            Relational Databases
+        </h3>
+
+        <p>
+            Relational databases organise data into tables with rows
+            and columns. Relationships are created using primary and
+            foreign keys. SQL is used to define, query and modify the
+            data.
+        </p>
+
+        <p>
+            Relational databases are appropriate where data requires
+            a clear structure, strong consistency and reliable
+            transactions. Examples include banking, payroll and
+            booking systems.
+        </p>
+
+        <h3>
+            NoSQL Databases
+        </h3>
+
+        <p>
+            NoSQL refers to non-relational approaches such as
+            document, key-value, column-family and graph databases.
+            These systems often support flexible data structures and
+            horizontal scaling.
+        </p>
+
+        <p>
+            NoSQL can be useful for rapidly changing data, distributed
+            applications and high-volume workloads. However, weaker
+            schema control can move validation responsibilities into
+            application code.
+        </p>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            6. Data Processing and Analytics
+        </h2>
+
+        <h3>
+            pandas
+        </h3>
+
+        <p>
+            pandas provides DataFrame and Series structures for
+            loading, cleaning, transforming and analysing structured
+            data. Its official user guide covers missing data,
+            grouping, reshaping and input/output operations
+            (pandas Development Team, 2026). It is particularly
+            useful for CSV files and database query results, although
+            memory use can become restrictive for datasets that are
+            much larger than available RAM.
+        </p>
+
+        <h3>
+            NumPy
+        </h3>
+
+        <p>
+            NumPy provides efficient multidimensional arrays and
+            numerical operations. Its vectorised operations avoid
+            many explicit Python loops and can process numerical data
+            efficiently (NumPy Developers, 2026). However,
+            vectorisation may create temporary arrays, so improved
+            execution speed does not always mean reduced memory use.
+        </p>
+
+        <h3>
+            Matplotlib and Seaborn
+        </h3>
+
+        <p>
+            Matplotlib provides detailed control over charts and
+            visualisations. Seaborn builds on Matplotlib and offers
+            higher-level functions for statistical visualisation.
+        </p>
+
+        <p>
+            Visualisations should communicate a specific finding.
+            Incorrect scales, excessive decoration and unsuitable
+            chart types can misrepresent data rather than clarify it.
+        </p>
+
+    </section>
+
+    <section class="callout">
+
+        <h2>
+            Overall Evaluation
+        </h2>
+
+        <p>
+            The most appropriate solution depends on the operations
+            a system performs most frequently. Data structures,
+            algorithms, storage formats and databases should
+            therefore be selected together rather than as isolated
+            technical decisions.
+        </p>
+
+    </section>
+
+    <div class="page-navigation">
+
+    <a class="button" href="../week2.html">
+        Back to Week 2
+    </a>
+
+    <a class="button" href="data-structures.html">
+        Next: Data Structures
+    </a>
+
+</div>
+
+</main>
+
+<footer>
+
+    <p>
+        David's Computing Portfolio
+        &copy;
+        <span data-current-year></span>
+    </p>
+
+</footer>
+
+<script src="../../assets/js/script.js"></script>
+
+</body>
+
+</html>

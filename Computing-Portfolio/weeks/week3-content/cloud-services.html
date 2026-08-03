@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="A comparison of IaaS, PaaS and SaaS cloud service models."
+    >
+
+    <title>
+        Cloud Service Models | David's Computing Portfolio
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../../assets/css/style.css"
+    >
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="container">
+
+        <h1>
+            Cloud Service Models
+        </h1>
+
+        <p>
+            IaaS, PaaS and SaaS
+        </p>
+
+    </div>
+
+</header>
+
+<nav
+    class="navigation"
+    aria-label="Week 3 navigation"
+>
+
+    <div class="container">
+
+        <a href="../../index.html">
+            Home
+        </a>
+
+        <a href="../week3.html">
+            Week 3
+        </a>
+
+        <a href="notes.html">
+            Notes
+        </a>
+
+        <a href="osi-model.html">
+            OSI Model
+        </a>
+
+        <a
+            href="cloud-services.html"
+            aria-current="page"
+        >
+            Cloud Services
+        </a>
+
+        <a href="threat-analysis.html">
+            Threat Analysis
+        </a>
+
+        <a href="cia-triad.html">
+            CIA Triad
+        </a>
+
+        <a href="reflection.html">
+            Reflection
+        </a>
+
+        <a href="references.html">
+            References
+        </a>
+
+    </div>
+
+</nav>
+
+<main class="container">
+
+    <section class="card portfolio-overview">
+
+        <h2>
+            Overview
+        </h2>
+
+        <p>
+            IaaS, PaaS and SaaS represent different divisions of
+            responsibility between a cloud provider and its customer
+            (Mell and Grance, 2011). Moving from IaaS towards SaaS
+            generally reduces the customer's infrastructure-
+            management burden but also reduces direct technical
+            control. It does not remove customer responsibility for
+            identity, data governance, configuration and supplier
+            assurance.
+        </p>
+
+        <p>
+            The most suitable model depends on technical expertise,
+            regulatory requirements, application design, desired
+            control and acceptable dependency on the provider.
+        </p>
+
+    </section>
+
+    <section>
+
+        <h2>
+            Comparison Table
+        </h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Area</th>
+                    <th>IaaS</th>
+                    <th>PaaS</th>
+                    <th>SaaS</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>Provider supplies</td>
+                    <td>
+                        Virtualised computing, storage, networking and
+                        physical infrastructure.
+                    </td>
+                    <td>
+                        Infrastructure, operating environment,
+                        runtime and managed platform.
+                    </td>
+                    <td>
+                        A complete hosted application.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Customer manages</td>
+                    <td>
+                        Operating systems, applications, data,
+                        accounts and configuration.
+                    </td>
+                    <td>
+                        Application code, data, users and application
+                        configuration.
+                    </td>
+                    <td>
+                        Users, permissions, data and selected
+                        application settings.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Level of control</td>
+                    <td>High</td>
+                    <td>Moderate</td>
+                    <td>Lower</td>
+                </tr>
+
+                <tr>
+                    <td>Technical expertise</td>
+                    <td>High</td>
+                    <td>Moderate</td>
+                    <td>Lower</td>
+                </tr>
+
+                <tr>
+                    <td>Deployment speed</td>
+                    <td>Moderate</td>
+                    <td>Fast</td>
+                    <td>Very fast</td>
+                </tr>
+
+                <tr>
+                    <td>Customisation</td>
+                    <td>Extensive</td>
+                    <td>Platform-dependent</td>
+                    <td>Limited to available settings</td>
+                </tr>
+
+                <tr>
+                    <td>Maintenance burden</td>
+                    <td>Highest</td>
+                    <td>Reduced</td>
+                    <td>Lowest</td>
+                </tr>
+
+                <tr>
+                    <td>Typical use</td>
+                    <td>
+                        Custom infrastructure and migrated server
+                        workloads.
+                    </td>
+                    <td>
+                        Developing and deploying web applications.
+                    </td>
+                    <td>
+                        Email, collaboration, customer management and
+                        business applications.
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            Infrastructure as a Service
+        </h2>
+
+        <p>
+            IaaS offers virtual servers, storage and networking.
+            Customers can choose operating systems, install software
+            and design detailed network configurations.
+        </p>
+
+        <h3>
+            Benefits
+        </h3>
+
+        <ul>
+            <li>high control over operating systems and applications;</li>
+            <li>supports custom and legacy software;</li>
+            <li>resources can be scaled without purchasing hardware;</li>
+            <li>useful for disaster recovery and temporary workloads.</li>
+        </ul>
+
+        <h3>
+            Limitations
+        </h3>
+
+        <ul>
+            <li>requires system-administration expertise;</li>
+            <li>the customer remains responsible for patching;</li>
+            <li>incorrect firewall or identity settings create risk;</li>
+            <li>cost can increase when resources are left running.</li>
+        </ul>
+
+        <h3>
+            Suitable Organisational Use Case
+        </h3>
+
+        <p>
+            IaaS can be appropriate for an organisation migrating an
+            existing business application that requires a particular
+            operating system and network design. It provides cloud
+            flexibility without forcing immediate redesign. However,
+            retaining a legacy architecture may also retain its
+            operational weaknesses, so migration should not be
+            treated as modernisation by itself.
+        </p>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            Platform as a Service
+        </h2>
+
+        <p>
+            PaaS provides managed application infrastructure. The
+            development team focuses on code and data while the
+            provider manages servers, operating systems and much of
+            the runtime environment.
+        </p>
+
+        <h3>
+            Benefits
+        </h3>
+
+        <ul>
+            <li>reduces infrastructure-management work;</li>
+            <li>supports rapid development and deployment;</li>
+            <li>often includes scaling, logging and deployment tools;</li>
+            <li>standardises the application environment.</li>
+        </ul>
+
+        <h3>
+            Limitations
+        </h3>
+
+        <ul>
+            <li>applications must follow platform restrictions;</li>
+            <li>moving to another provider may require redesign;</li>
+            <li>provider outages affect hosted applications;</li>
+            <li>runtime versions may be controlled by the provider.</li>
+        </ul>
+
+        <h3>
+            Suitable Organisational Use Case
+        </h3>
+
+        <p>
+            PaaS is suitable for a software-development team creating
+            web applications or APIs. It allows the team to deploy
+            frequently without maintaining operating systems and
+            server clusters. The productivity benefit must be weighed
+            against platform constraints, service deprecation and the
+            cost of redesigning provider-specific integrations.
+        </p>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            Software as a Service
+        </h2>
+
+        <p>
+            SaaS provides a complete application managed by the
+            provider. Users normally access the software through a
+            browser, mobile application or desktop client.
+        </p>
+
+        <h3>
+            Benefits
+        </h3>
+
+        <ul>
+            <li>rapid adoption;</li>
+            <li>minimal local infrastructure;</li>
+            <li>updates are handled by the provider;</li>
+            <li>subscription pricing may reduce initial cost;</li>
+            <li>supports access from different locations.</li>
+        </ul>
+
+        <h3>
+            Limitations
+        </h3>
+
+        <ul>
+            <li>limited technical customisation;</li>
+            <li>dependence on the provider and internet access;</li>
+            <li>data location may create compliance concerns;</li>
+            <li>subscription costs can accumulate over time;</li>
+            <li>service changes may be outside customer control.</li>
+        </ul>
+
+        <h3>
+            Suitable Organisational Use Case
+        </h3>
+
+        <p>
+            SaaS is appropriate for an organisation requiring
+            standard email, file sharing, accounting or customer
+            management. The organisation can use the application
+            without maintaining the complete technical stack.
+            Nevertheless, it must assess data location, contractual
+            controls, identity security, export capability and
+            business continuity before relying on the service.
+        </p>
+
+    </section>
+
+    <section>
+
+        <h2>
+            Responsibility Comparison
+        </h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Component</th>
+                    <th>IaaS</th>
+                    <th>PaaS</th>
+                    <th>SaaS</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>Physical hardware</td>
+                    <td>Provider</td>
+                    <td>Provider</td>
+                    <td>Provider</td>
+                </tr>
+
+                <tr>
+                    <td>Virtualisation</td>
+                    <td>Provider</td>
+                    <td>Provider</td>
+                    <td>Provider</td>
+                </tr>
+
+                <tr>
+                    <td>Operating system</td>
+                    <td>Customer</td>
+                    <td>Provider</td>
+                    <td>Provider</td>
+                </tr>
+
+                <tr>
+                    <td>Runtime and middleware</td>
+                    <td>Customer</td>
+                    <td>Provider</td>
+                    <td>Provider</td>
+                </tr>
+
+                <tr>
+                    <td>Application</td>
+                    <td>Customer</td>
+                    <td>Customer</td>
+                    <td>Provider</td>
+                </tr>
+
+                <tr>
+                    <td>User access</td>
+                    <td>Customer</td>
+                    <td>Customer</td>
+                    <td>Customer</td>
+                </tr>
+
+                <tr>
+                    <td>Data governance</td>
+                    <td>Customer</td>
+                    <td>Customer</td>
+                    <td>Customer</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            Organisational Evaluation
+        </h2>
+
+        <h3>
+            Regulated Organisation
+        </h3>
+
+        <p>
+            A regulated organisation may prefer IaaS or a carefully
+            selected PaaS where it requires detailed control over
+            network configuration, encryption, audit records and data
+            location. However, additional control also creates
+            additional responsibility. Regulation does not
+            automatically require IaaS: a well-assured SaaS service
+            may be preferable when it provides stronger controls than
+            the customer could operate independently.
+        </p>
+
+        <h3>
+            Software Start-Up
+        </h3>
+
+        <p>
+            A start-up may benefit from PaaS because it can develop
+            and deploy products quickly. The main risk is becoming
+            dependent on provider-specific services that are
+            difficult to replace later.
+        </p>
+
+        <h3>
+            Small Non-Technical Organisation
+        </h3>
+
+        <p>
+            A small organisation with limited technical staff is
+            likely to benefit from SaaS. Security still requires
+            strong account management, multifactor authentication and
+            appropriate data-sharing settings.
+        </p>
+
+    </section>
+
+    <section class="card portfolio-overview">
+
+        <h2>
+            Critical Evaluation
+        </h2>
+
+        <p>
+            IaaS provides flexibility but can expose organisations to
+            configuration and patch-management failures. PaaS reduces
+            operational work, although platform dependence can limit
+            portability. SaaS offers the simplest user experience but
+            provides the least technical control.
+        </p>
+
+        <p>
+            The decision should therefore be based on organisational
+            capability rather than only cost. Selecting a highly
+            controllable service is not beneficial when the
+            organisation lacks the staff or processes to manage it
+            securely.
+        </p>
+
+        <p>
+            Organisations may use all three models. SaaS can support
+            standard business functions, PaaS can support new
+            application development and IaaS can host systems with
+            specialised requirements.
+        </p>
+
+    </section>
+
+    <div class="page-navigation">
+
+        <a
+            class="button"
+            href="osi-model.html"
+        >
+            Previous: OSI Model
+        </a>
+
+        <a
+            class="button"
+            href="../week3.html"
+        >
+            Back to Week 3
+        </a>
+
+        <a
+            class="button"
+            href="threat-analysis.html"
+        >
+            Next: Threat Analysis
+        </a>
+
+    </div>
+
+</main>
+
+<footer>
+
+    <p>
+        David's Computing Portfolio
+        &copy;
+        <span data-current-year></span>
+    </p>
+
+</footer>
+
+<script src="../../assets/js/script.js"></script>
+
+</body>
+
+</html>

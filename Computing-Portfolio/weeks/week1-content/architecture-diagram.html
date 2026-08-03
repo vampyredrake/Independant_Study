@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Client-Server Diagram | David's Computing Portfolio
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../../assets/css/style.css"
+    >
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="container">
+
+        <h1>
+            Client-Server Diagram
+        </h1>
+
+        <p>
+            DNS, HTTPS, Server Processing and Response
+        </p>
+
+    </div>
+
+</header>
+
+<nav class="navigation">
+
+    <div class="container">
+
+        <a href="../../index.html">Home</a>
+        <a href="../week1.html">Week 1</a>
+        <a href="notes.html">Notes</a>
+        <a href="comparison.html">Comparison</a>
+        <a href="architecture-diagram.html">Diagram</a>
+        <a href="glossary.html">Glossary</a>
+        <a href="reflection.html">Reflection</a>
+        <a href="references.html">References</a>
+
+    </div>
+
+</nav>
+
+<main class="container">
+
+    <section class="card portfolio-overview">
+
+        <h2>
+            Request and Response Process
+        </h2>
+
+        <p>
+            The following diagram explains a typical first request
+            to a secure website. Some stages may be cached or handled
+            by distributed services, but the flow shows the main
+            responsibilities.
+        </p>
+
+    </section>
+
+  <section class="card">
+
+    <figure class="diagram-figure">
+
+        <img
+            src="/assets/images/cli-serv.png"
+            alt="Client-server request and response process showing the browser, DNS resolver, HTTPS connection, web server, application logic, database and browser rendering."
+            class="responsive-image"
+        >
+
+        <figcaption>
+            Figure 1. Client-server request and response process illustrating
+            DNS resolution, HTTPS communication, server-side processing and
+            browser rendering.
+        </figcaption>
+
+    </figure>
+
+</section>
+
+    <section class="note-section">
+
+        <h2>
+            Diagram Explanation
+        </h2>
+
+        <p>
+            DNS is normally required before the browser can send a
+            request because network communication uses an IP address
+            rather than the domain name entered by the user
+            (Kurose and Ross, 2021). Cached records can avoid a full
+            lookup and reduce delay. However, caching can temporarily
+            preserve an older address after a DNS record changes, so
+            it improves efficiency at the cost of immediate
+            consistency.
+        </p>
+
+        <p>
+            HTTPS uses TLS to protect HTTP communication. During the
+            connection process, the server presents a certificate so
+            the browser can assess its identity. TLS 1.3 provides
+            confidentiality and integrity protection for data in
+            transit (Rescorla, 2018). However, HTTPS does not prove
+            that the application itself is trustworthy or free from
+            vulnerabilities; it protects the connection rather than
+            every part of the service.
+        </p>
+
+        <p>
+            An HTTP request contains a method, target, headers and,
+            where required, content. GET is defined as a safe method
+            for retrieving a representation, while POST asks the
+            target resource to process the enclosed content
+            (Fielding, Nottingham and Reschke, 2022). In practice,
+            correct method selection still depends on developers
+            following the protocol semantics consistently.
+        </p>
+
+        <p>
+            The web server may return a static file directly or pass
+            the request to application code. The application may
+            communicate with a database, authentication service or
+            external API. This separation can support maintainability,
+            although each additional service creates another
+            dependency that must be secured and monitored.
+        </p>
+
+        <p>
+            The response contains a status code, headers and content.
+            The browser may receive HTML for a webpage or JSON for an
+            API request, then render or update the interface. HTTP
+            standardisation enables different clients and servers to
+            interoperate, but network delay, caching and application
+            processing can still affect the experience perceived by
+            the user (Fielding, Nottingham and Reschke, 2022).
+        </p>
+
+    </section>
+
+    <div class="page-navigation">
+
+    <a class="button" href="comparison.html">
+        Previous: Comparison
+    </a>
+
+    <a class="button" href="../week1.html">
+        Back to Week 1
+    </a>
+
+    <a class="button" href="glossary.html">
+        Next: Glossary
+    </a>
+
+</div>
+
+</main>
+
+<footer>
+
+    <p>
+        David's Computing Portfolio
+        &copy;
+        <span data-current-year></span>
+    </p>
+
+</footer>
+
+<script src="../../assets/js/script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Comparison of machine learning types and algorithms."
+    >
+
+    <title>
+        Machine Learning Comparison | David's Computing Portfolio
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../../assets/css/style.css"
+    >
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="container">
+
+        <h1>
+            Machine Learning Comparison
+        </h1>
+
+        <p>
+            Learning Types, Applications and Algorithms
+        </p>
+
+    </div>
+
+</header>
+
+<nav
+    class="navigation"
+    aria-label="Week 4 navigation"
+>
+
+    <div class="container">
+
+        <a href="../../index.html">
+            Home
+        </a>
+
+        <a href="../week4.html">
+            Week 4
+        </a>
+
+        <a href="notes.html">
+            Notes
+        </a>
+
+        <a
+            href="machine-learning.html"
+            aria-current="page"
+        >
+            Machine Learning
+        </a>
+
+        <a href="ai-glossary.html">
+            AI Glossary
+        </a>
+
+        <a href="ethics.html">
+            Ethics
+        </a>
+
+        <a href="swot.html">
+            SWOT
+        </a>
+
+        <a href="smart-targets.html">
+            SMART Targets
+        </a>
+
+        <a href="references.html">
+            References
+        </a>
+
+    </div>
+
+</nav>
+
+<main class="container">
+
+    <section class="card">
+
+        <h2>
+            Overview
+        </h2>
+
+        <p>
+            Machine learning approaches differ according to the type
+            of feedback available during training. Supervised
+            learning uses known targets, unsupervised learning
+            identifies structure without target labels, and
+            reinforcement learning learns through interaction and
+            reward (Russell and Norvig, 2021). These categories are
+            useful abstractions, although practical systems may
+            combine more than one learning method.
+        </p>
+
+        <p>
+            The most appropriate approach depends on the problem,
+            available data, required level of explanation and cost of
+            incorrect results.
+        </p>
+
+    </section>
+
+    <section>
+
+        <h2>
+            Learning-Type Comparison
+        </h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Learning Type</th>
+                    <th>How It Works</th>
+                    <th>Appropriate Applications</th>
+                    <th>Limitations</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>
+                        <strong>Supervised learning</strong>
+                    </td>
+
+                    <td>
+                        Learns from examples containing input values
+                        and known target outputs.
+                    </td>
+
+                    <td>
+                        Spam detection, credit-risk prediction,
+                        medical classification, demand forecasting
+                        and image recognition.
+                    </td>
+
+                    <td>
+                        Requires labelled data, may reproduce
+                        historical bias and may fail when future data
+                        differs from training data.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <strong>Unsupervised learning</strong>
+                    </td>
+
+                    <td>
+                        Finds patterns, groups or structure in data
+                        without known target labels.
+                    </td>
+
+                    <td>
+                        Customer segmentation, document grouping,
+                        anomaly detection, exploratory analysis and
+                        feature reduction.
+                    </td>
+
+                    <td>
+                        Results may be difficult to validate, clusters
+                        may not have meaningful interpretations and
+                        outputs depend strongly on data preparation.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <strong>Reinforcement learning</strong>
+                    </td>
+
+                    <td>
+                        An agent learns actions through rewards and
+                        penalties received from an environment.
+                    </td>
+
+                    <td>
+                        Robotics, game-playing systems, dynamic
+                        resource allocation, automated control and
+                        route optimisation.
+                    </td>
+
+                    <td>
+                        Can require many interactions, poor reward
+                        design may create unintended behaviour and
+                        real-world experimentation may be unsafe.
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            Supervised Learning Evaluation
+        </h2>
+
+        <p>
+            Supervised learning is appropriate where historical
+            examples contain reliable target values. A financial
+            organisation may train a classification model using past
+            transactions labelled as fraudulent or legitimate.
+        </p>
+
+        <p>
+            The advantage is that performance can be measured against
+            known answers. However, the labels may contain errors or
+            reflect past decisions that were unfair. A model trained
+            on those labels may automate the same problems at a
+            larger scale. Evaluation must therefore examine data
+            provenance and group-level outcomes, not only aggregate
+            predictive performance (National Institute of Standards
+            and Technology, 2023).
+        </p>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            Unsupervised Learning Evaluation
+        </h2>
+
+        <p>
+            Unsupervised learning is useful when the organisation has
+            data but no agreed target labels. A retailer could group
+            customers according to purchasing behaviour and then
+            examine whether the groups support different marketing
+            strategies.
+        </p>
+
+        <p>
+            The method can reveal patterns that were not expected.
+            However, the discovered groups are mathematical
+            structures rather than automatically meaningful business
+            categories. Human interpretation remains necessary, and
+            analysts should test whether alternative features or
+            distance measures produce materially different results.
+        </p>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            Reinforcement Learning Evaluation
+        </h2>
+
+        <p>
+            Reinforcement learning is appropriate for sequential
+            decisions where one action affects future choices. A
+            warehouse robot, for example, must select movements that
+            eventually reach a destination while avoiding obstacles.
+        </p>
+
+        <p>
+            The approach can identify strategies that are difficult
+            to program directly. However, a reward function may not
+            represent every real objective. An agent may maximise its
+            numerical reward in a way that is technically successful
+            but operationally undesirable. Safety constraints and
+            human review are therefore necessary where exploration
+            could affect people or physical systems.
+        </p>
+
+    </section>
+
+    <section>
+
+        <h2>
+            Machine Learning Algorithm Comparison
+        </h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Approach</th>
+                    <th>Main Strengths</th>
+                    <th>Main Limitations</th>
+                    <th>Suitable Applications</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>
+                        <strong>Linear regression</strong>
+                    </td>
+
+                    <td>
+                        Simple, efficient and relatively easy to
+                        explain.
+                    </td>
+
+                    <td>
+                        Assumes an approximately linear relationship
+                        and can be sensitive to unusual values.
+                    </td>
+
+                    <td>
+                        Price estimation, demand forecasting and
+                        numerical trend analysis.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <strong>Logistic regression</strong>
+                    </td>
+
+                    <td>
+                        Efficient classification with probability
+                        outputs and interpretable coefficients.
+                    </td>
+
+                    <td>
+                        May not represent complex non-linear decision
+                        boundaries without additional feature work.
+                    </td>
+
+                    <td>
+                        Binary classification, medical risk analysis
+                        and customer-response prediction.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <strong>Decision tree</strong>
+                    </td>
+
+                    <td>
+                        Easy to visualise, handles non-linear
+                        relationships and requires limited data
+                        scaling.
+                    </td>
+
+                    <td>
+                        Can overfit and may change significantly after
+                        small changes to training data.
+                    </td>
+
+                    <td>
+                        Decision support, eligibility checks,
+                        classification and rule discovery.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <strong>Support vector machine</strong>
+                    </td>
+
+                    <td>
+                        Effective on moderate-sized datasets and can
+                        produce strong separating boundaries.
+                    </td>
+
+                    <td>
+                        Can be slow on large datasets and less
+                        interpretable when complex kernels are used.
+                    </td>
+
+                    <td>
+                        Text classification, image classification and
+                        high-dimensional datasets.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <strong>Neural network</strong>
+                    </td>
+
+                    <td>
+                        Can represent highly complex relationships and
+                        process images, audio and language.
+                    </td>
+
+                    <td>
+                        Requires significant data and computing
+                        resources and can be difficult to explain.
+                    </td>
+
+                    <td>
+                        Computer vision, speech recognition, language
+                        processing and complex pattern recognition.
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            Selecting an Approach
+        </h2>
+
+        <p>
+            A more complex model is not automatically better. A
+            simple model may be preferable when the dataset is small,
+            the decision must be explained or the performance
+            difference is limited. Model choice should be justified
+            by evidence from validation, operational constraints and
+            the risk of error rather than by perceived technical
+            sophistication (Géron, 2023).
+        </p>
+
+        <p>
+            Model selection should consider:
+        </p>
+
+        <ul>
+            <li>the size and quality of available data;</li>
+            <li>whether labels exist;</li>
+            <li>the cost of false positives and false negatives;</li>
+            <li>training and operating costs;</li>
+            <li>explainability requirements;</li>
+            <li>privacy and fairness risks;</li>
+            <li>the expected rate of change in the data.</li>
+        </ul>
+
+    </section>
+
+    <section class="card">
+
+        <h2>
+            Critical Evaluation
+        </h2>
+
+        <p>
+            Linear and logistic regression are useful when simplicity
+            and explanation are important. Decision trees provide
+            understandable decisions but require controls against
+            overfitting.
+        </p>
+
+        <p>
+            Support vector machines can perform well with
+            high-dimensional information, while neural networks are
+            effective for highly complex data. Their additional
+            complexity may not be justified for every problem.
+        </p>
+
+        <p>
+            The final choice should be based on evidence from
+            validation and testing rather than assumptions about
+            which technique is most advanced.
+        </p>
+
+    </section>
+
+    <div class="page-navigation">
+
+        <a
+            class="button"
+            href="notes.html"
+        >
+            Previous: Notes
+        </a>
+
+        <a
+            class="button"
+            href="../week4.html"
+        >
+            Back to Week 4
+        </a>
+
+        <a
+            class="button"
+            href="ai-glossary.html"
+        >
+            Next: AI Glossary
+        </a>
+
+    </div>
+
+</main>
+
+<footer>
+
+    <p>
+        David's Computing Portfolio
+        &copy;
+        <span data-current-year></span>
+    </p>
+
+</footer>
+
+<script src="../../assets/js/script.js"></script>
+
+</body>
+
+</html>

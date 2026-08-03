@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Advanced Programming | Week 1</title>
+
+    <link rel="stylesheet" href="../../assets/css/style.css">
+
+</head>
+
+
+<body>
+
+
+<header class="header">
+
+    <div class="container">
+
+        <h1>Advanced Programming Concepts</h1>
+
+        <p>
+            Object-Oriented Programming, Recursion and Concurrency
+        </p>
+
+    </div>
+
+</header>
+
+
+
+
+<nav class="navigation">
+
+    <div class="container">
+
+        <a href="../../index.html">
+            Home
+        </a>
+
+        <a href="../week1.html">
+            Week 1
+        </a>
+
+        <a href="notes.html">
+            Notes
+        </a>
+
+        <a href="comparison.html">
+            Comparison
+        </a>
+
+        <a href="architecture-diagram.html">
+            Diagram
+        </a>
+
+        <a href="glossary.html">
+            Glossary
+        </a>
+
+        <a href="programming.html">
+            Programming
+        </a>
+
+        <a href="reflection.html">
+            Reflection
+        </a>
+
+        <a href="references.html">
+            References
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+
+
+
+<main class="container">
+
+
+
+<section class="card">
+
+
+<h2>Introduction</h2>
+
+
+<p>
+
+Professional software development requires more than understanding
+programming syntax. Developers need to understand how software can
+be organised, maintained and improved as systems become larger.
+
+</p>
+
+
+<p>
+
+This section explores advanced programming concepts including
+object-oriented programming, recursion and concurrency. These
+concepts support the development of reliable and scalable software.
+
+</p>
+
+
+</section>
+
+
+
+
+
+
+
+
+<section>
+
+
+<h2>Object-Oriented Programming (OOP)</h2>
+
+
+<p>
+
+Object-Oriented Programming is a programming approach based around
+objects. Objects combine data and behaviour into a single structure.
+
+</p>
+
+
+<p>
+
+An object normally contains:
+
+</p>
+
+
+<ul>
+
+<li>
+Attributes - information stored by the object
+</li>
+
+<li>
+Methods - actions the object can perform
+</li>
+
+</ul>
+
+
+
+<h3>Example</h3>
+
+
+<pre>
+
+class Student {
+
+
+constructor(name, course){
+
+this.name = name;
+
+this.course = course;
+
+}
+
+
+display(){
+
+console.log(this.name);
+
+}
+
+
+}
+
+
+</pre>
+
+
+
+<p>
+
+OOP can help developers organise complex software systems into
+manageable components, and modern programming texts continue to
+present classes, objects and interfaces as central design tools
+(Horstmann, 2022). However, dividing a system into classes does not
+automatically make it maintainable; poorly chosen responsibilities
+can produce tightly coupled class structures.
+
+</p>
+
+
+</section>
+
+
+
+
+
+
+
+
+<section>
+
+
+<h2>Encapsulation</h2>
+
+
+<p>
+
+Encapsulation means controlling access to an object's internal
+data and behaviour.
+
+</p>
+
+
+<p>
+
+Instead of allowing other parts of a program to directly change
+important values, access is controlled through methods.
+
+</p>
+
+
+
+<h3>Example Concept</h3>
+
+
+<pre>
+
+Bank Account
+
+
+Private Balance
+
+
+Methods:
+
+deposit()
+
+withdraw()
+
+checkBalance()
+
+
+</pre>
+
+
+
+<p>
+
+A banking system should not allow another program component to
+directly modify the account balance because this could create
+security and accuracy problems.
+
+</p>
+
+
+
+<h3>Advantages</h3>
+
+
+<ul>
+
+<li>
+Improved security
+</li>
+
+<li>
+Reduced accidental errors
+</li>
+
+<li>
+Better software maintenance
+</li>
+
+</ul>
+
+
+</section>
+
+
+
+
+
+
+
+
+<section>
+
+
+<h2>Inheritance</h2>
+
+
+<p>
+
+Inheritance allows one class to reuse properties and behaviours
+from another class.
+
+</p>
+
+
+
+<h3>Example</h3>
+
+
+<pre>
+
+Vehicle
+
+
+   |
+
+   |
+
+----------------
+
+|              |
+
+Car       Motorcycle
+
+
+</pre>
+
+
+
+
+<p>
+
+Both Car and Motorcycle may inherit common features such as:
+
+</p>
+
+
+
+<ul>
+
+<li>
+Engine
+</li>
+
+<li>
+Speed
+</li>
+
+<li>
+Movement
+</li>
+
+</ul>
+
+
+
+
+<p>
+
+Inheritance can reduce duplicated code and express clear
+relationships between software components. However, deep inheritance
+hierarchies can increase coupling and make behaviour difficult to
+trace, so composition may be preferable where objects need flexible
+combinations of behaviour (Horstmann, 2022).
+
+</p>
+
+
+</section>
+
+
+
+
+
+
+
+
+<section>
+
+
+<h2>Polymorphism</h2>
+
+
+<p>
+
+Polymorphism means that different objects can respond differently
+to the same operation.
+
+</p>
+
+
+
+
+<h3>Example</h3>
+
+
+<pre>
+
+Animal.sound()
+
+
+Dog:
+
+Bark
+
+
+Cat:
+
+Meow
+
+
+</pre>
+
+
+
+
+<p>
+
+The same method name produces different behaviour depending on the
+object using it.
+
+</p>
+
+
+<p>
+
+Polymorphism can improve flexibility because developers can create
+software that works with different object types through a shared
+interface. Against this, excessive abstraction can make a small
+program harder to follow, so polymorphism is most valuable where
+several genuine implementations must be treated consistently
+(Horstmann, 2022).
+
+</p>
+
+
+</section>
+
+
+
+
+
+
+
+
+<section>
+
+
+<h2>Recursion</h2>
+
+
+<p>
+
+Recursion occurs when a function calls itself to solve a problem.
+
+</p>
+
+
+<p>
+
+A recursive solution usually contains:
+
+</p>
+
+
+<ul>
+
+<li>
+A base condition that stops the process
+</li>
+
+<li>
+A recursive call that continues the process
+</li>
+
+</ul>
+
+
+
+
+<h3>Example</h3>
+
+
+<pre>
+
+function countdown(number){
+
+
+if(number == 0){
+
+return;
+
+}
+
+
+console.log(number);
+
+
+countdown(number - 1);
+
+
+}
+
+
+</pre>
+
+
+
+<p>
+
+Recursion is useful for problems involving repeated structures,
+including:
+
+</p>
+
+
+<ul>
+
+<li>
+File systems
+</li>
+
+<li>
+Tree data structures
+</li>
+
+<li>
+Mathematical calculations
+</li>
+
+</ul>
+
+
+
+<p>
+
+However, recursion can consume additional memory because each
+function call must be stored until completion. An iterative solution
+may therefore be clearer or more efficient for a simple linear task,
+whereas recursion often maps naturally to trees and other nested
+structures.
+
+</p>
+
+
+</section>
+
+
+
+
+
+
+
+
+<section>
+
+
+<h2>Multithreading</h2>
+
+
+<p>
+
+Multithreading allows a program to perform multiple tasks using
+separate threads within the same process.
+
+</p>
+
+
+<p>
+
+Examples include:
+
+</p>
+
+
+<ul>
+
+<li>
+Running background tasks
+</li>
+
+<li>
+Processing multiple user requests
+</li>
+
+<li>
+Improving application responsiveness
+</li>
+
+</ul>
+
+
+
+
+<h3>Benefits</h3>
+
+
+<ul>
+
+<li>
+Improved performance
+</li>
+
+<li>
+Better resource usage
+</li>
+
+<li>
+More responsive applications
+</li>
+
+</ul>
+
+
+
+
+<h3>Challenges</h3>
+
+
+<ul>
+
+<li>
+Race conditions
+</li>
+
+<li>
+Difficult debugging
+</li>
+
+<li>
+Complex program design
+</li>
+
+</ul>
+
+
+</section>
+
+
+
+
+
+
+
+
+<section>
+
+
+<h2>Concurrency</h2>
+
+
+<p>
+
+Concurrency is the management of multiple tasks that appear to
+happen at the same time.
+
+</p>
+
+
+<p>
+
+Concurrency does not always mean tasks execute simultaneously.
+A system may rapidly switch between tasks to make progress on more
+than one activity. Ramalho (2022) distinguishes concurrent task
+management from parallel execution, while also showing that the
+choice of threads, processes or asynchronous techniques depends on
+the workload and runtime environment.
+
+</p>
+
+
+
+<p>
+
+Modern software uses concurrency in:
+
+</p>
+
+
+<ul>
+
+<li>
+Web servers
+</li>
+
+<li>
+Database systems
+</li>
+
+<li>
+Cloud applications
+</li>
+
+<li>
+Mobile applications
+</li>
+
+</ul>
+
+
+</section>
+
+
+
+
+
+
+
+
+<section>
+
+
+<h2>Programming Approach Comparison</h2>
+
+
+<table>
+
+
+<tr>
+
+<th>
+Approach
+</th>
+
+
+<th>
+Advantages
+</th>
+
+
+<th>
+Limitations
+</th>
+
+
+<th>
+Common Uses
+</th>
+
+
+</tr>
+
+
+
+
+<tr>
+
+<td>
+Object-Oriented Programming
+</td>
+
+
+<td>
+Reusable and organised code
+</td>
+
+
+<td>
+Can become complex if poorly designed
+</td>
+
+
+<td>
+Enterprise software,
+applications
+</td>
+
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td>
+Procedural Programming
+</td>
+
+
+<td>
+Simple and easy to follow
+</td>
+
+
+<td>
+Less suitable for large systems
+</td>
+
+
+<td>
+Scripts,
+small programs
+</td>
+
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td>
+Functional Programming
+</td>
+
+
+<td>
+Predictable and easier testing
+</td>
+
+
+<td>
+Requires different thinking approach
+</td>
+
+
+<td>
+Data processing,
+distributed systems
+</td>
+
+
+</tr>
+
+
+
+</table>
+
+
+</section>
+
+
+
+
+
+
+
+
+<section class="card">
+
+
+<h2>Critical Evaluation</h2>
+
+
+<p>
+
+Advanced programming concepts are important because modern
+software systems require deliberate structure as they grow.
+Object-oriented and concurrent techniques can improve organisation
+and responsiveness, but they also introduce abstractions and
+interactions that must be justified by the problem being solved
+(Horstmann, 2022; Ramalho, 2022).
+
+</p>
+
+
+<p>
+
+Object-oriented programming provides a practical approach for
+building large applications, but developers must avoid unnecessary
+complexity. Poorly designed class structures can make systems
+harder to maintain.
+
+</p>
+
+
+<p>
+
+Similarly, concurrency can improve responsiveness and throughput,
+but it introduces race conditions, ordering problems and difficult
+test scenarios. Controlled concurrency testing research shows that
+reproducing thread interleavings is itself a significant engineering
+challenge (Deligiannis et al., 2023). Professional developers must
+therefore balance potential performance improvements against
+reliability, testability and maintainability.
+
+</p>
+
+
+</section>
+
+
+
+
+
+
+
+
+<section class="card">
+
+
+<h2>Key Terms</h2>
+
+
+<ul>
+
+
+<li>
+Object - A software structure containing data and behaviour
+</li>
+
+
+<li>
+Class - A template used to create objects
+</li>
+
+
+<li>
+Encapsulation - Protecting internal object data
+</li>
+
+
+<li>
+Inheritance - Reusing existing class functionality
+</li>
+
+
+<li>
+Polymorphism - Different behaviour through the same interface
+</li>
+
+
+<li>
+Recursion - A function calling itself
+</li>
+
+
+<li>
+Thread - A separate execution path within a program
+</li>
+
+
+<li>
+Concurrency - Managing multiple tasks together
+</li>
+
+
+</ul>
+
+
+</section>
+
+
+<div class="page-navigation">
+
+    <a class="button" href="glossary.html">
+        Previous: Glossary
+    </a>
+
+    <a class="button" href="../week1.html">
+        Back to Week 1
+    </a>
+
+    <a class="button" href="reflection.html">
+        Next: Reflection
+    </a>
+
+</div>
+
+
+</main>
+
+
+
+
+<footer>
+
+<p>
+David's Computing Portfolio
+</p>
+
+</footer>
+
+
+
+
+<script src="../../assets/js/script.js"></script>
+
+
+</body>
+
+</html>

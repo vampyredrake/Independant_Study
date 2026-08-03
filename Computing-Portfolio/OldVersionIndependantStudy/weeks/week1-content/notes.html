@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Week 1 Notes | David's Computing Portfolio
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../../assets/css/style.css"
+    >
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="container">
+
+        <h1>
+            Structured Academic Notes
+        </h1>
+
+        <p>
+            Web Development, Infrastructure and Advanced Programming
+        </p>
+
+        <p class="subtitle">
+            Week 1 Independent Study
+        </p>
+
+    </div>
+
+</header>
+
+<nav
+    class="navigation"
+    aria-label="Week 1 navigation"
+>
+
+    <div class="container">
+
+        <a href="../../index.html">
+            Home
+        </a>
+
+        <a href="../week1.html">
+            Week 1
+        </a>
+
+        <a href="notes.html">
+            Notes
+        </a>
+
+        <a href="comparison.html">
+            Comparison
+        </a>
+
+        <a href="architecture-diagram.html">
+            Diagram
+        </a>
+
+        <a href="glossary.html">
+            Glossary
+        </a>
+
+        <a href="reflection.html">
+            Reflection
+        </a>
+
+        <a href="references.html">
+            References
+        </a>
+
+    </div>
+
+</nav>
+
+<main class="container">
+
+    <section class="card">
+
+        <h2>
+            Introduction
+        </h2>
+
+        <p>
+            Modern web applications depend on several layers
+            working together. The visible interface is only one
+            part of the system. Semantic structure, responsive
+            presentation, JavaScript behaviour, network
+            communication and software design principles all
+            affect whether an application is accessible,
+            maintainable and capable of supporting growth.
+        </p>
+
+        <p>
+            These notes group the Week 1 topics into four connected
+            areas. This makes the relationship between technologies
+            clearer and avoids treating each subject as an isolated
+            definition.
+        </p>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            1. Front-End Development
+        </h2>
+
+        <h3>
+            HTML5 and Semantic Markup
+        </h3>
+
+        <p>
+            HTML5 provides the structural foundation of a webpage.
+            Its role is not limited to displaying text and images.
+            Semantic elements also describe the purpose of content.
+            Elements such as
+            <code>&lt;header&gt;</code>,
+            <code>&lt;nav&gt;</code>,
+            <code>&lt;main&gt;</code>,
+            <code>&lt;article&gt;</code> and
+            <code>&lt;footer&gt;</code>
+            create a document structure that is easier for
+            developers, browsers and assistive technologies to
+            interpret (WHATWG, 2026).
+        </p>
+
+        <p>
+            A webpage built mainly from generic
+            <code>&lt;div&gt;</code> elements may look correct,
+            but it communicates less meaning. This can make the
+            page harder to navigate with a screen reader and more
+            difficult for another developer to maintain. However,
+            semantic elements do not make a page accessible by
+            themselves; the wider implementation must still meet
+            accessibility requirements such as keyboard operation,
+            meaningful labels and logical focus order (World Wide Web
+            Consortium, 2023).
+        </p>
+
+        <pre><code>&lt;header&gt;
+    &lt;h1&gt;Computing Portfolio&lt;/h1&gt;
+&lt;/header&gt;
+
+&lt;main&gt;
+    &lt;article&gt;
+        &lt;h2&gt;Research Notes&lt;/h2&gt;
+    &lt;/article&gt;
+&lt;/main&gt;
+
+&lt;footer&gt;
+    Portfolio information
+&lt;/footer&gt;</code></pre>
+
+        <h3>
+            CSS Grid and Flexbox
+        </h3>
+
+        <p>
+            CSS controls the appearance and layout of web content.
+            Flexbox is primarily designed for one-dimensional
+            layouts. It is most effective when elements need to be
+            arranged along a row or column. Common examples include
+            navigation bars, button groups and card components.
+        </p>
+
+        <p>
+            CSS Grid is a two-dimensional layout system because it
+            manages rows and columns together. It is therefore more
+            suitable for larger structures such as dashboards,
+            galleries and application interfaces.
+        </p>
+
+        <pre><code>.dashboard {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+}</code></pre>
+
+        <p>
+            Grid and Flexbox are not direct replacements for one
+            another. They are often used together. A developer may
+            use Grid for the overall page structure and Flexbox for
+            controls inside each section. This flexibility is useful,
+            although using more layout rules than the page requires
+            can make responsive behaviour harder to maintain.
+        </p>
+
+        <h3>
+            UI/UX and Accessibility
+        </h3>
+
+        <p>
+            User interface design concerns the visible controls,
+            typography, spacing and layout of an application. User
+            experience considers the wider interaction, including
+            whether the task is understandable, efficient and
+            predictable.
+        </p>
+
+        <p>
+            A visually impressive interface can still provide poor
+            UX if navigation is confusing or the system does not
+            provide feedback after an action. For example, a user
+            submitting a form should receive confirmation that the
+            information has been accepted.
+        </p>
+
+        <p>
+            Accessibility means reducing barriers for users with
+            different needs. Important practices include meaningful
+            headings, keyboard access, labelled form controls,
+            alternative text and suitable colour contrast.
+        </p>
+
+        <p>
+            Accessibility should be included throughout development
+            rather than added at the end. Automated tools can detect
+            some failures against defined rules, but the Web Content
+            Accessibility Guidelines also cover outcomes that require
+            contextual judgement. Human testing therefore remains
+            necessary because software cannot always determine whether
+            content is clear, understandable or practical to use
+            (World Wide Web Consortium, 2023).
+        </p>
+
+        <p>
+            <strong>Professional relevance:</strong>
+            semantic HTML, responsive CSS and accessible design
+            improve maintainability and allow more people to use
+            the system successfully.
+        </p>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            2. JavaScript, ES6+ and Data Typing
+        </h2>
+
+        <p>
+            JavaScript supplies behaviour and interaction within
+            modern web applications. It can validate forms, update
+            page content, communicate with APIs and manage user
+            events.
+        </p>
+
+        <p>
+            ES6 and later versions introduced features that make
+            larger programs easier to organise. These include
+            <code>let</code>, <code>const</code>, arrow functions,
+            classes, modules, destructuring and template literals.
+            These features form part of the standardised ECMAScript
+            language used by JavaScript implementations (Ecma
+            International, 2026).
+        </p>
+
+        <pre><code>const student = {
+    name: "David",
+    level: 5
+};
+
+const describeStudent = ({ name, level }) =&gt;
+    `${name} is studying at Level ${level}.`;</code></pre>
+
+        <p>
+            <code>const</code> is normally used when a variable
+            should not be reassigned. <code>let</code> is used where
+            the value may change. Both have clearer block scope than
+            the older <code>var</code> keyword.
+        </p>
+
+        <h3>
+            Asynchronous Programming
+        </h3>
+
+        <p>
+            Web applications often need to wait for external
+            operations such as an API request. If the interface
+            stopped completely during the request, the application
+            would appear unresponsive.
+        </p>
+
+        <p>
+            Promises and <code>async/await</code> allow the program
+            to manage delayed results while other work continues.
+            This can improve responsiveness and readability, although
+            asynchronous control flow still requires deliberate error
+            handling and does not remove the underlying possibility of
+            failed or delayed network operations (Ecma International,
+            2026).
+        </p>
+
+        <pre><code>async function loadModule() {
+    try {
+        const response = await fetch("/api/module");
+
+        if (!response.ok) {
+            throw new Error("Request failed");
+        }
+
+        return await response.json();
+    } catch (error) {
+        console.error(error);
+        return null;
+    }
+}</code></pre>
+
+        <h3>
+            Dynamic and Strongly Typed Approaches
+        </h3>
+
+        <p>
+            JavaScript is dynamically typed. A variable can hold
+            values of different types during execution. This supports
+            rapid development and flexible code, but some errors only
+            appear when the application runs.
+        </p>
+
+        <p>
+            Strongly typed languages such as Java and C# apply
+            stricter rules to data types. TypeScript adds static type
+            checking to JavaScript and can identify mismatches before
+            the program is executed.
+        </p>
+
+        <p>
+            Dynamic typing is useful for prototypes, short scripts
+            and situations where data changes frequently. Static type
+            checking can improve code quality and understandability in
+            larger systems. However, comparative research has found
+            that TypeScript projects do not automatically have fewer
+            defects or shorter bug-resolution times than JavaScript
+            projects, so type checking should support rather than
+            replace testing and code review (Bogner and Merkel, 2022).
+        </p>
+
+        <p>
+            <strong>Professional relevance:</strong>
+            the choice between dynamic and strong typing should be
+            based on project scale, risk and team requirements rather
+            than personal preference.
+        </p>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            3. Web Infrastructure
+        </h2>
+
+        <h3>
+            Client-Server Architecture
+        </h3>
+
+        <p>
+            Most web applications use a client-server model. The
+            client is normally a browser or mobile application. It
+            displays the interface, collects user input and sends
+            requests.
+        </p>
+
+        <p>
+            The server receives requests, applies business rules,
+            accesses stored information and returns a response.
+            Separating these responsibilities allows the client,
+            server and database to be developed independently,
+            although distributed components also introduce network
+            latency and additional points of failure (Kurose and Ross,
+            2021).
+        </p>
+
+        <h3>
+            DNS
+        </h3>
+
+        <p>
+            DNS translates a human-readable domain name into an IP
+            address. When a user enters a website address, the
+            browser checks whether the address has already been
+            cached. If not, a DNS resolver locates the correct
+            record (Kurose and Ross, 2021).
+        </p>
+
+        <p>
+            Once the IP address is known, the browser can connect to
+            the correct server. DNS therefore performs an essential
+            role before the HTTP request is sent.
+        </p>
+
+        <h3>
+            HTTP and HTTPS
+        </h3>
+
+        <p>
+            HTTP defines the semantics of requests and responses.
+            Methods such as GET, POST, PUT and DELETE indicate the
+            intended operation, while the protocol also defines status
+            codes, header fields and caching behaviour (Fielding,
+            Nottingham and Reschke, 2022).
+        </p>
+
+        <p>
+            HTTP responses include status codes. A status of 200
+            normally indicates success, 404 indicates that a
+            resource was not found and 500 represents a server-side
+            error.
+        </p>
+
+        <p>
+            HTTPS is HTTP communication protected by TLS. TLS
+            encrypts information in transit, protects its integrity
+            and helps the browser confirm that it has connected to
+            the intended server. Encryption significantly reduces the
+            risk of interception, but secure deployment still depends
+            on current protocol versions, suitable configuration and
+            effective certificate management (Sheffer, Saint-Andre
+            and Fossati, 2022).
+        </p>
+
+        <h3>
+            Hosting and Web Servers
+        </h3>
+
+        <p>
+            A web server such as Apache, Nginx or Microsoft IIS can
+            deliver static files and route requests to application
+            code.
+        </p>
+
+        <p>
+            Shared hosting is inexpensive and simple but provides
+            limited control. A virtual private server offers more
+            flexibility but requires technical administration.
+            Cloud hosting supports scaling and managed services,
+            although costs, data transfer and dependency on a provider
+            can become difficult to manage. Ofcom (2023) also identified
+            barriers to switching and multi-cloud use within the UK
+            cloud infrastructure market, which means scalability must
+            be considered alongside commercial dependency.
+        </p>
+
+        <p>
+            Scalability may involve load balancing, caching,
+            multiple application instances and database
+            optimisation. However, unnecessary infrastructure can
+            make a small system more difficult to maintain.
+        </p>
+
+        <p>
+            <strong>Professional relevance:</strong>
+            developers who understand infrastructure can diagnose
+            performance and security issues more effectively.
+        </p>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            4. Advanced Programming Principles
+        </h2>
+
+        <h3>
+            Object-Oriented Programming
+        </h3>
+
+        <p>
+            Object-Oriented Programming organises software around
+            objects that contain state and behaviour. A class acts
+            as a template for creating objects.
+        </p>
+
+        <p>
+            Encapsulation controls access to internal data.
+            Inheritance allows one class to reuse features from
+            another class. Polymorphism allows different objects to
+            respond through the same interface.
+        </p>
+
+        <pre><code>class Notification {
+    send() {
+        throw new Error("send() must be implemented");
+    }
+}
+
+class EmailNotification extends Notification {
+    send() {
+        return "Email sent";
+    }
+}</code></pre>
+
+        <p>
+            OOP can reduce duplication and improve organisation, but
+            it can also create unnecessary complexity. Deep
+            inheritance structures are difficult to understand and
+            maintain. Composition may be more suitable where an
+            object only needs to use another object's behaviour
+            (Albahari, 2023).
+        </p>
+
+        <h3>
+            Recursion
+        </h3>
+
+        <p>
+            Recursion occurs when a function calls itself. It is
+            suitable for problems containing smaller versions of the
+            same problem, such as processing a tree or searching a
+            directory structure.
+        </p>
+
+        <p>
+            Every recursive function needs a base case. Without one,
+            the function continues until the call stack is exhausted.
+            Recursion can express tree-shaped problems clearly, but
+            iteration may be more memory-efficient for simple
+            repetition because it avoids creating an additional stack
+            frame for each call (Albahari, 2023).
+        </p>
+
+        <h3>
+            Multithreading and Concurrency
+        </h3>
+
+        <p>
+            Concurrency concerns the management of multiple tasks
+            whose execution overlaps. Multithreading is one way of
+            supporting concurrency by using several threads within
+            the same process.
+        </p>
+
+        <p>
+            These approaches can improve responsiveness and
+            throughput, particularly in servers and desktop
+            applications. However, shared data can create race
+            conditions, deadlocks and results that are difficult to
+            reproduce. The possible performance benefit must therefore
+            be balanced against the additional design, testing and
+            debugging complexity (Albahari, 2023).
+        </p>
+
+        <p>
+            Concurrency does not always mean that tasks execute at
+            exactly the same moment. A single processor can switch
+            rapidly between tasks, while a multi-core processor may
+            run some tasks in parallel.
+        </p>
+
+        <p>
+            <strong>Professional relevance:</strong>
+            advanced programming techniques should be used to solve
+            a genuine design or performance problem. They should not
+            be added only because they appear technically advanced.
+        </p>
+
+    </section>
+
+    <section class="callout">
+
+        <h2>
+            Overall Evaluation
+        </h2>
+
+        <p>
+            The main conclusion from these topics is that web
+            development is a connected system rather than a
+            collection of unrelated technologies. Semantic HTML and
+            accessible UX improve the client side, JavaScript
+            supports interaction, DNS and HTTPS deliver requests,
+            servers process application logic and programming
+            principles influence maintainability.
+        </p>
+
+    </section>
+
+    <div class="page-navigation">
+
+    <a class="button" href="../week1.html">
+        Back to Week 1
+    </a>
+
+    <a class="button" href="comparison.html">
+        Next: Comparison
+    </a>
+
+</div>
+
+</main>
+
+<footer>
+
+    <p>
+        David's Computing Portfolio
+        &copy;
+        <span data-current-year></span>
+    </p>
+
+</footer>
+
+<script src="../../assets/js/script.js"></script>
+
+</body>
+
+</html>

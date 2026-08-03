@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        SQL and NoSQL Comparison | David's Computing Portfolio
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../../assets/css/style.css"
+    >
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="container">
+
+        <h1>
+            SQL and NoSQL Databases
+        </h1>
+
+        <p>
+            Structure, Consistency, Scalability and Use Cases
+        </p>
+
+    </div>
+
+</header>
+
+<nav
+    class="navigation"
+    aria-label="Week 2 navigation"
+>
+
+    <div class="container">
+
+        <a href="../../index.html">Home</a>
+        <a href="../week2.html">Week 2</a>
+        <a href="notes.html">Notes</a>
+        <a href="data-structures.html">Data Structures</a>
+        <a href="searching.html">Searching</a>
+        <a href="complexity.html">Complexity</a>
+        <a href="databases.html">Databases</a>
+        <a href="reflection.html">Reflection</a>
+        <a href="references.html">References</a>
+
+    </div>
+
+</nav>
+
+<main class="container">
+
+    <section class="card portfolio-overview">
+
+        <h2>
+            Overview
+        </h2>
+
+        <p>
+            SQL and NoSQL databases address different data
+            management requirements. Relational databases emphasise
+            structured relationships, constraints and transaction
+            consistency. NoSQL systems often emphasise flexible
+            models, distribution and large-scale workloads. The
+            categories overlap, however, because modern relational
+            systems support semi-structured data and some NoSQL
+            systems provide multi-document transactions.
+        </p>
+
+    </section>
+
+    <section>
+
+        <h2>
+            Comparison Table
+        </h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Characteristic</th>
+                    <th>SQL Database</th>
+                    <th>NoSQL Database</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>Data model</td>
+                    <td>Tables, rows, columns and relationships.</td>
+                    <td>
+                        Documents, key-value pairs, graphs or
+                        column families.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Schema</td>
+                    <td>Usually predefined and strongly controlled.</td>
+                    <td>Often flexible or application controlled.</td>
+                </tr>
+
+                <tr>
+                    <td>Query approach</td>
+                    <td>Standardised SQL.</td>
+                    <td>Varies between database products.</td>
+                </tr>
+
+                <tr>
+                    <td>Consistency</td>
+                    <td>
+                        Commonly supports strong ACID transactions.
+                    </td>
+                    <td>
+                        May trade immediate consistency for
+                        availability or distribution.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Relationships</td>
+                    <td>
+                        Strong support through keys, joins and
+                        constraints.
+                    </td>
+                    <td>
+                        Often stores related information together to
+                        reduce joins.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Scaling</td>
+                    <td>
+                        Traditionally vertical, although distributed
+                        relational systems also exist.
+                    </td>
+                    <td>
+                        Often designed for horizontal scaling across
+                        several servers.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Typical use</td>
+                    <td>
+                        Finance, bookings, inventory and structured
+                        business systems.
+                    </td>
+                    <td>
+                        Content systems, event data, distributed
+                        services and rapidly changing datasets.
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            Relational Example
+        </h2>
+
+        <pre><code>STUDENTS
+--------------------------------
+student_id | name       | course
+1          | David      | BSc Computing
+
+ASSIGNMENTS
+--------------------------------
+assignment_id | student_id | mark
+101           | 1          | 68</code></pre>
+
+        <p>
+            The foreign key in the assignments table links each
+            assignment to a student. Constraints can prevent an
+            assignment from referring to a student who does not
+            exist.
+        </p>
+
+        <pre><code>SELECT students.name, assignments.mark
+FROM students
+JOIN assignments
+    ON students.student_id = assignments.student_id;</code></pre>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            Document Database Example
+        </h2>
+
+        <pre><code>{
+    "studentId": 1,
+    "name": "David",
+    "course": "BSc Computing",
+    "assignments": [
+        {
+            "assignmentId": 101,
+            "mark": 68
+        }
+    ]
+}</code></pre>
+
+        <p>
+            The related assignment data is embedded inside the
+            student document. This can make retrieval simple, but
+            duplicated embedded data can become difficult to keep
+            consistent if the same information appears in several
+            documents.
+        </p>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            ACID Transactions
+        </h2>
+
+        <ul>
+            <li>
+                <strong>Atomicity:</strong>
+                a transaction completes fully or not at all.
+            </li>
+
+            <li>
+                <strong>Consistency:</strong>
+                a transaction preserves defined rules and
+                constraints.
+            </li>
+
+            <li>
+                <strong>Isolation:</strong>
+                simultaneous transactions do not create invalid
+                interference.
+            </li>
+
+            <li>
+                <strong>Durability:</strong>
+                committed information remains stored after a failure.
+            </li>
+        </ul>
+
+        <p>
+            These properties are particularly important in systems
+            such as payments and stock control, where partial updates
+            could create incorrect results. PostgreSQL defines ACID
+            as atomicity, consistency, isolation and durability, with
+            the purpose of preserving validity during concurrent
+            operation and failures (PostgreSQL Global Development
+            Group, 2026).
+        </p>
+
+    </section>
+
+    <section class="card portfolio-overview">
+
+        <h2>
+            Critical Evaluation
+        </h2>
+
+        <p>
+            SQL is suitable when relationships, validation and
+            transactional accuracy are central requirements. Its
+            schema provides control, although significant structural
+            changes may require migrations. Transaction isolation
+            also introduces trade-offs: stronger isolation can
+            reduce anomalies but may increase waiting, retries or
+            contention under concurrent workloads (PostgreSQL Global
+            Development Group, 2026).
+        </p>
+
+        <p>
+            NoSQL can be suitable when data structures vary,
+            workloads are distributed or access patterns favour
+            embedded documents. However, flexibility does not remove
+            the need for design. MongoDB's documentation distinguishes
+            embedding from referencing and links the choice to access
+            patterns and data relationships (MongoDB, Inc., 2026).
+            Poorly controlled documents can still create inconsistent
+            data and duplicated business rules.
+        </p>
+
+        <p>
+            The two approaches are not mutually exclusive. A system
+            may use a relational database for transactions and a
+            document or analytical database for logging, caching or
+            high-volume event data.
+        </p>
+
+    </section>
+
+    <div class="page-navigation">
+
+    <a class="button" href="complexity.html">
+        Previous: Complexity
+    </a>
+
+    <a class="button" href="../week2.html">
+        Back to Week 2
+    </a>
+
+    <a class="button" href="reflection.html">
+        Next: Reflection
+    </a>
+
+</div>
+
+</main>
+
+<footer>
+
+    <p>
+        David's Computing Portfolio
+        &copy;
+        <span data-current-year></span>
+    </p>
+
+</footer>
+
+<script src="../../assets/js/script.js"></script>
+
+</body>
+
+</html>

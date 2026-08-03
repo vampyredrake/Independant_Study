@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="A critical reflection on cloud identity compromise and software supply-chain compromise."
+    >
+
+    <title>
+        Week 3 Reflection | David's Computing Portfolio
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../../assets/css/style.css"
+    >
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="container">
+
+        <h1>
+            Week 3 Critical Reflection
+        </h1>
+
+        <p>
+            Major Cybersecurity Risks Facing Modern Organisations
+        </p>
+
+    </div>
+
+</header>
+
+<nav
+    class="navigation"
+    aria-label="Week 3 navigation"
+>
+
+    <div class="container">
+
+        <a href="../../index.html">
+            Home
+        </a>
+
+        <a href="../week3.html">
+            Week 3
+        </a>
+
+        <a href="notes.html">
+            Notes
+        </a>
+
+        <a href="osi-model.html">
+            OSI Model
+        </a>
+
+        <a href="cloud-services.html">
+            Cloud Services
+        </a>
+
+        <a href="threat-analysis.html">
+            Threat Analysis
+        </a>
+
+        <a href="cia-triad.html">
+            CIA Triad
+        </a>
+
+        <a
+            href="reflection.html"
+            aria-current="page"
+        >
+            Reflection
+        </a>
+
+        <a href="references.html">
+            References
+        </a>
+
+    </div>
+
+</nav>
+
+<main class="container">
+
+    <section class="card portfolio-overview">
+
+        <h2>
+            Critical Reflection
+        </h2>
+
+        <p>
+            Two major cybersecurity risks facing modern organisations
+            are cloud identity compromise and software supply-chain
+            compromise. I selected these risks because organisations
+            increasingly depend on cloud accounts and third-party
+            software rather than operating isolated systems.
+        </p>
+
+        <p>
+            Cloud identity compromise is serious because a valid
+            account can allow an attacker to appear legitimate.
+            Stolen passwords, session tokens, OAuth permissions or
+            excessive service-account privileges may provide access
+            to email, storage and administrative systems. I initially
+            viewed multifactor authentication as a largely complete
+            response to password theft. Further study showed that
+            consent phishing, session theft and repeated approval
+            prompts can bypass weaker implementations. Stronger
+            controls include phishing-resistant authentication,
+            conditional access, short-lived credentials, least
+            privilege and continuous monitoring. These measures
+            align with a layered risk-management approach rather than
+            dependence on one preventive control (National Institute
+            of Standards and Technology, 2024).
+        </p>
+
+        <p>
+            Software supply-chain compromise is also significant
+            because organisations trust code, packages and updates
+            produced by other parties. A malicious dependency or
+            compromised build process may enter through an apparently
+            legitimate development activity. Traditional antivirus
+            may be less effective when software is signed or executed
+            by trusted tools. Dependency pinning, code signing,
+            software bills of materials, restricted build
+            environments and package-source verification improve
+            assurance. However, an SBOM provides transparency rather
+            than proof of security, and code signing proves origin and
+            integrity rather than benign behaviour (Cybersecurity and
+            Infrastructure Security Agency, 2021).
+        </p>
+
+        <p>
+            My main conclusion is that both risks exploit trust rather
+            than only technical vulnerabilities. Effective defence
+            depends on limiting trust, verifying identities and
+            monitoring activity after access has been granted. I also
+            recognise that additional controls create operational
+            costs and can obstruct legitimate work when they are
+            poorly designed. Security decisions must therefore be
+            proportionate, testable and reviewed against changing
+            threats. No single control is sufficient; organisations
+            need layered prevention, detection, response and recovery
+            measures supported by clear accountability.
+        </p>
+
+    </section>
+
+    <section class="callout">
+
+        <h2>
+            Reflection Summary
+        </h2>
+
+        <p>
+            <strong>Risk one:</strong>
+            cloud identity and access compromise.
+        </p>
+
+        <p>
+            <strong>Risk two:</strong>
+            software supply-chain compromise.
+        </p>
+
+        <p>
+            <strong>Main conclusion:</strong>
+            modern attacks often exploit trusted identities,
+            applications and suppliers, so controls must continue
+            after initial authentication.
+        </p>
+
+    </section>
+
+    <div class="page-navigation">
+
+        <a
+            class="button"
+            href="cia-triad.html"
+        >
+            Previous: CIA Triad
+        </a>
+
+        <a
+            class="button"
+            href="../week3.html"
+        >
+            Back to Week 3
+        </a>
+
+        <a
+            class="button"
+            href="references.html"
+        >
+            Next: References
+        </a>
+
+    </div>
+
+</main>
+
+<footer>
+
+    <p>
+        David's Computing Portfolio
+        &copy;
+        <span data-current-year></span>
+    </p>
+
+</footer>
+
+<script src="../../assets/js/script.js"></script>
+
+</body>
+
+</html>

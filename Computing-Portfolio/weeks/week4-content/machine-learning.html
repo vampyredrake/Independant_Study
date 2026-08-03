@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="A structured comparison of supervised, unsupervised and reinforcement learning, with an evaluation of machine learning algorithms."
+    >
+
+    <title>
+        Machine Learning Comparison | David's Computing Portfolio
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../../assets/css/style.css"
+    >
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="container">
+
+        <h1>
+            Machine Learning Comparison
+        </h1>
+
+        <p>
+            Learning Types, Applications, Algorithms and Limitations
+        </p>
+
+    </div>
+
+</header>
+
+<nav
+    class="navigation"
+    aria-label="Week 4 navigation"
+>
+
+    <div class="container">
+
+        <a href="../../index.html">
+            Home
+        </a>
+
+        <a href="../week4.html">
+            Week 4
+        </a>
+
+        <a href="notes.html">
+            Notes
+        </a>
+
+        <a
+            href="machine-learning.html"
+            aria-current="page"
+        >
+            Machine Learning
+        </a>
+
+        <a href="ai-glossary.html">
+            AI Glossary
+        </a>
+
+        <a href="ethics.html">
+            Ethics
+        </a>
+
+        <a href="swot.html">
+            SWOT
+        </a>
+
+        <a href="smart-targets.html">
+            SMART Targets
+        </a>
+
+        <a href="references.html">
+            References
+        </a>
+
+    </div>
+
+</nav>
+
+<main class="container">
+
+    <section class="card">
+
+        <h2>
+            Overview
+        </h2>
+
+        <p>
+            Machine learning is a branch of artificial intelligence
+            in which computational models identify patterns from data.
+            Instead of every decision being defined through fixed
+            programming rules, a model is trained to make predictions,
+            classifications or decisions based on previous examples or
+            feedback (Mitchell, 1997). The resulting behaviour remains
+            dependent on the selected objective, data and evaluation
+            process; learning does not make the model independent of
+            human design choices.
+        </p>
+
+        <p>
+            The three main learning categories examined here are
+            supervised learning, unsupervised learning and
+            reinforcement learning. Each approach uses a different
+            form of training information and is suitable for different
+            types of problem.
+        </p>
+
+        <p>
+            Selecting an approach should not be based only on which
+            technique appears most advanced. The decision should also
+            consider data availability, interpretability, computing
+            cost, ethical risk and the consequences of an incorrect
+            prediction. A simpler baseline can be professionally
+            preferable when it achieves comparable performance and is
+            easier to validate, explain and maintain (Géron, 2023).
+        </p>
+
+    </section>
+
+    <section>
+
+        <h2>
+            Comparison of Learning Types
+        </h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Learning Type</th>
+                    <th>How It Works</th>
+                    <th>Appropriate Applications</th>
+                    <th>Main Limitations</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>
+                        <strong>
+                            Supervised learning
+                        </strong>
+                    </td>
+
+                    <td>
+                        The model learns from labelled examples. Each
+                        training example includes input data and a
+                        known target output.
+                    </td>
+
+                    <td>
+                        Spam filtering, fraud detection, medical
+                        diagnosis support, house-price prediction,
+                        image classification and demand forecasting.
+                    </td>
+
+                    <td>
+                        Requires sufficient labelled data. Labels can
+                        be expensive, incorrect or biased. Performance
+                        may decline when real-world data differs from
+                        the training data.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <strong>
+                            Unsupervised learning
+                        </strong>
+                    </td>
+
+                    <td>
+                        The model identifies patterns, similarities or
+                        structures in data that does not contain known
+                        target labels.
+                    </td>
+
+                    <td>
+                        Customer segmentation, anomaly detection,
+                        document grouping, exploratory data analysis
+                        and dimensionality reduction.
+                    </td>
+
+                    <td>
+                        Results can be difficult to evaluate because
+                        there may be no correct answer. Discovered
+                        groups may not have a meaningful practical
+                        interpretation.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <strong>
+                            Reinforcement learning
+                        </strong>
+                    </td>
+
+                    <td>
+                        An agent interacts with an environment,
+                        selects actions and receives rewards or
+                        penalties. It learns a policy intended to
+                        maximise long-term reward.
+                    </td>
+
+                    <td>
+                        Robotics, game-playing systems, traffic-signal
+                        control, resource allocation, route planning
+                        and automated industrial control.
+                    </td>
+
+                    <td>
+                        Training may require many interactions and
+                        substantial computing resources. Poor reward
+                        design can produce unsafe or unintended
+                        behaviour.
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            Supervised Learning
+        </h2>
+
+        <p>
+            Supervised learning is used when historical data contains
+            known outcomes. The model compares its predictions with
+            those outcomes and adjusts its internal parameters to
+            reduce error.
+        </p>
+
+        <p>
+            Supervised learning commonly supports two categories of
+            task:
+        </p>
+
+        <ul>
+            <li>
+                <strong>Regression:</strong>
+                predicting a continuous numerical value, such as
+                temperature, sales demand or property price.
+            </li>
+
+            <li>
+                <strong>Classification:</strong>
+                predicting a class or category, such as fraudulent or
+                legitimate, positive or negative, and spam or not
+                spam.
+            </li>
+        </ul>
+
+        <h3>
+            Appropriate Application
+        </h3>
+
+        <p>
+            A bank could use supervised classification to identify
+            potentially fraudulent transactions. Historical
+            transactions would be labelled as fraudulent or
+            legitimate. Features could include transaction value,
+            location, time, device and previous account behaviour.
+        </p>
+
+        <h3>
+            Benefits
+        </h3>
+
+        <ul>
+            <li>
+                Performance can be measured against known answers.
+            </li>
+
+            <li>
+                The model can make predictions for new examples.
+            </li>
+
+            <li>
+                It supports both numerical forecasting and
+                classification.
+            </li>
+
+            <li>
+                Several established evaluation metrics are available.
+            </li>
+        </ul>
+
+        <h3>
+            Limitations
+        </h3>
+
+        <p>
+            Supervised learning depends heavily on label quality. If
+            human decisions in the historical data were inconsistent
+            or unfair, the model may reproduce those weaknesses. This
+            means that validation against historical labels can
+            confirm consistency with the past without demonstrating
+            that the underlying decision process was fair or correct.
+        </p>
+
+        <p>
+            The model may also learn relationships that are
+            statistically useful but not appropriate. For example, a
+            variable may act as a proxy for a protected
+            characteristic. Ethical evaluation is therefore required
+            alongside technical testing.
+        </p>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            Unsupervised Learning
+        </h2>
+
+        <p>
+            Unsupervised learning is used when data does not include
+            known output labels. The model attempts to identify
+            structure within the available observations.
+        </p>
+
+        <p>
+            One common unsupervised task is clustering. A clustering
+            algorithm groups examples that appear similar according
+            to the selected features and distance measurement.
+        </p>
+
+        <h3>
+            Appropriate Application
+        </h3>
+
+        <p>
+            A retail organisation could analyse customer purchase
+            histories and group customers according to buying
+            behaviour. The resulting clusters might identify frequent
+            customers, occasional high-value customers or customers
+            focused on particular product types.
+        </p>
+
+        <h3>
+            Benefits
+        </h3>
+
+        <ul>
+            <li>
+                Does not require expensive manual labels.
+            </li>
+
+            <li>
+                Can reveal patterns that were not previously known.
+            </li>
+
+            <li>
+                Supports exploratory analysis before a supervised
+                model is developed.
+            </li>
+
+            <li>
+                Can help identify unusual observations or possible
+                anomalies.
+            </li>
+        </ul>
+
+        <h3>
+            Limitations
+        </h3>
+
+        <p>
+            A mathematical cluster is not automatically a useful
+            business category. Analysts must interpret whether the
+            identified pattern is meaningful and whether it supports
+            an appropriate organisational decision.
+        </p>
+
+        <p>
+            Results may also change when different features, scaling
+            methods or numbers of clusters are selected. This makes
+            evaluation less direct than supervised learning. Internal
+            cluster metrics can measure mathematical separation, but
+            domain review is still required to establish whether the
+            groups are meaningful and actionable.
+        </p>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            Reinforcement Learning
+        </h2>
+
+        <p>
+            Reinforcement learning focuses on sequential
+            decision-making. An agent observes an environment,
+            performs an action and receives feedback through a reward
+            or penalty.
+        </p>
+
+        <p>
+            The agent must balance exploitation and exploration.
+            Exploitation uses actions that currently appear effective,
+            while exploration tests alternatives that may produce
+            better future results.
+        </p>
+
+        <h3>
+            Appropriate Application
+        </h3>
+
+        <p>
+            A warehouse robot could use reinforcement learning to
+            identify efficient routes between storage locations. It
+            may receive a positive reward for completing a delivery
+            and penalties for collisions, delays or unnecessary
+            movement.
+        </p>
+
+        <h3>
+            Benefits
+        </h3>
+
+        <ul>
+            <li>
+                Can learn strategies for complex sequential problems.
+            </li>
+
+            <li>
+                Can adapt decisions according to environmental
+                feedback.
+            </li>
+
+            <li>
+                May discover strategies that are difficult to define
+                using fixed programming rules.
+            </li>
+
+            <li>
+                Supports optimisation over a sequence of actions
+                rather than one isolated prediction.
+            </li>
+        </ul>
+
+        <h3>
+            Limitations
+        </h3>
+
+        <p>
+            Reinforcement learning can be expensive because the agent
+            may require a very large number of interactions. Training
+            directly in a real environment may also be unsafe,
+            impractical or costly.
+        </p>
+
+        <p>
+            Reward design is a significant risk. An agent may
+            maximise the numerical reward in an unexpected way that
+            does not match the real organisational objective. Testing
+            in simulation reduces immediate harm but cannot guarantee
+            safe transfer to a changing real environment (Russell and
+            Norvig, 2021).
+        </p>
+
+    </section>
+
+    <section>
+
+        <h2>
+            Machine Learning Algorithm Comparison
+        </h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Approach</th>
+                    <th>Main Strengths</th>
+                    <th>Main Limitations</th>
+                    <th>Suitable Applications</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>
+                        <strong>
+                            Linear regression
+                        </strong>
+                    </td>
+
+                    <td>
+                        Simple, efficient and relatively easy to
+                        interpret. Shows the estimated relationship
+                        between inputs and a numerical target.
+                    </td>
+
+                    <td>
+                        Assumes an approximately linear relationship.
+                        Can be affected by extreme values and may
+                        underfit complex data.
+                    </td>
+
+                    <td>
+                        Sales forecasting, property-price estimation,
+                        demand prediction and numerical trend
+                        analysis.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <strong>
+                            Logistic regression
+                        </strong>
+                    </td>
+
+                    <td>
+                        Efficient classification, produces
+                        probabilities and can be easier to explain
+                        than more complex models.
+                    </td>
+
+                    <td>
+                        May struggle with complex non-linear
+                        relationships unless features are transformed.
+                    </td>
+
+                    <td>
+                        Fraud prediction, medical-risk classification,
+                        customer response and binary classification.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <strong>
+                            Decision tree
+                        </strong>
+                    </td>
+
+                    <td>
+                        Easy to visualise, handles numerical and
+                        categorical information and can model
+                        non-linear relationships.
+                    </td>
+
+                    <td>
+                        A deep tree can overfit. Small changes in the
+                        training data may create a different tree.
+                    </td>
+
+                    <td>
+                        Decision support, customer classification,
+                        eligibility assessment and rule discovery.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <strong>
+                            Support vector machine
+                        </strong>
+                    </td>
+
+                    <td>
+                        Can perform well with high-dimensional data and
+                        aims to create a strong separating boundary.
+                    </td>
+
+                    <td>
+                        Can be slow on very large datasets and may be
+                        difficult to interpret when complex kernels
+                        are used.
+                    </td>
+
+                    <td>
+                        Text classification, image classification and
+                        datasets containing many features.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <strong>
+                            Neural network
+                        </strong>
+                    </td>
+
+                    <td>
+                        Can represent highly complex relationships and
+                        process unstructured data such as images,
+                        audio and text.
+                    </td>
+
+                    <td>
+                        Often requires large datasets, high computing
+                        resources and extensive tuning. Decisions may
+                        be difficult to explain.
+                    </td>
+
+                    <td>
+                        Computer vision, speech recognition, language
+                        processing and complex pattern recognition.
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+    <section class="note-section">
+
+        <h2>
+            Linear Regression
+        </h2>
+
+        <p>
+            Linear regression predicts a continuous numerical output.
+            A simple linear model represents the relationship between
+            an input variable and a target using a straight line.
+        </p>
+
+        <pre><code>predicted value = intercept + coefficient × input</code></pre>
+
+        <p>
+            Multiple linear regression extends this approach by using
+            several input variables. For example, a property-price
+            model might use floor area, number of rooms and location.
+        </p>
+
+        <h3>
+            Evaluation
+        </h3>
+
+        <p>
+            Linear regression is useful when a clear baseline and
+            understandable coefficients are required. It is less
+            appropriate when relationships are strongly non-linear or
+            when the effect of one feature depends heavily on another.
+        </p>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            Logistic Regression
+        </h2>
+
+        <p>
+            Logistic regression is primarily used for classification.
+            It estimates the probability that an example belongs to a
+            particular class.
+        </p>
+
+        <p>
+            A threshold can convert the probability into a class. For
+            example, a transaction with a predicted fraud probability
+            above a selected threshold may be sent for additional
+            review.
+        </p>
+
+        <h3>
+            Evaluation
+        </h3>
+
+        <p>
+            Logistic regression can provide a strong baseline because
+            it is efficient and its coefficients can be examined.
+            However, its apparent simplicity does not guarantee
+            fairness or correctness. The result still depends on
+            training data, feature design and the decision threshold.
+        </p>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            Decision Trees
+        </h2>
+
+        <p>
+            A decision tree makes predictions through a sequence of
+            conditions. Each internal node tests a feature, each
+            branch represents an outcome and each leaf provides a
+            final prediction.
+        </p>
+
+        <pre><code>Is transaction value greater than £1,000?
+├── No  → lower-risk branch
+└── Yes
+    ├── New device? Yes → manual review
+    └── New device? No  → further checks</code></pre>
+
+        <h3>
+            Evaluation
+        </h3>
+
+        <p>
+            Decision trees are attractive where stakeholders need to
+            follow the reasoning behind a prediction. They can still
+            become difficult to interpret when they contain many
+            levels.
+        </p>
+
+        <p>
+            Limiting depth, requiring a minimum number of examples at
+            each leaf and pruning unnecessary branches can reduce
+            overfitting.
+        </p>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            Support Vector Machines
+        </h2>
+
+        <p>
+            A support vector machine attempts to identify a boundary
+            that separates classes while maximising the margin between
+            the closest examples.
+        </p>
+
+        <p>
+            Kernel functions allow the algorithm to represent
+            non-linear boundaries without explicitly transforming
+            every example into a new set of dimensions.
+        </p>
+
+        <h3>
+            Evaluation
+        </h3>
+
+        <p>
+            Support vector machines can be effective for
+            moderate-sized datasets containing many features. They
+            are less suitable where very large datasets require rapid
+            training or where detailed explanation is essential.
+        </p>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            Neural Networks
+        </h2>
+
+        <p>
+            A neural network contains layers of connected artificial
+            neurons. Input values pass through weighted connections,
+            and the resulting values are transformed by activation
+            functions.
+        </p>
+
+        <pre><code>Input layer
+    ↓
+Hidden layer
+    ↓
+Hidden layer
+    ↓
+Output layer</code></pre>
+
+        <p>
+            During training, the network's weights are adjusted to
+            reduce prediction error. Networks containing many hidden
+            layers are described as deep neural networks.
+        </p>
+
+        <h3>
+            Evaluation
+        </h3>
+
+        <p>
+            Neural networks are appropriate for complex unstructured
+            data, including images, speech and natural language. They
+            may achieve stronger predictive results than simpler
+            methods, but this benefit should be weighed against
+            training cost, energy use, maintenance and reduced
+            explainability.
+        </p>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            Model Evaluation
+        </h2>
+
+        <h3>
+            Training, Validation and Testing
+        </h3>
+
+        <p>
+            A dataset is normally divided so that model performance is
+            assessed using information that was not used during
+            training.
+        </p>
+
+        <ul>
+            <li>
+                <strong>Training data</strong>
+                is used to adjust model parameters.
+            </li>
+
+            <li>
+                <strong>Validation data</strong>
+                supports model selection and hyperparameter tuning.
+            </li>
+
+            <li>
+                <strong>Test data</strong>
+                provides a final estimate of performance on unseen
+                data.
+            </li>
+        </ul>
+
+        <p>
+            Repeatedly changing a model according to test-set results
+            can make the test data part of the development process.
+            This produces an unreliable estimate of generalisation.
+            Cross-validation can improve the use of limited data, but
+            it does not correct unrepresentative sampling or leakage
+            between training and evaluation data (Géron, 2023).
+        </p>
+
+        <h3>
+            Classification Metrics
+        </h3>
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Metric</th>
+                    <th>Meaning</th>
+                    <th>When It Is Important</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>Accuracy</td>
+                    <td>
+                        The proportion of all predictions that were
+                        correct.
+                    </td>
+                    <td>
+                        Useful where classes are balanced and errors
+                        have similar consequences.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Precision</td>
+                    <td>
+                        The proportion of positive predictions that
+                        were correct.
+                    </td>
+                    <td>
+                        Important where false positive results create
+                        significant cost or harm.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Recall</td>
+                    <td>
+                        The proportion of actual positive cases that
+                        were detected.
+                    </td>
+                    <td>
+                        Important where missing a positive case is
+                        particularly harmful.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>F1 score</td>
+                    <td>
+                        A combined measure based on precision and
+                        recall.
+                    </td>
+                    <td>
+                        Useful where a balance between precision and
+                        recall is required.
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+        <h3>
+            Accuracy Is Not Always Sufficient
+        </h3>
+
+        <p>
+            A fraud dataset may contain 99 legitimate transactions for
+            every fraudulent transaction. A model that predicts every
+            transaction as legitimate would achieve 99 percent
+            accuracy while detecting no fraud.
+        </p>
+
+        <p>
+            This example demonstrates why metrics must be chosen
+            according to the purpose of the system and the practical
+            consequences of each type of error. Thresholds should also
+            be reviewed after deployment because class frequencies,
+            user behaviour and the cost of errors can change over time
+            (scikit-learn Developers, 2026).
+        </p>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            Overfitting and Underfitting
+        </h2>
+
+        <h3>
+            Overfitting
+        </h3>
+
+        <p>
+            Overfitting occurs when a model represents the training
+            data too closely, including noise and unusual examples.
+            Training performance may be high while performance on new
+            data is weak.
+        </p>
+
+        <h3>
+            Underfitting
+        </h3>
+
+        <p>
+            Underfitting occurs when the model is too simple to
+            represent the main relationships in the data. Performance
+            is poor on both training and unseen examples.
+        </p>
+
+        <h3>
+            Possible Controls
+        </h3>
+
+        <ul>
+            <li>collect more representative data;</li>
+            <li>use cross-validation;</li>
+            <li>reduce unnecessary model complexity;</li>
+            <li>apply regularisation;</li>
+            <li>remove irrelevant features;</li>
+            <li>use early stopping when training neural networks.</li>
+        </ul>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            Practical Selection Scenarios
+        </h2>
+
+        <h3>
+            Scenario 1: Predicting Monthly Sales
+        </h3>
+
+        <p>
+            Linear regression may provide an appropriate starting
+            point because the output is numerical and stakeholders may
+            need to understand the relationship between variables and
+            predicted sales.
+        </p>
+
+        <h3>
+            Scenario 2: Identifying Spam Email
+        </h3>
+
+        <p>
+            Logistic regression, a support vector machine or a neural
+            network could be used. Logistic regression may provide a
+            useful interpretable baseline, while more complex methods
+            may improve performance with sufficiently large datasets.
+        </p>
+
+        <h3>
+            Scenario 3: Segmenting Customers
+        </h3>
+
+        <p>
+            Unsupervised clustering would be appropriate because the
+            organisation may not already possess agreed customer
+            categories. The resulting groups would still require
+            human interpretation.
+        </p>
+
+        <h3>
+            Scenario 4: Controlling a Warehouse Robot
+        </h3>
+
+        <p>
+            Reinforcement learning could support sequential movement
+            decisions. Training should initially take place in a
+            simulation because uncontrolled exploration in a physical
+            environment could damage equipment or create safety risks.
+        </p>
+
+        <h3>
+            Scenario 5: Supporting a Medical Decision
+        </h3>
+
+        <p>
+            A model used in healthcare should be selected according to
+            both predictive performance and explainability. Human
+            oversight, testing across patient groups and clear
+            accountability would be essential.
+        </p>
+
+    </section>
+
+    <section class="card">
+
+        <h2>
+            Critical Evaluation
+        </h2>
+
+        <p>
+            Supervised learning is effective when reliable labelled
+            data exists, but it may reproduce weaknesses in historical
+            decisions. Unsupervised learning can reveal unexpected
+            patterns, although the output does not automatically have
+            practical meaning. Reinforcement learning is suitable for
+            sequential decisions but creates additional challenges
+            involving reward design, safety and computing cost.
+        </p>
+
+        <p>
+            Linear and logistic regression are useful where
+            simplicity, speed and interpretation are priorities.
+            Decision trees can provide understandable rules but are
+            vulnerable to overfitting. Support vector machines can
+            perform effectively with high-dimensional data, while
+            neural networks are suited to complex unstructured
+            information.
+        </p>
+
+        <p>
+            No algorithm is consistently best for every problem. A
+            professional selection process should compare several
+            models using representative data and appropriate metrics.
+            It should also evaluate privacy, fairness, explainability,
+            security and operational maintenance.
+        </p>
+
+        <p>
+            The most technically accurate model may not be the most
+            appropriate organisational choice. A slightly less
+            accurate model may be preferable where it is easier to
+            explain, cheaper to operate and less likely to create
+            unacceptable harm.
+        </p>
+
+    </section>
+
+    <div class="page-navigation">
+
+        <a
+            class="button"
+            href="notes.html"
+        >
+            Previous: Notes
+        </a>
+
+        <a
+            class="button"
+            href="../week4.html"
+        >
+            Back to Week 4
+        </a>
+
+        <a
+            class="button"
+            href="ai-glossary.html"
+        >
+            Next: AI Glossary
+        </a>
+
+    </div>
+
+</main>
+
+<footer>
+
+    <p>
+        David's Computing Portfolio
+        &copy;
+        <span data-current-year></span>
+    </p>
+
+</footer>
+
+<script src="../../assets/js/script.js"></script>
+
+</body>
+
+</html>

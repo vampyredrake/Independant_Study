@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Week 1 Comparison | David's Computing Portfolio
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../../assets/css/style.css"
+    >
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="container">
+
+        <h1>
+            Comparison and Evaluation
+        </h1>
+
+        <p>
+            Web Application Approaches
+        </p>
+
+    </div>
+
+</header>
+
+<nav class="navigation">
+
+    <div class="container">
+
+        <a href="../../index.html">Home</a>
+        <a href="../week1.html">Week 1</a>
+        <a href="notes.html">Notes</a>
+        <a href="comparison.html">Comparison</a>
+        <a href="architecture-diagram.html">Diagram</a>
+        <a href="glossary.html">Glossary</a>
+        <a href="reflection.html">Reflection</a>
+        <a href="references.html">References</a>
+
+    </div>
+
+</nav>
+
+<main class="container">
+
+    <section class="card portfolio-overview">
+
+        <h2>
+            Purpose
+        </h2>
+
+        <p>
+            This comparison evaluates three common approaches to
+            delivering web applications. The strongest choice
+            depends on interaction requirements, search-engine
+            visibility, hosting constraints, project scale and the
+            experience of the development team.
+        </p>
+
+    </section>
+
+    <section>
+
+        <h2>
+            Comparison Table
+        </h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Approach</th>
+                    <th>Advantages</th>
+                    <th>Limitations</th>
+                    <th>Appropriate Use Cases</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+
+                    <td>
+                        <strong>
+                            Static or Traditional Multi-Page Website
+                        </strong>
+                    </td>
+
+                    <td>
+                        Simple architecture, low hosting cost,
+                        strong initial performance and good search
+                        engine visibility. It has fewer JavaScript
+                        dependencies and a smaller attack surface.
+                    </td>
+
+                    <td>
+                        Full page reloads can make complex interaction
+                        feel slower. It is less suitable for highly
+                        interactive interfaces and may contain
+                        repeated page templates.
+                    </td>
+
+                    <td>
+                        Portfolios, documentation, marketing sites,
+                        information services and small business
+                        websites.
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>
+                        <strong>
+                            Single Page Application
+                        </strong>
+                    </td>
+
+                    <td>
+                        Provides fast interaction after the initial
+                        load, reusable components and strong support
+                        for API-driven interfaces.
+                    </td>
+
+                    <td>
+                        Larger JavaScript bundles, more complex state
+                        management and additional accessibility and
+                        SEO responsibilities.
+                    </td>
+
+                    <td>
+                        Dashboards, internal systems, collaboration
+                        tools and highly interactive applications.
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>
+                        <strong>
+                            Server-Rendered or Full-Stack Framework
+                        </strong>
+                    </td>
+
+                    <td>
+                        Can provide complete server-rendered pages,
+                        structured routing, authentication,
+                        validation and database integration.
+                    </td>
+
+                    <td>
+                        Requires more infrastructure and framework
+                        knowledge. Deployment and scaling are more
+                        involved than a basic static site.
+                    </td>
+
+                    <td>
+                        E-commerce, booking platforms, authenticated
+                        systems and larger organisational
+                        applications.
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            Critical Evaluation
+        </h2>
+
+        <p>
+            Static websites are sometimes treated as less advanced,
+            but they can be the strongest option when content changes
+            infrequently and interaction is limited. Robbins (2022)
+            explains that well-structured HTML and CSS can support
+            responsive, accessible pages without requiring a large
+            client-side framework. However, a mainly static approach
+            becomes less suitable when users need frequent live
+            updates, complex state or application-like interaction.
+        </p>
+
+        <p>
+            A Single Page Application becomes more appropriate when
+            the interface needs to behave like a desktop application.
+            Client-side routing and reusable components can make
+            interaction feel immediate after the initial load.
+            Conversely, the browser must manage loading states,
+            navigation, accessibility and failed API requests.
+            WCAG 2.2 also makes clear that dynamic interfaces must
+            remain operable, understandable and robust, so increased
+            interactivity does not remove accessibility obligations
+            (World Wide Web Consortium, 2023).
+        </p>
+
+        <p>
+            Full-stack frameworks provide a structured middle ground.
+            They can render content on the server while adding
+            client-side interaction where it is needed. This can
+            improve initial delivery and centralise routing,
+            validation and authentication. Against this, the
+            framework, server, database and deployment environment
+            all require maintenance, so the additional structure can
+            increase operational complexity.
+        </p>
+
+        <p>
+            The choice should therefore be based on requirements
+            rather than fashion. A frameworkless or lightly scripted
+            approach can reduce dependencies and provide greater
+            control, although developers then take more direct
+            responsibility for architecture and reusable components
+            (Vaccarella, 2023). An SPA may be excessive for a small
+            informational website, while a traditional multi-page
+            design may be unsuitable for a live analytics dashboard.
+        </p>
+
+    </section>
+
+    <section>
+
+        <h2>
+            CSS Layout Comparison
+        </h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Technology</th>
+                    <th>Strength</th>
+                    <th>Limitation</th>
+                    <th>Best Use</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>Flexbox</td>
+                    <td>
+                        Clear one-dimensional alignment and spacing.
+                    </td>
+                    <td>
+                        Less suitable for coordinated rows and
+                        columns.
+                    </td>
+                    <td>
+                        Navigation bars, buttons and small components.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>CSS Grid</td>
+                    <td>
+                        Strong two-dimensional layout control.
+                    </td>
+                    <td>
+                        Can be unnecessary for simple linear layouts.
+                    </td>
+                    <td>
+                        Dashboards and overall page structures.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>CSS Framework</td>
+                    <td>
+                        Rapid development using tested components.
+                    </td>
+                    <td>
+                        Can produce generic designs and unused CSS.
+                    </td>
+                    <td>
+                        Prototypes and consistent team projects.
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            Layout Evaluation
+        </h2>
+
+        <p>
+            Flexbox is effective for arranging content along one
+            primary axis, whereas Grid is designed for coordinated
+            rows and columns (Robbins, 2022). However, neither method
+            is automatically the best choice: using Grid for a simple
+            row can add unnecessary complexity, while forcing
+            Flexbox to control a two-dimensional page can make the
+            stylesheet harder to understand. The most maintainable
+            approach is therefore the simplest layout model that
+            clearly meets the page requirements.
+        </p>
+
+    </section>
+
+    <div class="page-navigation">
+
+    <a class="button" href="notes.html">
+        Previous: Notes
+    </a>
+
+    <a class="button" href="../week1.html">
+        Back to Week 1
+    </a>
+
+    <a class="button" href="architecture-diagram.html">
+        Next: Diagram
+    </a>
+
+</div>
+
+</main>
+
+<footer>
+
+    <p>
+        David's Computing Portfolio
+        &copy;
+        <span data-current-year></span>
+    </p>
+
+</footer>
+
+<script src="../../assets/js/script.js"></script>
+
+</body>
+
+</html>

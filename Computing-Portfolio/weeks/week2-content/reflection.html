@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Week 2 Reflection | David's Computing Portfolio
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../../assets/css/style.css"
+    >
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="container">
+
+        <h1>
+            Week 2 Critical Reflection
+        </h1>
+
+        <p>
+            Algorithms, Data Structures and Software Performance
+        </p>
+
+    </div>
+
+</header>
+
+<nav
+    class="navigation"
+    aria-label="Week 2 navigation"
+>
+
+    <div class="container">
+
+        <a href="../../index.html">Home</a>
+        <a href="../week2.html">Week 2</a>
+        <a href="notes.html">Notes</a>
+        <a href="data-structures.html">Data Structures</a>
+        <a href="searching.html">Searching</a>
+        <a href="complexity.html">Complexity</a>
+        <a href="databases.html">Databases</a>
+        <a href="reflection.html">Reflection</a>
+        <a href="references.html">References</a>
+
+    </div>
+
+</nav>
+
+<main class="container">
+
+    <section class="card portfolio-overview">
+
+        <h2>
+            Critical Reflection
+        </h2>
+
+        <p>
+            The main point I have taken from this week's study is
+            that software performance is affected by design choices
+            made before the program is executed. It is possible to
+            write code that produces the correct answer but becomes
+            impractical when the amount of data increases. Big-O
+            notation provides a way of identifying this risk by
+            showing how processing or memory requirements grow
+            (Cormen et al., 2022). I also understand more clearly
+            that this is a model of growth rather than a prediction
+            of exact execution time.
+        </p>
+
+        <p>
+            The comparison between linear and binary search made
+            this particularly clear. Linear search is simple and
+            works with unsorted information, but its processing grows
+            directly with the dataset. Binary search is considerably
+            more efficient for large collections, although it
+            requires sorted data and suitable indexed access. This
+            shows that an algorithm cannot be evaluated separately
+            from its data structure. Binary search would lose much
+            of its advantage on a linked list because reaching the
+            middle item requires traversal.
+        </p>
+
+        <p>
+            I also recognised that theoretical efficiency is not the
+            only concern. Linked lists can provide efficient
+            insertion, but arrays may perform better in practice
+            because their values are stored together in memory.
+            Merge sort gives predictable performance but uses
+            additional storage. Quick sort may be faster in practice,
+            although poor pivot selection can create quadratic
+            behaviour. These examples show that performance involves
+            trade-offs between speed, memory, predictability and
+            implementation complexity.
+        </p>
+
+        <p>
+            Database selection creates similar consequences. A
+            relational database provides strong constraints and
+            transactional consistency, while a NoSQL database may
+            provide greater structural flexibility and easier
+            horizontal distribution. However, I now recognise that
+            these are not absolute categories. PostgreSQL supports
+            sophisticated concurrency control, while document
+            databases can support transactions and references
+            (PostgreSQL Global Development Group, 2026; MongoDB,
+            Inc., 2026). Choosing either approach without considering
+            the actual data relationships could create unnecessary
+            complexity or unreliable information.
+        </p>
+
+        <p>
+            In professional development, I would now consider the
+            expected data volume, common operations and growth of the
+            system before selecting an algorithm or structure. I
+            would also combine complexity analysis with profiling
+            because Big-O does not include every practical cost. The
+            area I need to develop further is implementing and
+            benchmarking these algorithms in Python using realistic
+            datasets.
+        </p>
+
+    </section>
+
+    <section class="callout portfolio-overview">
+
+        <h2>
+            Reflection Summary
+        </h2>
+
+        <p>
+            <strong>Most significant concept:</strong>
+            an algorithm must be evaluated together with its data
+            structure.
+        </p>
+
+        <p>
+            <strong>Professional relevance:</strong>
+            poor choices can affect response time, memory use,
+            scalability and maintenance.
+        </p>
+
+        <p>
+            <strong>Further development:</strong>
+            practical benchmarking and profiling with Python.
+        </p>
+
+    </section>
+
+    <div class="page-navigation">
+
+    <a class="button" href="databases.html">
+        Previous: Databases
+    </a>
+
+    <a class="button" href="../week2.html">
+        Back to Week 2
+    </a>
+
+    <a class="button" href="references.html">
+        Next: References
+    </a>
+
+</div>
+
+</main>
+
+<footer>
+
+    <p>
+        David's Computing Portfolio
+        &copy;
+        <span data-current-year></span>
+    </p>
+
+</footer>
+
+<script src="../../assets/js/script.js"></script>
+
+</body>
+
+</html>

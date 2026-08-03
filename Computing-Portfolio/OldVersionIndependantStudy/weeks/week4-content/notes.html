@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Structured academic notes on artificial intelligence, machine learning, ethics and professional development."
+    >
+
+    <title>
+        Week 4 Notes | David's Computing Portfolio
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../../assets/css/style.css"
+    >
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="container">
+
+        <h1>
+            Structured Academic Notes
+        </h1>
+
+        <p>
+            Artificial Intelligence, Ethics and Professional Development
+        </p>
+
+    </div>
+
+</header>
+
+<nav
+    class="navigation"
+    aria-label="Week 4 navigation"
+>
+
+    <div class="container">
+
+        <a href="../../index.html">
+            Home
+        </a>
+
+        <a href="../week4.html">
+            Week 4
+        </a>
+
+        <a
+            href="notes.html"
+            aria-current="page"
+        >
+            Notes
+        </a>
+
+        <a href="machine-learning.html">
+            Machine Learning
+        </a>
+
+        <a href="ai-glossary.html">
+            AI Glossary
+        </a>
+
+        <a href="ethics.html">
+            Ethics
+        </a>
+
+        <a href="swot.html">
+            SWOT
+        </a>
+
+        <a href="smart-targets.html">
+            SMART Targets
+        </a>
+
+        <a href="references.html">
+            References
+        </a>
+
+    </div>
+
+</nav>
+
+<main class="container">
+
+    <section class="card">
+
+        <h2>
+            Introduction
+        </h2>
+
+        <p>
+            Artificial intelligence refers to computer systems that
+            perform tasks associated with human intelligence, such as
+            recognising patterns, making predictions, interpreting
+            language and selecting actions. Modern AI systems are
+            commonly based on machine learning, where models identify
+            patterns from data rather than relying only on rules
+            written directly by a programmer.
+        </p>
+
+        <p>
+            AI can improve efficiency and support decision-making,
+            but its use also creates ethical and professional
+            responsibilities. Developers must consider data quality,
+            privacy, fairness, explainability, security and the
+            consequences of incorrect outputs. NIST treats these
+            characteristics as interdependent elements of trustworthy
+            AI rather than optional additions applied after
+            development (National Institute of Standards and
+            Technology, 2023).
+        </p>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            1. Artificial Intelligence
+        </h2>
+
+        <h3>
+            Definition
+        </h3>
+
+        <p>
+            Artificial intelligence is a broad field concerned with
+            developing computer systems that can perform tasks
+            requiring perception, reasoning, learning or
+            decision-making.
+        </p>
+
+        <p>
+            Examples include recommendation systems, speech
+            recognition, fraud detection, computer vision,
+            route-planning software and automated language systems.
+        </p>
+
+        <h3>
+            Narrow and General AI
+        </h3>
+
+        <p>
+            Narrow AI is designed for a defined set of tasks. A
+            recommendation model may identify products that a user is
+            likely to select, but it does not possess general
+            intelligence.
+        </p>
+
+        <p>
+            Artificial general intelligence would be capable of
+            performing a wide range of intellectual tasks with
+            adaptability comparable to a human. Existing production
+            systems should generally be understood as specialised
+            systems rather than fully general intelligence. The term
+            should therefore be used cautiously because fluent output
+            or broad task coverage does not demonstrate human-like
+            understanding or autonomy (Russell and Norvig, 2021).
+        </p>
+
+        <h3>
+            Rule-Based Systems and Machine Learning
+        </h3>
+
+        <p>
+            A rule-based system follows explicit conditions written
+            by developers. For example, a program might reject a
+            transaction when a known rule is matched.
+        </p>
+
+        <p>
+            A machine learning system develops a mathematical model
+            from examples. This can be more flexible when patterns
+            are difficult to express as fixed rules, although the
+            resulting behaviour may be harder to explain.
+        </p>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            2. Machine Learning
+        </h2>
+
+        <h3>
+            Supervised Learning
+        </h3>
+
+        <p>
+            Supervised learning uses labelled training data. Each
+            example includes input values and a known output. The
+            model learns a relationship between the inputs and the
+            target.
+        </p>
+
+        <p>
+            Supervised learning can be divided into regression and
+            classification. Regression predicts a continuous value,
+            such as house price. Classification predicts a category,
+            such as whether an email is spam.
+        </p>
+
+        <p>
+            Its main limitation is the requirement for suitable
+            labelled data. Labels may be expensive to produce,
+            incomplete or affected by human bias. A high-performing
+            model can therefore reproduce weaknesses in the labelling
+            process rather than discover an objective version of the
+            target (Géron, 2023).
+        </p>
+
+        <h3>
+            Unsupervised Learning
+        </h3>
+
+        <p>
+            Unsupervised learning uses data without labelled outputs.
+            The system attempts to identify structure, similarity or
+            unusual patterns.
+        </p>
+
+        <p>
+            Common tasks include clustering, dimensionality reduction
+            and anomaly detection. Customer segmentation is a common
+            example because customers can be grouped according to
+            behaviour without predefined categories.
+        </p>
+
+        <p>
+            A limitation is that discovered patterns may not have a
+            useful or meaningful interpretation. Evaluation is also
+            more difficult because there may be no correct answer
+            against which to compare the result.
+        </p>
+
+        <h3>
+            Reinforcement Learning
+        </h3>
+
+        <p>
+            Reinforcement learning involves an agent interacting with
+            an environment. The agent selects actions and receives
+            rewards or penalties. Its objective is to learn a policy
+            that maximises long-term reward.
+        </p>
+
+        <p>
+            Applications include robotics, game-playing systems,
+            resource allocation and some forms of automated control.
+        </p>
+
+        <p>
+            Reinforcement learning can require many interactions and
+            substantial computing resources. Poorly designed rewards
+            may also encourage unintended behaviour because the agent
+            optimises the formal reward rather than the unstated
+            intention of the designer (Russell and Norvig, 2021).
+        </p>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            3. Machine Learning Approaches
+        </h2>
+
+        <h3>
+            Linear Regression
+        </h3>
+
+        <p>
+            Linear regression models the relationship between one or
+            more input variables and a continuous target. It attempts
+            to fit a line or linear function that minimises
+            prediction error.
+        </p>
+
+        <p>
+            It is useful for forecasting and understanding simple
+            relationships. Its main limitation is that real
+            relationships may not be linear.
+        </p>
+
+        <h3>
+            Logistic Regression
+        </h3>
+
+        <p>
+            Logistic regression is commonly used for classification.
+            It estimates the probability that an example belongs to a
+            class, often using a threshold to produce a final
+            decision.
+        </p>
+
+        <p>
+            It is relatively efficient and can be interpretable, but
+            it may struggle with complex non-linear boundaries unless
+            the features are transformed.
+        </p>
+
+        <h3>
+            Decision Trees
+        </h3>
+
+        <p>
+            A decision tree divides data using a sequence of
+            conditions. Each branch represents a possible outcome,
+            and leaf nodes provide predictions.
+        </p>
+
+        <p>
+            Trees are easy to visualise and can model non-linear
+            relationships. However, a deep tree may fit training data
+            too closely and perform poorly on new examples.
+        </p>
+
+        <h3>
+            Support Vector Machines
+        </h3>
+
+        <p>
+            A support vector machine attempts to identify a decision
+            boundary that separates classes with the largest possible
+            margin.
+        </p>
+
+        <p>
+            Kernel functions allow support vector machines to model
+            non-linear relationships. They can work well on
+            moderate-sized datasets but may be computationally
+            expensive on very large datasets.
+        </p>
+
+        <h3>
+            Neural Networks
+        </h3>
+
+        <p>
+            Neural networks contain connected layers of artificial
+            neurons. Each connection has a weight that is adjusted
+            during training.
+        </p>
+
+        <p>
+            Deep neural networks can identify complex patterns in
+            images, sound and text. Their limitations include high
+            data requirements, significant computational cost and
+            reduced interpretability.
+        </p>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            4. Model Development
+        </h2>
+
+        <h3>
+            Training, Validation and Testing
+        </h3>
+
+        <p>
+            A dataset is commonly divided into training, validation
+            and test sections. Training data adjusts model
+            parameters. Validation data supports model selection and
+            tuning. Test data estimates performance on unseen
+            examples.
+        </p>
+
+        <p>
+            Repeatedly using the test set during development can
+            produce an over-optimistic result because design
+            decisions gradually become adapted to that data. The test
+            set should therefore remain separate until final
+            evaluation, while validation or cross-validation supports
+            model selection (Géron, 2023).
+        </p>
+
+        <h3>
+            Features and Labels
+        </h3>
+
+        <p>
+            Features are the input values used by a model. A label is
+            the target output in supervised learning.
+        </p>
+
+        <p>
+            Feature selection and preparation can strongly affect
+            performance. Irrelevant, duplicated or misleading
+            features may reduce accuracy or introduce unfair
+            relationships.
+        </p>
+
+        <h3>
+            Overfitting and Underfitting
+        </h3>
+
+        <p>
+            Overfitting occurs when a model learns training examples
+            too closely and fails to generalise. Underfitting occurs
+            when a model is too simple to represent important
+            patterns.
+        </p>
+
+        <p>
+            Controls include cross-validation, regularisation,
+            collecting more data, simplifying the model and reducing
+            unnecessary features.
+        </p>
+
+        <h3>
+            Performance Metrics
+        </h3>
+
+        <p>
+            Accuracy measures the proportion of correct predictions,
+            but it can be misleading when one class is much more
+            common than another. Metric selection should reflect the
+            operational cost of false positives and false negatives,
+            rather than relying on one headline figure
+            (scikit-learn Developers, 2026).
+        </p>
+
+        <p>
+            Precision measures how many positive predictions were
+            correct. Recall measures how many actual positive cases
+            were identified. The appropriate metric depends on the
+            consequences of false positives and false negatives.
+        </p>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            5. AI Ethics
+        </h2>
+
+        <h3>
+            Data Privacy
+        </h3>
+
+        <p>
+            AI systems may process personal, behavioural, biometric
+            or location data. Developers must consider whether the
+            data is necessary, lawfully collected, securely stored
+            and retained only for an appropriate period.
+        </p>
+
+        <p>
+            Removing names does not always make data anonymous.
+            Individuals may be identifiable when several data points
+            are combined.
+        </p>
+
+        <h3>
+            Algorithmic Bias
+        </h3>
+
+        <p>
+            Algorithmic bias occurs when an AI system produces
+            systematically unfair or unequal outcomes.
+        </p>
+
+        <p>
+            Bias can enter through historical data, sampling,
+            labelling, feature selection, target definitions and
+            deployment decisions. A technically accurate model can
+            still create unfair consequences.
+        </p>
+
+        <h3>
+            Transparency and Explainability
+        </h3>
+
+        <p>
+            Transparency concerns whether stakeholders can understand
+            how a system was developed, what data it uses and how it
+            is governed.
+        </p>
+
+        <p>
+            Explainability concerns whether a particular output or
+            decision can be understood. This is especially important
+            in high-impact areas such as healthcare, employment,
+            finance and criminal justice.
+        </p>
+
+        <h3>
+            Accountability
+        </h3>
+
+        <p>
+            Accountability means that individuals and organisations
+            remain responsible for AI-related decisions. Describing a
+            result as produced by an algorithm does not remove
+            professional or legal responsibility.
+        </p>
+
+        <p>
+            Clear ownership, audit records, review processes and
+            incident procedures are necessary so that harmful
+            behaviour can be investigated and corrected.
+        </p>
+
+        <h3>
+            Responsible AI
+        </h3>
+
+        <p>
+            Responsible AI is an approach to designing, deploying and
+            governing AI systems in ways that are lawful, ethical,
+            secure and socially appropriate. UNESCO (2021) places
+            human rights, human dignity, fairness, transparency and
+            environmental responsibility within this wider
+            governance context.
+        </p>
+
+        <p>
+            It includes privacy protection, fairness testing, human
+            oversight, documentation, security, monitoring and a
+            process for challenging important decisions.
+        </p>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            6. Professional Skills and Employability
+        </h2>
+
+        <h3>
+            Technical Skills
+        </h3>
+
+        <p>
+            Computing professionals require skills in programming,
+            databases, networking, testing, security and software
+            design. AI-related roles may also require statistics,
+            data processing and model evaluation.
+        </p>
+
+        <h3>
+            Transferable Skills
+        </h3>
+
+        <p>
+            Employers also value communication, teamwork,
+            problem-solving, planning, adaptability and professional
+            judgement.
+        </p>
+
+        <p>
+            Technical knowledge has limited value when a professional
+            cannot explain risks, document decisions or work
+            effectively with users and colleagues.
+        </p>
+
+        <h3>
+            Continuous Professional Development
+        </h3>
+
+        <p>
+            Computing changes rapidly, so professional development
+            cannot be treated as a one-off activity. BCS (2026)
+            identifies continuing professional development as a means
+            of maintaining competence, recording learning and
+            planning future improvement. Therefore, professional development
+            should continue throughout a career. Activities can
+            include formal study, short courses, certifications,
+            technical projects, reading, conferences and reflective
+            practice.
+        </p>
+
+        <h3>
+            SWOT Analysis
+        </h3>
+
+        <p>
+            A SWOT analysis identifies strengths, weaknesses,
+            opportunities and threats. Strengths and weaknesses are
+            normally internal, while opportunities and threats are
+            external.
+        </p>
+
+        <p>
+            A personal SWOT analysis can support career planning by
+            showing where existing capability can be used and where
+            development is required.
+        </p>
+
+        <h3>
+            Personal Development Plans
+        </h3>
+
+        <p>
+            A personal development plan translates reflection into
+            defined actions. Effective targets should identify the
+            skill to be developed, the evidence required and a
+            realistic deadline.
+        </p>
+
+        <h3>
+            Digital Professional Portfolios
+        </h3>
+
+        <p>
+            A digital portfolio provides evidence of knowledge,
+            projects, reflection and professional development. It can
+            demonstrate practical capability more clearly than a list
+            of skills alone.
+        </p>
+
+        <p>
+            A strong portfolio should include project context,
+            technical decisions, screenshots, source code where
+            appropriate, challenges, testing and reflection. It should
+            not disclose confidential, copyrighted or sensitive
+            information.
+        </p>
+
+    </section>
+
+    <section class="callout">
+
+        <h2>
+            Overall Evaluation
+        </h2>
+
+        <p>
+            Artificial intelligence combines technical design with
+            ethical and professional responsibility. A successful AI
+            system must do more than produce accurate outputs. It
+            should also use data appropriately, avoid unreasonable
+            discrimination, support meaningful oversight and remain
+            maintainable after deployment.
+        </p>
+
+    </section>
+
+    <div class="page-navigation">
+
+        <a
+            class="button"
+            href="../week4.html"
+        >
+            Back to Week 4
+        </a>
+
+        <a
+            class="button"
+            href="machine-learning.html"
+        >
+            Next: Machine Learning
+        </a>
+
+    </div>
+
+</main>
+
+<footer>
+
+    <p>
+        David's Computing Portfolio
+        &copy;
+        <span data-current-year></span>
+    </p>
+
+</footer>
+
+<script src="../../assets/js/script.js"></script>
+
+</body>
+
+</html>

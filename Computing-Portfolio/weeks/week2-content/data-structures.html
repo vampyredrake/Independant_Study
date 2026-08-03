@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Data Structure Comparison | David's Computing Portfolio
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../../assets/css/style.css"
+    >
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="container">
+
+        <h1>
+            Data Structure Comparison
+        </h1>
+
+        <p>
+            Strengths, Limitations and Applications
+        </p>
+
+    </div>
+
+</header>
+
+<nav
+    class="navigation"
+    aria-label="Week 2 navigation"
+>
+
+    <div class="container">
+
+        <a href="../../index.html">Home</a>
+        <a href="../week2.html">Week 2</a>
+        <a href="notes.html">Notes</a>
+        <a href="data-structures.html">Data Structures</a>
+        <a href="searching.html">Searching</a>
+        <a href="complexity.html">Complexity</a>
+        <a href="databases.html">Databases</a>
+        <a href="reflection.html">Reflection</a>
+        <a href="references.html">References</a>
+
+    </div>
+
+</nav>
+
+<main class="container">
+
+    <section class="card portfolio-overview ">
+
+        <h2>
+            Purpose
+        </h2>
+
+        <p>
+            Data structures organise information in ways that make
+            particular operations efficient. No single structure is
+            best for every task. The correct choice depends on
+            access patterns, insertion and deletion requirements,
+            ordering, memory use and expected data volume
+            (Cormen et al., 2022).
+        </p>
+
+    </section>
+
+    <section>
+
+        <h2>
+            Comparison Table
+        </h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Structure</th>
+                    <th>Strengths</th>
+                    <th>Limitations</th>
+                    <th>Appropriate Applications</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>
+                        <strong>Stack</strong>
+                    </td>
+
+                    <td>
+                        Push and pop operations are normally O(1).
+                        The LIFO rule makes behaviour predictable.
+                    </td>
+
+                    <td>
+                        Only the top item is directly accessible.
+                        It is unsuitable where arbitrary access is
+                        required.
+                    </td>
+
+                    <td>
+                        Undo systems, function calls, expression
+                        evaluation and browser history.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <strong>Queue</strong>
+                    </td>
+
+                    <td>
+                        Enqueue and dequeue operations can be O(1).
+                        It preserves arrival order.
+                    </td>
+
+                    <td>
+                        Access is mainly restricted to the front and
+                        rear. A basic queue cannot prioritise urgent
+                        work.
+                    </td>
+
+                    <td>
+                        Task scheduling, print queues, customer
+                        requests and message processing.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <strong>Linked List</strong>
+                    </td>
+
+                    <td>
+                        Dynamic size and efficient insertion or
+                        deletion when the relevant node is known.
+                    </td>
+
+                    <td>
+                        Indexed access is O(n), and each node requires
+                        additional memory for references.
+                    </td>
+
+                    <td>
+                        Dynamic collections, navigation structures
+                        and applications with frequent insertion.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <strong>Binary Search Tree</strong>
+                    </td>
+
+                    <td>
+                        A balanced tree supports search, insertion
+                        and deletion in approximately O(log n).
+                    </td>
+
+                    <td>
+                        Performance can fall to O(n) if the tree
+                        becomes unbalanced.
+                    </td>
+
+                    <td>
+                        Ordered collections, indexes, dictionaries
+                        and range queries.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <strong>Graph</strong>
+                    </td>
+
+                    <td>
+                        Represents complex relationships and supports
+                        pathfinding and network analysis.
+                    </td>
+
+                    <td>
+                        Storage and processing can become expensive,
+                        especially for dense graphs.
+                    </td>
+
+                    <td>
+                        Social networks, maps, recommendations,
+                        dependencies and computer networks.
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+   <section class="note-section">
+
+    <h2>
+        Structural Illustrations
+    </h2>
+
+    <div class="structure-gallery">
+
+        <figure class="structure-figure">
+
+            <h3>
+                Stack
+            </h3>
+
+            <img
+                src="/assets/images/stack.png"
+                alt="Stack data structure showing Item C at the top, followed by Item B and Item A, demonstrating last-in, first-out behaviour."
+                loading="lazy"
+            >
+
+            <figcaption>
+                A stack follows the
+                <strong>last-in, first-out</strong> principle. Items are
+                added to and removed from the top.
+            </figcaption>
+
+        </figure>
+
+        <figure class="structure-figure">
+
+            <h3>
+                Queue
+            </h3>
+
+            <img
+                src="/assets/images/queue.png"
+                alt="Queue data structure showing Item A at the front and Item D at the rear, demonstrating first-in, first-out behaviour."
+                loading="lazy"
+            >
+
+            <figcaption>
+                A queue follows the
+                <strong>first-in, first-out</strong> principle. Items
+                are removed from the front and added at the rear.
+            </figcaption>
+
+        </figure>
+
+        <figure class="structure-figure">
+
+            <h3>
+                Linked List
+            </h3>
+
+            <img
+                src="/assets/images/linked-list.png"
+                alt="Singly linked list showing nodes containing values A, B, C and D, with each node pointing to the next node and the final node pointing to null."
+                loading="lazy"
+            >
+
+            <figcaption>
+                A linked list consists of nodes containing data and a
+                reference to the next node. The final reference points
+                to <code>null</code>.
+            </figcaption>
+
+        </figure>
+
+        <figure class="structure-figure">
+
+            <h3>
+                Binary Search Tree
+            </h3>
+
+            <img
+                src="/assets/images/binary-tree.png"
+                alt="Binary search tree with 50 as the root, 30 and 70 as child nodes, and 20, 40, 60 and 80 as leaf nodes."
+                loading="lazy"
+            >
+
+            <figcaption>
+                In a binary search tree, values smaller than a node are
+                placed on the left, while larger values are placed on
+                the right.
+            </figcaption>
+
+        </figure>
+
+        <figure class="structure-figure">
+
+            <h3>
+                Graph
+            </h3>
+
+            <img
+                src="/assets/images/graph.png"
+                alt="Undirected graph containing nodes A, B, C, D and E connected by edges."
+                loading="lazy"
+            >
+
+            <figcaption>
+                A graph represents entities as nodes and relationships
+                between those entities as edges.
+            </figcaption>
+
+        </figure>
+
+    </div>
+
+</section>
+
+    <section class="card portfolio-overview">
+
+        <h2>
+            Critical Evaluation
+        </h2>
+
+        <p>
+            Stacks and queues are efficient when the required access
+            pattern matches their rules. Their limited access is a
+            strength because it creates predictable behaviour, but
+            it also prevents them from replacing general-purpose
+            collections.
+        </p>
+
+        <p>
+            Linked lists support insertion and deletion without
+            shifting a large collection of values. However, modern
+            processors often handle contiguous array data more
+            efficiently because of caching. A linked list may
+            therefore perform worse than its theoretical complexity
+            suggests. This illustrates why asymptotic complexity
+            should be considered alongside memory locality and the
+            actual operation pattern (Cormen et al., 2022).
+        </p>
+
+        <p>
+            Binary search trees provide useful ordered operations,
+            but their performance depends on balance. Self-balancing
+            trees such as AVL and red-black trees reduce this risk
+            at the cost of more complex insertion and deletion logic.
+            The additional balancing work is justified when ordered
+            search performance must remain predictable, but may be
+            unnecessary for small or rarely updated collections
+            (Wengrow, 2020).
+        </p>
+
+        <p>
+            Graphs are necessary when relationships are central to
+            the problem. Attempting to represent a route network or
+            social network using only a simple list would make the
+            relationships difficult to query and maintain.
+        </p>
+
+    </section>
+
+    <div class="page-navigation">
+
+    <a class="button" href="../week2.html">
+        Back to Week 2
+    </a>
+
+    <a class="button" href="searching.html">
+        Next: Searching
+    </a>
+
+</div>
+
+</main>
+
+<footer>
+
+    <p>
+        David's Computing Portfolio
+        &copy;
+        <span data-current-year></span>
+    </p>
+
+</footer>
+
+<script src="../../assets/js/script.js"></script>
+
+</body>
+
+</html>

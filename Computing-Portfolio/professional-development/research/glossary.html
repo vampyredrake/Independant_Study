@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="A glossary of key computing terminology used throughout David's BSc Computing Level 5 independent study portfolio."
+    >
+
+    <title>
+        Computing Glossary | David's Computing Portfolio
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../../assets/css/style.css"
+    >
+
+    <style>
+        /*
+         * Glossary-specific styling
+         * This affects only the glossary page.
+         */
+
+        .glossary-page {
+            max-width: 1200px;
+        }
+
+        .glossary-introduction {
+            margin-bottom: 24px;
+        }
+
+        /*
+         * Alphabetical section navigation
+         */
+
+        .glossary-index {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin: 0 0 32px;
+            padding: 18px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 12px;
+        }
+
+        .glossary-index a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 68px;
+            padding: 10px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 8px;
+            color: inherit;
+            text-decoration: none;
+            font-weight: 700;
+            transition:
+                background-color 0.2s ease,
+                border-color 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .glossary-index a:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: currentColor;
+            transform: translateY(-2px);
+        }
+
+        .glossary-index a:focus-visible {
+            outline: 3px solid currentColor;
+            outline-offset: 3px;
+        }
+
+        /*
+         * Glossary sections
+         */
+
+        .glossary-section {
+            scroll-margin-top: 24px;
+        }
+
+        .glossary-section h2 {
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.14);
+        }
+
+        /*
+         * Two-column glossary card layout
+         */
+
+        .glossary-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin: 0;
+        }
+
+        .glossary-entry {
+            min-width: 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.055);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-left: 4px solid currentColor;
+            border-radius: 10px;
+            transition:
+                background-color 0.2s ease,
+                border-color 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .glossary-entry:hover {
+            background: rgba(255, 255, 255, 0.085);
+            border-color: rgba(255, 255, 255, 0.24);
+            transform: translateY(-2px);
+        }
+
+        .glossary-entry dt {
+            margin: 0 0 10px;
+            padding: 0;
+            font-size: 1.05rem;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .glossary-entry dd {
+            margin: 0;
+            padding: 0;
+            line-height: 1.7;
+            overflow-wrap: anywhere;
+        }
+
+        .glossary-entry abbr {
+            text-decoration: none;
+            border-bottom: 1px dotted currentColor;
+            cursor: help;
+        }
+
+        /*
+         * Return-to-top link
+         */
+
+        .section-top-link {
+            margin: 22px 0 0;
+            text-align: right;
+        }
+
+        .section-top-link a {
+            color: inherit;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .section-top-link a:hover {
+            text-decoration: underline;
+        }
+
+        /*
+         * Responsive layout
+         */
+
+        @media (max-width: 800px) {
+
+            .glossary-list {
+                grid-template-columns: 1fr;
+            }
+
+            .glossary-index {
+                justify-content: flex-start;
+            }
+
+        }
+
+        @media (max-width: 500px) {
+
+            .glossary-index {
+                gap: 8px;
+                padding: 14px;
+            }
+
+            .glossary-index a {
+                flex: 1 1 calc(33.333% - 8px);
+                min-width: 70px;
+                padding: 9px 10px;
+            }
+
+            .glossary-entry {
+                padding: 16px;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="container">
+
+        <h1>
+            Computing Glossary
+        </h1>
+
+        <p>
+            Key Terminology Used Across the Portfolio
+        </p>
+
+    </div>
+
+</header>
+
+<nav class="navigation">
+
+    <div class="container">
+
+        <a href="../../index.html">Home</a>
+        <a href="../../weeks/week1.html">Week 1</a>
+        <a href="../../weeks/week2.html">Week 2</a>
+        <a href="../../weeks/week3.html">Week 3</a>
+        <a href="../../weeks/week4.html">Week 4</a>
+
+        <a href="../reflections/weekly-reflection.html">
+            Weekly Reflection
+        </a>
+
+        <a href="../reflections/final-review.html">
+            Final Review
+        </a>
+
+        <a
+            href="glossary.html"
+            aria-current="page"
+        >
+            Glossary
+        </a>
+
+        <a href="references.html">
+            References
+        </a>
+
+    </div>
+
+</nav>
+
+<main
+    class="container glossary-page"
+    id="glossary-top"
+>
+
+    <section class="card glossary-introduction">
+
+        <h2>
+            Glossary Overview
+        </h2>
+
+        <p>
+            This glossary defines key technical terms used throughout
+            the portfolio. The definitions are written in concise
+            language and support the topics studied during Weeks 1 to 4.
+        </p>
+
+        <p>
+            The terms are arranged alphabetically. Several concepts
+            apply to more than one weekly topic because areas such as
+            networking, databases, cyber security, web development and
+            artificial intelligence are closely connected.
+        </p>
+
+    </section>
+
+    <nav
+        class="glossary-index"
+        aria-label="Glossary alphabetical sections"
+    >
+
+        <a href="#glossary-a-c">A–C</a>
+        <a href="#glossary-d-h">D–H</a>
+        <a href="#glossary-i-m">I–M</a>
+        <a href="#glossary-n-s">N–S</a>
+        <a href="#glossary-t-z">T–Z</a>
+
+    </nav>
+
+    <section
+        class="note-section glossary-section"
+        id="glossary-a-c"
+    >
+
+        <h2>
+            A–C
+        </h2>
+
+        <dl class="glossary-list">
+
+            <div class="glossary-entry">
+
+                <dt>
+                    Algorithm
+                </dt>
+
+                <dd>
+                    A finite sequence of instructions designed to solve
+                    a problem or complete a specific computational task.
+                </dd>
+
+            </div>
+
+            <div class="glossary-entry">
+
+                <dt>
+                    Application Programming Interface
+                    <abbr title="Application Programming Interface">
+                        (API)
+                    </abbr>
+                </dt>
+
+                <dd>
+                    A defined set of rules that allows software systems
+                    or components to communicate with one another.
+                </dd>
+
+            </div>
+
+            <div class="glossary-entry">
+
+                <dt>
+                    Artificial Intelligence
+                    <abbr title="Artificial Intelligence">
+                        (AI)
+                    </abbr>
+                </dt>
+
+                <dd>
+                    The field of computing concerned with developing
+                    systems capable of performing tasks that would
+                    normally require human intelligence, such as
+                    recognising patterns, interpreting language or
+                    supporting decisions.
+                </dd>
+
+            </div>
+
+            <div class="glossary-entry">
+
+                <dt>
+                    Availability
+                </dt>
+
+                <dd>
+                    The principle that systems, services and information
+                    should remain accessible to authorised users when
+                    they are required.
+                </dd>
+
+            </div>
+
+            <div class="glossary-entry">
+
+                <dt>
+                    Big O Notation
+                </dt>
+
+                <dd>
+                    A mathematical notation used to describe how the
+                    time or memory requirements of an algorithm grow as
+                    the size of its input increases.
+                </dd>
+
+            </div>
+
+            <div class="glossary-entry">
+
+                <dt>
+                    Bias
+                </dt>
+
+                <dd>
+                    A systematic distortion in data, system design or
+                    decision-making that may produce unfair, inaccurate
+                    or unrepresentative outcomes.
+                </dd>
+
+            </div>
+
+            <div class="glossary-entry">
+
+                <dt>
+                    Binary Search
+                </dt>
+
+                <dd>
+                    A search algorithm that repeatedly divides a sorted
+                    dataset into halves until the required item is found
+                    or the remaining search range becomes empty.
+                </dd>
+
+            </div>
+
+            <div class="glossary-entry">
+
+                <dt>
+                    Browser
+                </dt>
+
+                <dd>
+                    A software application that requests, interprets and
+                    displays web content, including HTML, CSS and
+                    JavaScript.
+                </dd>
+
+            </div>
+
+            <div class="glossary-entry">
+
+                <dt>
+                    Cascading Style Sheets
+                    <abbr title="Cascading Style Sheets">
+                        (CSS)
+                    </abbr>
+                </dt>
+
+                <dd>
+                    A stylesheet language used to control the visual
+                    appearance, layout and responsive behaviour of web
+                    pages.
+                </dd>
+
+            </div>
+
+            <div class="glossary-entry">
+
+                <dt>
+                    CIA Triad
+                </dt>
+
+                <dd>
+                    A cyber security model based on three core
+                    principles: confidentiality, integrity and
+                    availability.
+                </dd>
+
+            </div>
+
+            <div class="glossary-entry">
+
+                <dt>
+                    Client
+                </dt>
+
+                <dd>
+                    A device or software application that requests data,
+                    resources or services from another system, usually a
+                    server.
+                </dd>
+
+            </div>
+
+            <div class="glossary-entry">
+
+                <dt>
+                    Cloud Computing
+                </dt>
+
+                <dd>
+                    The delivery of computing resources, including
+                    processing, storage and software, through a network,
+                    usually the internet.
+                </dd>
+
+            </div>
+
+            <div class="glossary-entry">
+
+                <dt>
+                    Confidentiality
+                </dt>
+
+                <dd>
+                    The protection of information from unauthorised
+                    access, use or disclosure.
+                </dd>
+
+            </div>
+
+        </dl>
+
+        <p class="section-top-link">
+            <a href="#glossary-top">Back to glossary index</a>
+        </p>
+
+    </section>
+
+    <section
+        class="note-section glossary-section"
+        id="glossary-d-h"
+    >
+
+        <h2>
+            D–H
+        </h2>
+
+        <dl class="glossary-list">
+
+            <div class="glossary-entry">
+
+                <dt>
+                    Database
+                </dt>
+
+                <dd>
+                    An organised collection of data that can be stored,
+                    managed, searched and retrieved electronically.
+                </dd>
+
+            </div>
+
+            <div class="glossary-entry">
+
+                <dt>
+                    Database Management System
+                    <abbr title="Database Management System">
+                        (DBMS)
+                    </abbr>
+                </dt>
+
+                <dd>
+                    Software used to create, maintain, secure and query
+                    a database.
+                </dd>
+
+            </div>
+
+            <div class="glossary-entry">
+
+                <dt>
+                    Data Structure
+                </dt>
+
+                <dd>
+                    A method of organising and storing data so that it
+                    can be accessed, processed and modified efficiently.
+                </dd>
+
+            </div>
+
+            <div class="glossary-entry">
+
+                <dt>
+                    Domain Name System
+                    <abbr title="Domain Name System">
+                        (DNS)
+                    </abbr>
+                </dt>
+
+                <dd>
+                    A distributed naming system that translates
+                    human-readable domain names into numerical IP
+                    addresses.
+                </dd>
+
+            </div>
+
+            <div class="glossary-entry">
+
+                <dt>
+                    Encryption
+                </dt>
+
+                <dd>
+                    The process of converting readable information into
+                    an encoded form so that it cannot be understood
+                    without the correct decryption key or method.
+                </dd>
+
+            </div>
+
+            <div class="glossary-entry">
+
+                <dt>
+                    Ethics
+                </dt>
+
+                <dd>
+                    Principles used to evaluate whether actions,
+                    technologies and decisions are responsible, fair
+                    and socially acceptable.
+                </dd>
+
+            </div>
+
+            <div class="glossary-entry">
+
+                <dt>
+                    Foreign Key
+                </dt>
+
+                <dd>
+                    A field in one database table that refers to a
+                    primary key in another table, establishing a
+                    relationship between the tables.
+                </dd>
+
+            </div>
+
+            <div class="glossary-entry">
+
+                <dt>
+                    Hypertext Markup Language
+                    <abbr title="Hypertext Markup Language">
+                        (HTML)
+                    </abbr>
+                </dt>
+
+                <dd>
+                    The standard markup language used to structure the
+                    content and semantic meaning of web pages.
+                </dd>
+
+            </div>
+
+            <div class="glossary-entry">
+
+                <dt>
+                    Hypertext Transfer Protocol
+                    <abbr title="Hypertext Transfer Protocol">
+                        (HTTP)
+                    </abbr>
+                </dt>
+
+                <dd>
+                    An application-layer protocol used to transfer web
+                    resources between clients and servers.
+                </dd>
+
+            </div>
+
+            <div class="glossary-entry">
+
+                <dt>
+                    Hypertext Transfer Protocol Secure
+                    <abbr title="Hypertext Transfer Protocol Secure">
+                        (HTTPS)
+                    </abbr>
+                </dt>
+
+                <dd>
+                    The secure form of HTTP, which uses encryption to
+                    protect data exchanged between a client and server.
+                </dd>
+
+            </div>
+
+        </dl>
+
+        <p class="section-top-link">
+            <a href="#glossary-top">Back to glossary index</a>
+        </p>
+
+    </section>
+
+    <section
+        class="note-section glossary-section"
+        id="glossary-i-m"
+    >
+
+        <h2>
+            I–M
+        </h2>
+
+        <dl class="glossary-list">
+
+            <div class="glossary-entry">
+
+                <dt>
+                    Infrastructure as a Service
+                    <abbr title="Infrastructure as a Service">
+                        (IaaS)
+                    </abbr>
+                </dt>
+
+                <dd>
+                    A cloud service model that provides virtualised
+                    infrastructure, such as servers, storage and
+                    networking resources.
+                </dd>
+
+            </div>
+
+            <div class="glossary-entry">
+
+                <dt>
+                    Integrity
+                </dt>
+
+                <dd>
+                    The assurance that data remains accurate, complete
+                    and protected against unauthorised alteration.
+                </dd>
+
+            </div>
+
+            <div class="glossary-entry">
+
+                <dt>
+                    Internet Protocol Address
+                    <abbr title="Internet Protocol Address">
+                        (IP Address)
+                    </abbr>
+                </dt>
+
+                <dd>
+                    A numerical identifier assigned to a device on a
+                    network so that data can be routed to and from it.
+                </dd>
+
+            </div>
+
+            <div class="glossary-entry">
+
+                <dt>
+                    JavaScript
+                </dt>
+
+                <dd>
+                    A programming language commonly used to add
+                    interactivity, validation and dynamic behaviour to
+                    web pages.
+                </dd>
+
+            </div>
+
+            <div class="glossary-entry">
+
+                <dt>
+                    Linear Search
+                </dt>
+
+                <dd>
+                    A search algorithm that examines each item in a
+                    dataset sequentially until the required item is
+                    found or the dataset ends.
+                </dd>
+
+            </div>
+
+            <div class="glossary-entry">
+
+                <dt>
+                    Machine Learning
+                    <abbr title="Machine Learning">
+                        (ML)
+                    </abbr>
+                </dt>
+
+                <dd>
+                    A branch of artificial intelligence in which
+                    systems identify patterns in data and use them to
+                    make predictions, classifications or decisions.
+                </dd>
+
+            </div>
+
+        </dl>
+
+        <p class="section-top-link">
+            <a href="#glossary-top">Back to glossary index</a>
+        </p>
+
+    </section>
+
+    <section
+        class="note-section glossary-section"
+        id="glossary-n-s"
+    >
+
+        <h2>
+            N–S
+        </h2>
+
+        <dl class="glossary-list">
+
+            <div class="glossary-entry">
+
+                <dt>
+                    Normalisation
+                </dt>
+
+                <dd>
+                    The process of organising a relational database to
+                    minimise data duplication and improve consistency.
+                </dd>
+
+            </div>
+
+            <div class="glossary-entry">
+
+                <dt>
+                    Platform as a Service
+                    <abbr title="Platform as a Service">
+                        (PaaS)
+                    </abbr>
+                </dt>
+
+                <dd>
+                    A cloud service model that provides a managed
+                    environment for developing, testing and deploying
+                    applications without maintaining the underlying
+                    infrastructure.
+                </dd>
+
+            </div>
+
+            <div class="glossary-entry">
+
+                <dt>
+                    Primary Key
+                </dt>
+
+                <dd>
+                    A field, or combination of fields, that uniquely
+                    identifies each record within a database table.
+                </dd>
+
+            </div>
+
+            <div class="glossary-entry">
+
+                <dt>
+                    Relational Database
+                </dt>
+
+                <dd>
+                    A database that stores information in related
+                    tables and uses keys to establish connections
+                    between records.
+                </dd>
+
+            </div>
+
+            <div class="glossary-entry">
+
+                <dt>
+                    Responsive Design
+                </dt>
+
+                <dd>
+                    A web design approach that enables page content and
+                    layouts to adapt to different devices and screen
+                    sizes.
+                </dd>
+
+            </div>
+
+            <div class="glossary-entry">
+
+                <dt>
+                    Secure Sockets Layer and Transport Layer Security
+                    <abbr title="Secure Sockets Layer and Transport Layer Security">
+                        (SSL/TLS)
+                    </abbr>
+                </dt>
+
+                <dd>
+                    Cryptographic protocols used to secure communication
+                    between clients and servers. TLS is the modern
+                    successor to SSL.
+                </dd>
+
+            </div>
+
+            <div class="glossary-entry">
+
+                <dt>
+                    Server
+                </dt>
+
+                <dd>
+                    A computer or software application that provides
+                    services, resources or data to requesting clients
+                    over a network.
+                </dd>
+
+            </div>
+
+            <div class="glossary-entry">
+
+                <dt>
+                    SMART Target
+                </dt>
+
+                <dd>
+                    A development target designed to be specific,
+                    measurable, achievable, relevant and time-bound.
+                </dd>
+
+            </div>
+
+            <div class="glossary-entry">
+
+                <dt>
+                    Software as a Service
+                    <abbr title="Software as a Service">
+                        (SaaS)
+                    </abbr>
+                </dt>
+
+                <dd>
+                    A cloud service model in which software is delivered
+                    to users over the internet without requiring local
+                    installation or infrastructure management.
+                </dd>
+
+            </div>
+
+            <div class="glossary-entry">
+
+                <dt>
+                    Structured Query Language
+                    <abbr title="Structured Query Language">
+                        (SQL)
+                    </abbr>
+                </dt>
+
+                <dd>
+                    A language used to create, manage, manipulate and
+                    query data held in relational databases.
+                </dd>
+
+            </div>
+
+            <div class="glossary-entry">
+
+                <dt>
+                    SWOT Analysis
+                </dt>
+
+                <dd>
+                    A planning method used to evaluate strengths,
+                    weaknesses, opportunities and threats relating to a
+                    project, organisation or individual.
+                </dd>
+
+            </div>
+
+        </dl>
+
+        <p class="section-top-link">
+            <a href="#glossary-top">Back to glossary index</a>
+        </p>
+
+    </section>
+
+    <section
+        class="note-section glossary-section"
+        id="glossary-t-z"
+    >
+
+        <h2>
+            T–Z
+        </h2>
+
+        <dl class="glossary-list">
+
+            <div class="glossary-entry">
+
+                <dt>
+                    Threat
+                </dt>
+
+                <dd>
+                    Any event, action or circumstance capable of causing
+                    harm to information, systems, users or organisational
+                    operations.
+                </dd>
+
+            </div>
+
+            <div class="glossary-entry">
+
+                <dt>
+                    Transmission Control Protocol
+                    <abbr title="Transmission Control Protocol">
+                        (TCP)
+                    </abbr>
+                </dt>
+
+                <dd>
+                    A transport-layer protocol that provides reliable,
+                    ordered and error-checked delivery of data between
+                    networked systems.
+                </dd>
+
+            </div>
+
+            <div class="glossary-entry">
+
+                <dt>
+                    Uniform Resource Locator
+                    <abbr title="Uniform Resource Locator">
+                        (URL)
+                    </abbr>
+                </dt>
+
+                <dd>
+                    The address used to identify and access a resource
+                    on the World Wide Web.
+                </dd>
+
+            </div>
+
+            <div class="glossary-entry">
+
+                <dt>
+                    User Interface
+                    <abbr title="User Interface">
+                        (UI)
+                    </abbr>
+                </dt>
+
+                <dd>
+                    The visual and interactive elements through which a
+                    user communicates with a website, device or software
+                    application.
+                </dd>
+
+            </div>
+
+            <div class="glossary-entry">
+
+                <dt>
+                    Virtual Machine
+                    <abbr title="Virtual Machine">
+                        (VM)
+                    </abbr>
+                </dt>
+
+                <dd>
+                    A software-based computer that emulates physical
+                    hardware and operates as an independent computing
+                    environment.
+                </dd>
+
+            </div>
+
+            <div class="glossary-entry">
+
+                <dt>
+                    Vulnerability
+                </dt>
+
+                <dd>
+                    A weakness in software, hardware, configuration or
+                    organisational procedures that could be exploited
+                    by a threat.
+                </dd>
+
+            </div>
+
+            <div class="glossary-entry">
+
+                <dt>
+                    Web Server
+                </dt>
+
+                <dd>
+                    Hardware or software responsible for storing,
+                    processing and delivering web content to client
+                    browsers.
+                </dd>
+
+            </div>
+
+        </dl>
+
+        <p class="section-top-link">
+            <a href="#glossary-top">Back to glossary index</a>
+        </p>
+
+    </section>
+
+    <section class="callout">
+
+        <h2>
+            Summary
+        </h2>
+
+        <p>
+            This glossary provides a central reference point for the
+            terminology used throughout the Level 5 independent study
+            portfolio. It supports the weekly notes by clarifying
+            important concepts, technical language and abbreviations
+            associated with web development, data, networking, cyber
+            security, cloud computing and artificial intelligence.
+        </p>
+
+    </section>
+
+    <div class="page-navigation">
+
+        <a
+            class="button"
+            href="../reflections/final-review.html"
+        >
+            Previous: Final Review
+        </a>
+
+        <a
+            class="button"
+            href="../../index.html"
+        >
+            Back to Home
+        </a>
+
+        <a
+            class="button"
+            href="references.html"
+        >
+            Next: References
+        </a>
+
+    </div>
+
+</main>
+
+<footer>
+
+    <p>
+        David's Computing Portfolio
+        &copy;
+        <span data-current-year></span>
+    </p>
+
+</footer>
+
+<script src="../../assets/js/script.js"></script>
+
+</body>
+
+</html>

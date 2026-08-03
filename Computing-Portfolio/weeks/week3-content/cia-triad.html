@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="An explanation and critical evaluation of the CIA triad in information security."
+    >
+
+    <title>
+        CIA Triad | David's Computing Portfolio
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../../assets/css/style.css"
+    >
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="container">
+
+        <h1>
+            The CIA Triad
+        </h1>
+
+        <p>
+            Confidentiality, Integrity and Availability
+        </p>
+
+    </div>
+
+</header>
+
+<nav
+    class="navigation"
+    aria-label="Week 3 navigation"
+>
+
+    <div class="container">
+
+        <a href="../../index.html">
+            Home
+        </a>
+
+        <a href="../week3.html">
+            Week 3
+        </a>
+
+        <a href="notes.html">
+            Notes
+        </a>
+
+        <a href="osi-model.html">
+            OSI Model
+        </a>
+
+        <a href="cloud-services.html">
+            Cloud Services
+        </a>
+
+        <a href="threat-analysis.html">
+            Threat Analysis
+        </a>
+
+        <a
+            href="cia-triad.html"
+            aria-current="page"
+        >
+            CIA Triad
+        </a>
+
+        <a href="reflection.html">
+            Reflection
+        </a>
+
+        <a href="references.html">
+            References
+        </a>
+
+    </div>
+
+</nav>
+
+<main class="container">
+
+    <section class="card portfolio-overview">
+
+        <h2>
+            Purpose of the CIA Triad
+        </h2>
+
+        <p>
+            The CIA triad is a foundational model used to classify
+            the security requirements of information and systems. It
+            consists of confidentiality, integrity and availability
+            (Stallings, 2017).
+        </p>
+
+        <p>
+            The model supports risk assessment by encouraging an
+            organisation to consider whether information could be
+            disclosed, altered or made unavailable. It is most useful
+            when each principle is linked to specific assets,
+            consequences and measurable controls rather than treated
+            as a generic checklist.
+        </p>
+
+    </section>
+
+    <section class="cards">
+
+        <article class="card">
+
+            <h2>
+                Confidentiality
+            </h2>
+
+            <p>
+                Confidentiality ensures that information is only
+                available to authorised people, systems or processes.
+            </p>
+
+            <h3>
+                Example Threats
+            </h3>
+
+            <ul>
+                <li>stolen user accounts;</li>
+                <li>misconfigured cloud storage;</li>
+                <li>data interception;</li>
+                <li>insider disclosure;</li>
+                <li>lost devices.</li>
+            </ul>
+
+            <h3>
+                Example Controls
+            </h3>
+
+            <ul>
+                <li>encryption;</li>
+                <li>access control;</li>
+                <li>multifactor authentication;</li>
+                <li>data classification;</li>
+                <li>least privilege.</li>
+            </ul>
+
+        </article>
+
+        <article class="card">
+
+            <h2>
+                Integrity
+            </h2>
+
+            <p>
+                Integrity ensures that information remains accurate,
+                complete and protected from unauthorised modification.
+            </p>
+
+            <h3>
+                Example Threats
+            </h3>
+
+            <ul>
+                <li>SQL injection;</li>
+                <li>malicious software updates;</li>
+                <li>unauthorised database changes;</li>
+                <li>accidental data corruption;</li>
+                <li>tampered audit records.</li>
+            </ul>
+
+            <h3>
+                Example Controls
+            </h3>
+
+            <ul>
+                <li>hashing;</li>
+                <li>digital signatures;</li>
+                <li>database constraints;</li>
+                <li>change control;</li>
+                <li>audit logging.</li>
+            </ul>
+
+        </article>
+
+        <article class="card">
+
+            <h2>
+                Availability
+            </h2>
+
+            <p>
+                Availability ensures that systems and information are
+                accessible to authorised users when required.
+            </p>
+
+            <h3>
+                Example Threats
+            </h3>
+
+            <ul>
+                <li>DDoS attacks;</li>
+                <li>ransomware;</li>
+                <li>hardware failure;</li>
+                <li>power failure;</li>
+                <li>cloud-service disruption.</li>
+            </ul>
+
+            <h3>
+                Example Controls
+            </h3>
+
+            <ul>
+                <li>backups;</li>
+                <li>redundancy;</li>
+                <li>load balancing;</li>
+                <li>capacity planning;</li>
+                <li>incident-response procedures.</li>
+            </ul>
+
+        </article>
+
+    </section>
+
+    <section>
+
+        <h2>
+            Security-Control Comparison
+        </h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Control</th>
+                    <th>Confidentiality</th>
+                    <th>Integrity</th>
+                    <th>Availability</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>Encryption</td>
+                    <td>Strong protection</td>
+                    <td>
+                        Supports integrity when authenticated
+                        encryption is used
+                    </td>
+                    <td>No direct protection</td>
+                </tr>
+
+                <tr>
+                    <td>Hashing</td>
+                    <td>No direct protection</td>
+                    <td>Strong change detection</td>
+                    <td>No direct protection</td>
+                </tr>
+
+                <tr>
+                    <td>Access control</td>
+                    <td>Strong protection</td>
+                    <td>Prevents unauthorised modification</td>
+                    <td>May support or restrict access</td>
+                </tr>
+
+                <tr>
+                    <td>Backups</td>
+                    <td>
+                        Requires separate protection from disclosure
+                    </td>
+                    <td>Supports recovery of correct data</td>
+                    <td>Strong recovery support</td>
+                </tr>
+
+                <tr>
+                    <td>Redundancy</td>
+                    <td>No direct protection</td>
+                    <td>Limited direct effect</td>
+                    <td>Strong protection</td>
+                </tr>
+
+                <tr>
+                    <td>Digital signatures</td>
+                    <td>No direct protection</td>
+                    <td>
+                        Verifies origin and detects alteration
+                    </td>
+                    <td>No direct protection</td>
+                </tr>
+
+                <tr>
+                    <td>Monitoring</td>
+                    <td>Detects possible disclosure</td>
+                    <td>Detects unauthorised change</td>
+                    <td>Detects service failure</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            Applying the Model
+        </h2>
+
+        <h3>
+            Example: Online Banking
+        </h3>
+
+        <p>
+            Confidentiality requires protection of account details,
+            personal information and transaction records. Encryption,
+            secure authentication and restricted staff access are
+            important controls.
+        </p>
+
+        <p>
+            Integrity requires balances and transactions to remain
+            accurate. Database transactions, validation, audit logs
+            and separation of duties reduce the risk of unauthorised
+            changes.
+        </p>
+
+        <p>
+            Availability requires customers to access services when
+            needed. Redundant systems, DDoS protection, backups and
+            tested recovery arrangements support continuity.
+        </p>
+
+        <h3>
+            Example: Healthcare System
+        </h3>
+
+        <p>
+            Confidentiality protects sensitive medical information.
+            Integrity ensures that clinicians receive correct records
+            and medication details. Availability is critical because
+            unavailable systems may delay treatment.
+        </p>
+
+        <p>
+            The example demonstrates that all three principles can be
+            essential at the same time. Focusing on one principle
+            while neglecting another can create serious risk. In
+            clinical systems, for example, excessively restrictive
+            access may protect confidentiality while delaying
+            time-critical treatment, so controls require proportionate
+            risk assessment.
+        </p>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            Security Trade-Offs
+        </h2>
+
+        <p>
+            Security controls can affect more than one part of the
+            triad. A strict access policy may improve confidentiality
+            and integrity but reduce availability if authorised users
+            cannot obtain information quickly.
+        </p>
+
+        <p>
+            Redundant copies improve availability but create more
+            locations where confidential information must be
+            protected. Encryption improves confidentiality but can
+            affect recovery if keys are lost.
+        </p>
+
+        <p>
+            Organisations should therefore evaluate controls as part
+            of a complete system rather than assuming that every
+            control produces only positive effects. The NIST
+            Cybersecurity Framework similarly emphasises coordinated
+            governance and risk management rather than isolated
+            technical measures (National Institute of Standards and
+            Technology, 2024).
+        </p>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            Limitations of the CIA Triad
+        </h2>
+
+        <p>
+            The CIA triad is a useful starting point, but it does not
+            represent every security objective in detail. Additional
+            concerns can include authenticity, accountability,
+            privacy, non-repudiation and safety.
+        </p>
+
+        <p>
+            Authenticity concerns whether an identity, message or
+            system is genuine. Accountability concerns whether
+            actions can be traced to a responsible entity. Privacy
+            concerns the fair and lawful handling of personal
+            information.
+        </p>
+
+        <p>
+            These concerns relate to the CIA principles but may
+            require separate analysis. The triad should therefore
+            support a wider risk-management process rather than
+            replace it. In particular, the model does not by itself
+            determine risk appetite, legal obligations, human safety
+            requirements or the effectiveness of implemented
+            controls.
+        </p>
+
+    </section>
+
+    <section class="card portfolio-overview">
+
+        <h2>
+            Overall Evaluation
+        </h2>
+
+        <p>
+            The CIA triad gives organisations a clear way to identify
+            the types of harm that may affect information. It is
+            particularly useful during risk assessment and system
+            design.
+        </p>
+
+        <p>
+            Its main value is that it prevents security from being
+            reduced to secrecy alone. A system with strong
+            confidentiality can still fail if its data is inaccurate
+            or its services are unavailable.
+        </p>
+
+    </section>
+
+    <div class="page-navigation">
+
+        <a
+            class="button"
+            href="threat-analysis.html"
+        >
+            Previous: Threat Analysis
+        </a>
+
+        <a
+            class="button"
+            href="../week3.html"
+        >
+            Back to Week 3
+        </a>
+
+        <a
+            class="button"
+            href="reflection.html"
+        >
+            Next: Reflection
+        </a>
+
+    </div>
+
+</main>
+
+<footer>
+
+    <p>
+        David's Computing Portfolio
+        &copy;
+        <span data-current-year></span>
+    </p>
+
+</footer>
+
+<script src="../../assets/js/script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Week 1 Reflection | David's Computing Portfolio
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../../assets/css/style.css"
+    >
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="container">
+
+        <h1>
+            Week 1 Critical Reflection
+        </h1>
+
+        <p>
+            Web Development, Infrastructure and Programming
+        </p>
+
+    </div>
+
+</header>
+
+<nav class="navigation">
+
+    <div class="container">
+
+        <a href="../../index.html">Home</a>
+        <a href="../week1.html">Week 1</a>
+        <a href="notes.html">Notes</a>
+        <a href="comparison.html">Comparison</a>
+        <a href="architecture-diagram.html">Diagram</a>
+        <a href="glossary.html">Glossary</a>
+        <a href="reflection.html">Reflection</a>
+        <a href="references.html">References</a>
+
+    </div>
+
+</nav>
+
+<main class="container">
+
+    <section class="card">
+
+        <h2>
+            Critical Reflection
+        </h2>
+
+        <p>
+            Before completing this study, I tended to separate web
+            development into front-end code and back-end code. The
+            most significant change in my understanding is that a web
+            application should be viewed as one connected system.
+            Semantic HTML, JavaScript behaviour, DNS resolution,
+            HTTPS communication and server-side processing all
+            influence the user's experience, even though many of
+            these stages are not visible.
+        </p>
+
+        <p>
+            The client-server request lifecycle was particularly
+            useful because it gave context to technologies I had
+            previously studied individually. DNS is not simply an
+            internet definition to remember; it is the stage that
+            allows the browser to locate the server. HTTPS is also
+            more than displaying a padlock. TLS protects information
+            while it moves between the client and server and helps
+            confirm that the browser is communicating with the
+            intended service. This has made security feel more
+            closely connected to everyday development decisions.
+        </p>
+
+        <p>
+            I also found the comparison between dynamic and strongly
+            typed approaches significant. JavaScript's flexibility
+            supports rapid development, but it can allow type-related
+            problems to remain hidden until runtime. Strong typing
+            can detect more problems earlier and make large codebases
+            easier to understand, although it introduces additional
+            structure. This suggests that technology choice should
+            depend on project scale and risk rather than personal
+            preference.
+        </p>
+
+        <p>
+            These concepts relate directly to professional software
+            development because maintainability depends on decisions
+            made across the whole system. Semantic structure can
+            support accessibility, but WCAG 2.2 shows that accessible
+            design also depends on operability, clarity and robustness
+            (World Wide Web Consortium, 2023). Suitable architecture
+            can support growth and controlled programming techniques
+            can reduce defects. However, adding complexity without a
+            clear requirement can make a system harder to maintain. The area I need to
+            investigate further is asynchronous programming and
+            concurrency, particularly how race conditions occur and
+            how developers test systems where several tasks may
+            interact with the same data.
+        </p>
+
+    </section>
+
+    <section class="callout">
+
+        <h2>
+            Reflection Summary
+        </h2>
+
+        <p>
+            <strong>Most significant concept:</strong>
+            understanding a web application as a connected system.
+        </p>
+
+        <p>
+            <strong>Professional relevance:</strong>
+            architecture, accessibility, security and maintainability
+            influence one another.
+        </p>
+
+        <p>
+            <strong>Further investigation:</strong>
+            asynchronous behaviour, shared state and concurrency
+            testing.
+        </p>
+
+    </section>
+
+    <div class="page-navigation">
+
+    <a class="button" href="glossary.html">
+        Previous: Glossary
+    </a>
+
+    <a class="button" href="../week1.html">
+        Back to Week 1
+    </a>
+
+    <a class="button" href="references.html">
+        Next: References
+    </a>
+
+</div>
+
+</main>
+
+<footer>
+
+    <p>
+        David's Computing Portfolio
+        &copy;
+        <span data-current-year></span>
+    </p>
+
+</footer>
+
+<script src="../../assets/js/script.js"></script>
+
+</body>
+
+</html>

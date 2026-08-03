@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="A personal SWOT analysis evaluating strengths, weaknesses, opportunities and threats affecting academic and professional development."
+    >
+
+    <title>
+        SWOT Analysis | David's Computing Portfolio
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../../assets/css/style.css"
+    >
+
+    <style>
+        /* ---------------------------------------------------------
+           SWOT page layout
+           --------------------------------------------------------- */
+
+        .swot-page {
+            max-width: 1200px;
+        }
+
+        .swot-page p {
+            max-width: none;
+        }
+
+        /* ---------------------------------------------------------
+           Introduction
+           --------------------------------------------------------- */
+
+        .swot-introduction {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .swot-introduction::after {
+            content: "SWOT";
+
+            position: absolute;
+            top: 50%;
+            right: 2rem;
+
+            color: rgba(56, 189, 248, 0.05);
+
+            font-size: clamp(5rem, 13vw, 9rem);
+            font-weight: 800;
+            line-height: 1;
+
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+
+        .swot-introduction > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ---------------------------------------------------------
+           SWOT grid
+           --------------------------------------------------------- */
+
+        .swot-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 1.25rem;
+            margin-block: 2rem;
+        }
+
+        .swot-card {
+            position: relative;
+            overflow: hidden;
+
+            padding: 1.5rem;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    var(--surface),
+                    #172033
+                );
+
+            border: 1px solid rgba(148, 163, 184, 0.22);
+            border-radius: var(--radius-medium);
+            box-shadow: var(--shadow);
+        }
+
+        .swot-card::before {
+            content: "";
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            width: 5px;
+            height: 100%;
+
+            background: var(--swot-colour);
+        }
+
+        .swot-card h2 {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+
+            margin-bottom: 1rem;
+
+            color: var(--swot-colour);
+        }
+
+        .swot-letter {
+            display: inline-grid;
+            place-items: center;
+
+            width: 42px;
+            height: 42px;
+            flex: 0 0 42px;
+
+            color: #ffffff;
+            background: color-mix(
+                in srgb,
+                var(--swot-colour) 24%,
+                transparent
+            );
+
+            border: 1px solid color-mix(
+                in srgb,
+                var(--swot-colour) 60%,
+                transparent
+            );
+            border-radius: 50%;
+
+            font-size: 1.15rem;
+            font-weight: 800;
+        }
+
+        .swot-card ul {
+            margin: 0;
+            padding-left: 0;
+
+            list-style: none;
+        }
+
+        .swot-card li {
+            position: relative;
+
+            margin-block: 0;
+            padding: 0.9rem 0 0.9rem 1.75rem;
+
+            color: var(--text-secondary);
+            border-bottom: 1px solid rgba(148, 163, 184, 0.14);
+        }
+
+        .swot-card li:last-child {
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .swot-card li::before {
+            content: "";
+
+            position: absolute;
+            top: 1.55rem;
+            left: 0.35rem;
+
+            width: 8px;
+            height: 8px;
+
+            background: var(--swot-colour);
+            border-radius: 50%;
+        }
+
+        .swot-card strong {
+            color: #ffffff;
+        }
+
+        /* ---------------------------------------------------------
+           SWOT colours
+           --------------------------------------------------------- */
+
+        .swot-strengths {
+            --swot-colour: #22c55e;
+        }
+
+        .swot-weaknesses {
+            --swot-colour: #f59e0b;
+        }
+
+        .swot-opportunities {
+            --swot-colour: #38bdf8;
+        }
+
+        .swot-threats {
+            --swot-colour: #ef4444;
+        }
+
+        /* ---------------------------------------------------------
+           Summary panel
+           --------------------------------------------------------- */
+
+        .swot-summary {
+            display: grid;
+            grid-template-columns:
+                repeat(4, minmax(0, 1fr));
+
+            gap: 1rem;
+            margin-block: 1.5rem;
+        }
+
+        .summary-item {
+            padding: 1rem;
+
+            text-align: center;
+
+            background: rgba(2, 6, 23, 0.3);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            border-radius: var(--radius-small);
+        }
+
+        .summary-item strong {
+            display: block;
+            margin-bottom: 0.35rem;
+
+            color: var(--accent);
+            font-size: 1.1rem;
+        }
+
+        .summary-item span {
+            color: var(--text-secondary);
+        }
+
+        /* ---------------------------------------------------------
+           Reflection and actions
+           --------------------------------------------------------- */
+
+        .reflection-grid {
+            display: grid;
+            grid-template-columns:
+                minmax(0, 1.35fr)
+                minmax(280px, 0.65fr);
+
+            gap: 1.25rem;
+            align-items: start;
+        }
+
+        .reflection-panel,
+        .priority-panel {
+            padding: 1.5rem;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    var(--surface),
+                    #172033
+                );
+
+            border: 1px solid rgba(148, 163, 184, 0.22);
+            border-radius: var(--radius-medium);
+            box-shadow: var(--shadow);
+        }
+
+        .reflection-panel h2,
+        .priority-panel h2 {
+            margin-top: 0;
+        }
+
+        .priority-list {
+            margin: 0;
+            padding: 0;
+
+            list-style: none;
+            counter-reset: priority;
+        }
+
+        .priority-list li {
+            position: relative;
+
+            margin: 0;
+            padding: 1rem 0 1rem 3.25rem;
+
+            border-bottom: 1px solid rgba(148, 163, 184, 0.16);
+
+            counter-increment: priority;
+        }
+
+        .priority-list li:last-child {
+            border-bottom: none;
+        }
+
+        .priority-list li::before {
+            content: counter(priority);
+
+            position: absolute;
+            top: 0.8rem;
+            left: 0;
+
+            display: grid;
+            place-items: center;
+
+            width: 36px;
+            height: 36px;
+
+            color: #ffffff;
+            background: var(--accent-dark);
+
+            border-radius: 50%;
+
+            font-weight: 800;
+        }
+
+        .priority-list strong {
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        /* ---------------------------------------------------------
+           Development link
+           --------------------------------------------------------- */
+
+        .development-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+
+            margin-top: 1.5rem;
+            padding: 1.25rem;
+
+            background: rgba(56, 189, 248, 0.075);
+
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            border-left: 4px solid var(--accent);
+            border-radius: var(--radius-small);
+        }
+
+        .development-link h3 {
+            margin: 0 0 0.35rem;
+            color: #bae6fd;
+        }
+
+        .development-link p {
+            margin: 0;
+        }
+
+        .development-link .button {
+            flex-shrink: 0;
+        }
+
+        /* ---------------------------------------------------------
+           Responsive layout
+           --------------------------------------------------------- */
+
+        @media (max-width: 900px) {
+
+            .swot-summary {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+            }
+
+            .reflection-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+        @media (max-width: 720px) {
+
+            .swot-introduction::after {
+                display: none;
+            }
+
+            .swot-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .swot-summary {
+                grid-template-columns: 1fr;
+            }
+
+            .development-link {
+                align-items: stretch;
+                flex-direction: column;
+            }
+
+            .development-link .button {
+                width: 100%;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="container">
+
+        <h1>
+            Personal SWOT Analysis
+        </h1>
+
+        <p>
+            Strengths, Weaknesses, Opportunities and Threats
+        </p>
+
+        <p class="subtitle">
+            Week 4 Professional Development
+        </p>
+
+    </div>
+
+</header>
+
+<nav
+    class="navigation"
+    aria-label="Week 4 navigation"
+>
+
+    <div class="container">
+
+        <a href="../../index.html">
+            Home
+        </a>
+
+        <a href="../week4.html">
+            Week 4
+        </a>
+
+        <a href="notes.html">
+            Notes
+        </a>
+
+        <a href="machine-learning.html">
+            Machine Learning
+        </a>
+
+        <a href="ai-glossary.html">
+            AI Glossary
+        </a>
+
+        <a href="ethics.html">
+            Ethics
+        </a>
+
+        <a
+            href="swot.html"
+            class="active"
+            aria-current="page"
+        >
+            SWOT
+        </a>
+
+        <a href="smart-targets.html">
+            SMART Targets
+        </a>
+
+        <a href="references.html">
+            References
+        </a>
+
+    </div>
+
+</nav>
+
+<main class="container swot-page">
+
+    <section class="card swot-introduction">
+
+        <h2>
+            Purpose of the Analysis
+        </h2>
+
+        <p>
+            This SWOT analysis evaluates my current position as a
+            Level 5 Computing student. It identifies internal
+            strengths and weaknesses alongside external opportunities
+            and threats that may influence my academic progress and
+            future professional development.
+        </p>
+
+        <p>
+            The analysis supports reflective practice by connecting
+            my current abilities with areas requiring further
+            development. The findings also provide the basis for the
+            SMART targets created alongside this page.
+        </p>
+
+    </section>
+
+    <section>
+
+        <h2>
+            SWOT Overview
+        </h2>
+
+        <div class="swot-summary">
+
+            <div class="summary-item">
+
+                <strong>
+                    Strengths
+                </strong>
+
+                <span>
+                    Existing internal capabilities
+                </span>
+
+            </div>
+
+            <div class="summary-item">
+
+                <strong>
+                    Weaknesses
+                </strong>
+
+                <span>
+                    Internal areas for development
+                </span>
+
+            </div>
+
+            <div class="summary-item">
+
+                <strong>
+                    Opportunities
+                </strong>
+
+                <span>
+                    External routes for progression
+                </span>
+
+            </div>
+
+            <div class="summary-item">
+
+                <strong>
+                    Threats
+                </strong>
+
+                <span>
+                    External risks and barriers
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="swot-grid">
+
+        <article class="swot-card swot-strengths">
+
+            <h2>
+
+                <span
+                    class="swot-letter"
+                    aria-hidden="true"
+                >
+                    S
+                </span>
+
+                Strengths
+
+            </h2>
+
+            <ul>
+
+                <li>
+                    <strong>Independent learning:</strong>
+                    I can organise research, interpret technical
+                    material and develop portfolio content with
+                    limited supervision.
+                </li>
+
+                <li>
+                    <strong>Web development:</strong>
+                    I have practical experience using HTML and CSS to
+                    create structured, accessible and navigable web
+                    pages.
+                </li>
+
+                <li>
+                    <strong>Technical breadth:</strong>
+                    The portfolio demonstrates developing knowledge
+                    across web technologies, algorithms, databases,
+                    networking, cloud computing, cyber security,
+                    artificial intelligence and professional
+                    practice.
+                </li>
+
+                <li>
+                    <strong>Reflective practice:</strong>
+                    I can review my work, identify weaknesses and
+                    make revisions rather than treating the first
+                    version as final.
+                </li>
+
+                <li>
+                    <strong>Persistence:</strong>
+                    I have continued developing the portfolio through
+                    repeated planning, writing, restructuring and
+                    quality-assurance activities.
+                </li>
+
+            </ul>
+
+        </article>
+
+        <article class="swot-card swot-weaknesses">
+
+            <h2>
+
+                <span
+                    class="swot-letter"
+                    aria-hidden="true"
+                >
+                    W
+                </span>
+
+                Weaknesses
+
+            </h2>
+
+            <ul>
+
+                <li>
+                    <strong>Time management:</strong>
+                    I sometimes spend too long refining structure or
+                    presentation before all required content is
+                    complete.
+                </li>
+
+                <li>
+                    <strong>Limited practical evidence:</strong>
+                    Some topics are currently demonstrated mainly
+                    through written research rather than through
+                    larger technical implementations.
+                </li>
+
+                <li>
+                    <strong>Academic referencing:</strong>
+                    Referencing requires careful checking to maintain
+                    consistency with the Harvard Cite Them Right
+                    format.
+                </li>
+
+                <li>
+                    <strong>Confidence with advanced topics:</strong>
+                    Areas such as machine learning, cloud architecture
+                    and cyber security require further practical study
+                    before I can apply them confidently in complex
+                    situations.
+                </li>
+
+                <li>
+                    <strong>Testing discipline:</strong>
+                    Testing and accessibility checks need to be
+                    recorded systematically rather than completed
+                    informally at the end.
+                </li>
+
+            </ul>
+
+        </article>
+
+        <article class="swot-card swot-opportunities">
+
+            <h2>
+
+                <span
+                    class="swot-letter"
+                    aria-hidden="true"
+                >
+                    O
+                </span>
+
+                Opportunities
+
+            </h2>
+
+            <ul>
+
+                <li>
+                    <strong>Portfolio development:</strong>
+                    The website can be extended into evidence for
+                    university assessment, employment applications
+                    and future professional development.
+                </li>
+
+                <li>
+                    <strong>Practical projects:</strong>
+                    Small projects in JavaScript, databases,
+                    networking or Python could provide stronger
+                    evidence of applied technical ability.
+                </li>
+
+                <li>
+                    <strong>Industry learning:</strong>
+                    Online laboratories, vendor training and
+                    professional certifications could strengthen
+                    knowledge in cloud computing, cyber security and
+                    software development.
+                </li>
+
+                <li>
+                    <strong>Feedback:</strong>
+                    Tutor and peer feedback can be used to improve
+                    technical accuracy and presentation quality.
+                </li>
+
+                <li>
+                    <strong>Career exploration:</strong>
+                    The broad range of topics studied provides a
+                    basis for identifying areas of specialisation,
+                    including web development, software engineering,
+                    data, cloud services and cyber security.
+                </li>
+
+            </ul>
+
+        </article>
+
+        <article class="swot-card swot-threats">
+
+            <h2>
+
+                <span
+                    class="swot-letter"
+                    aria-hidden="true"
+                >
+                    T
+                </span>
+
+                Threats
+
+            </h2>
+
+            <ul>
+
+                <li>
+                    <strong>Rapid technological change:</strong>
+                    Computing tools, frameworks and security threats
+                    evolve quickly, so current knowledge may become
+                    outdated without continuous learning.
+                </li>
+
+                <li>
+                    <strong>Competing commitments:</strong>
+                    Work, personal responsibilities and other modules
+                    may reduce the time available for portfolio
+                    development.
+                </li>
+
+                <li>
+                    <strong>Scope expansion:</strong>
+                    Adding unnecessary sections or repeatedly changing
+                    the structure may delay completion of the assessed
+                    requirements.
+                </li>
+
+                <li>
+                    <strong>Technical faults:</strong>
+                    Broken links, missing files, inconsistent paths
+                    or browser compatibility problems could reduce
+                    the quality of the final submission.
+                </li>
+
+                <li>
+                    <strong>Employment competition:</strong>
+                    Entry-level computing roles often require
+                    evidence of practical skills, making it important
+                    to continue building projects and experience.
+                </li>
+
+            </ul>
+
+        </article>
+
+    </section>
+
+    <section class="reflection-grid">
+
+        <article class="reflection-panel">
+
+            <h2>
+                Critical Reflection
+            </h2>
+
+            <p>
+                The analysis indicates that my strongest qualities
+                are persistence, independent learning and an
+                improving ability to present technical information
+                through a structured website. These strengths have
+                supported the development of this portfolio across
+                several computing disciplines.
+            </p>
+
+            <p>
+                However, the analysis also shows that completion and
+                evidence of practical application must take priority
+                over repeated structural changes. Refining the
+                presentation is valuable, but it should not prevent
+                required technical evidence from being completed.
+            </p>
+
+            <p>
+                The most important development need is therefore to
+                convert theoretical understanding into demonstrable
+                technical work. This can be achieved by completing
+                focused projects, documenting testing and applying
+                consistent academic referencing.
+            </p>
+
+            <p>
+                The available opportunities are realistic, but they
+                depend on effective time management and regular
+                review. The SMART targets developed alongside this
+                analysis translate these findings into measurable
+                actions.
+            </p>
+
+        </article>
+
+        <aside class="priority-panel">
+
+            <h2>
+                Development Priorities
+            </h2>
+
+            <ol class="priority-list">
+
+                <li>
+                    <strong>
+                        Complete required evidence
+                    </strong>
+
+                    Prioritise assessed content before additional
+                    design changes.
+                </li>
+
+                <li>
+                    <strong>
+                        Build practical projects
+                    </strong>
+
+                    Apply researched concepts in focused technical
+                    implementations.
+                </li>
+
+                <li>
+                    <strong>
+                        Record testing
+                    </strong>
+
+                    Document validation, browser testing and
+                    accessibility checks.
+                </li>
+
+                <li>
+                    <strong>
+                        Review references
+                    </strong>
+
+                    Apply one consistent Harvard referencing format.
+                </li>
+
+            </ol>
+
+        </aside>
+
+    </section>
+
+    <section class="development-link">
+
+        <div>
+
+            <h3>
+                From Reflection to Action
+            </h3>
+
+            <p>
+                The SMART targets page converts the development needs
+                identified in this SWOT analysis into specific,
+                measurable and time-bound actions.
+            </p>
+
+        </div>
+
+        <a
+            class="button"
+            href="smart-targets.html"
+        >
+            View SMART Targets
+        </a>
+
+    </section>
+
+    <div class="page-navigation">
+
+        <a
+            class="button"
+            href="ethics.html"
+        >
+            Previous: Ethics
+        </a>
+
+        <a
+            class="button"
+            href="../week4.html"
+        >
+            Back to Week 4
+        </a>
+
+        <a
+            class="button"
+            href="smart-targets.html"
+        >
+            Next: SMART Targets
+        </a>
+
+    </div>
+
+</main>
+
+<footer>
+
+    <p>
+        David's Computing Portfolio
+        &copy;
+        <span data-current-year></span>
+    </p>
+
+</footer>
+
+<script src="../../assets/js/script.js"></script>
+
+</body>
+
+</html>

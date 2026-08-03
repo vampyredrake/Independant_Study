@@ -1,0 +1,2122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Structured academic notes on artificial intelligence, machine learning, ethics and professional development."
+    >
+
+    <title>
+        Week 4 Notes | David's Computing Portfolio
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../../assets/css/style.css"
+    >
+
+    <style>
+        /* ---------------------------------------------------------
+           Week 4 notes
+           --------------------------------------------------------- */
+
+        .week-four-notes {
+            max-width: 1200px;
+        }
+
+        .week-four-notes p {
+            max-width: none;
+        }
+
+        /* ---------------------------------------------------------
+           Introduction
+           --------------------------------------------------------- */
+
+        .week-four-introduction {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .week-four-introduction::after {
+            content: "AI";
+
+            position: absolute;
+            right: 2rem;
+            top: 50%;
+
+            color: rgba(56, 189, 248, 0.055);
+
+            font-size: clamp(7rem, 18vw, 13rem);
+            font-weight: 800;
+            line-height: 1;
+
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+
+        .week-four-introduction > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ---------------------------------------------------------
+           Page controls
+           --------------------------------------------------------- */
+
+        .notes-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+
+            margin-top: 1.5rem;
+        }
+
+        .notes-control {
+            min-height: 42px;
+            padding: 0.55rem 0.9rem;
+
+            color: var(--text-primary);
+            background: transparent;
+
+            border: 1px solid var(--border);
+            border-radius: var(--radius-small);
+
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .notes-control:hover,
+        .notes-control:focus {
+            color: #ffffff;
+            background: var(--surface-light);
+        }
+
+        .notes-index {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.75rem;
+
+            margin-block: 1.5rem 2rem;
+            padding: 1rem;
+
+            background: rgba(30, 41, 59, 0.75);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            border-radius: var(--radius-medium);
+        }
+
+        .notes-index a {
+            padding: 0.6rem 0.85rem;
+
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.04);
+
+            border: 1px solid var(--border);
+            border-radius: var(--radius-small);
+
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .notes-index a:hover,
+        .notes-index a:focus {
+            color: #ffffff;
+            background: var(--surface-light);
+            text-decoration: none;
+        }
+
+        /* ---------------------------------------------------------
+           Collapsible study sections
+           --------------------------------------------------------- */
+
+        .study-section {
+            margin-block: 1.25rem;
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    var(--surface),
+                    #172033
+                );
+
+            border: 1px solid rgba(148, 163, 184, 0.22);
+            border-left: 4px solid var(--accent);
+            border-radius: var(--radius-medium);
+            box-shadow: var(--shadow);
+
+            scroll-margin-top: 6rem;
+        }
+
+        .study-section[open] {
+            border-color: rgba(56, 189, 248, 0.5);
+        }
+
+        .study-section > summary {
+            position: relative;
+
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+
+            min-height: 76px;
+            padding: 1.2rem 4rem 1.2rem 1.25rem;
+
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.025);
+
+            font-size: 1.25rem;
+            font-weight: 700;
+            line-height: 1.35;
+
+            cursor: pointer;
+            list-style: none;
+        }
+
+        .study-section > summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .study-section > summary::marker {
+            content: "";
+        }
+
+        .study-section > summary::after {
+            content: "+";
+
+            position: absolute;
+            right: 1.25rem;
+            top: 50%;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 32px;
+            height: 32px;
+
+            color: #ffffff;
+            background: var(--accent-dark);
+
+            border-radius: 50%;
+
+            font-size: 1.3rem;
+            line-height: 1;
+
+            transform: translateY(-50%);
+        }
+
+        .study-section[open] > summary::after {
+            content: "−";
+        }
+
+        .study-number {
+            color: var(--accent);
+        }
+
+        .study-content {
+            margin: 0 !important;
+            padding: 1.5rem;
+
+            border-top: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        .study-content > :first-child {
+            margin-top: 0;
+        }
+
+        /* ---------------------------------------------------------
+           Topic and comparison cards
+           --------------------------------------------------------- */
+
+        .topic-grid,
+        .comparison-grid,
+        .ethics-grid,
+        .skills-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+
+            gap: 1rem;
+            margin-block: 1.25rem;
+        }
+
+        .topic-card,
+        .comparison-card,
+        .ethics-card,
+        .skills-card {
+            padding: 1.2rem;
+
+            background: rgba(2, 6, 23, 0.28);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            border-radius: var(--radius-small);
+        }
+
+        .topic-card h3,
+        .topic-card h4,
+        .comparison-card h3,
+        .ethics-card h3,
+        .skills-card h3 {
+            margin-top: 0;
+        }
+
+        .topic-card p:last-child,
+        .comparison-card p:last-child,
+        .ethics-card p:last-child,
+        .skills-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .comparison-card {
+            background: rgba(56, 189, 248, 0.055);
+            border-color: rgba(56, 189, 248, 0.25);
+        }
+
+        .comparison-card h3 {
+            color: var(--accent);
+        }
+
+        .ethics-card {
+            background: rgba(168, 85, 247, 0.055);
+            border-color: rgba(168, 85, 247, 0.24);
+        }
+
+        .skills-card {
+            background: rgba(34, 197, 94, 0.055);
+            border-color: rgba(34, 197, 94, 0.24);
+        }
+
+        /* ---------------------------------------------------------
+           Model lifecycle
+           --------------------------------------------------------- */
+
+        .model-lifecycle {
+            display: grid;
+            grid-template-columns:
+                repeat(6, minmax(0, 1fr));
+
+            gap: 0.65rem;
+            margin-block: 1.5rem;
+        }
+
+        .lifecycle-stage {
+            position: relative;
+
+            min-height: 150px;
+            padding: 1rem;
+
+            text-align: center;
+
+            background: rgba(2, 6, 23, 0.3);
+            border: 1px solid rgba(56, 189, 248, 0.28);
+            border-radius: var(--radius-small);
+        }
+
+        .lifecycle-stage:not(:last-child)::after {
+            content: "→";
+
+            position: absolute;
+            right: -0.75rem;
+            top: 50%;
+            z-index: 2;
+
+            display: grid;
+            place-items: center;
+
+            width: 1.5rem;
+            height: 1.5rem;
+
+            color: var(--accent);
+            background: var(--background);
+
+            font-weight: 800;
+
+            transform: translateY(-50%);
+        }
+
+        .lifecycle-stage strong {
+            display: block;
+            margin-bottom: 0.5rem;
+
+            color: var(--accent);
+        }
+
+        .lifecycle-stage p {
+            margin: 0;
+            font-size: 0.92rem;
+        }
+
+        /* ---------------------------------------------------------
+           Diagram placeholders
+           --------------------------------------------------------- */
+
+        .diagram-placeholder {
+            display: grid;
+            place-items: center;
+
+            min-height: 260px;
+            margin-block: 1.5rem;
+            padding: 2rem;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(2, 6, 23, 0.7),
+                    rgba(15, 23, 42, 0.9)
+                );
+
+            border: 2px dashed rgba(56, 189, 248, 0.42);
+            border-radius: var(--radius-medium);
+        }
+
+        .diagram-placeholder strong {
+            display: block;
+            margin-bottom: 0.5rem;
+
+            color: var(--accent);
+            font-size: 1.1rem;
+        }
+
+        .diagram-placeholder p {
+            max-width: 62ch;
+            margin: 0 auto;
+        }
+
+        /* ---------------------------------------------------------
+           Key takeaway
+           --------------------------------------------------------- */
+
+        .key-takeaway {
+            margin-top: 1.5rem;
+            padding: 1rem 1.2rem;
+
+            background: rgba(34, 197, 94, 0.075);
+            border: 1px solid rgba(34, 197, 94, 0.35);
+            border-left: 4px solid var(--success);
+            border-radius: var(--radius-small);
+        }
+
+        .key-takeaway h3 {
+            margin-top: 0;
+            color: #dcfce7;
+        }
+
+        .key-takeaway p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ---------------------------------------------------------
+           Checklist
+           --------------------------------------------------------- */
+
+        .responsible-ai-checklist {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+
+            gap: 0.75rem;
+            padding: 0;
+
+            list-style: none;
+        }
+
+        .responsible-ai-checklist li {
+            position: relative;
+
+            margin: 0;
+            padding: 0.8rem 1rem 0.8rem 2.5rem;
+
+            background: rgba(34, 197, 94, 0.065);
+            border: 1px solid rgba(34, 197, 94, 0.24);
+            border-radius: var(--radius-small);
+        }
+
+        .responsible-ai-checklist li::before {
+            content: "✓";
+
+            position: absolute;
+            left: 0.9rem;
+
+            color: var(--success);
+            font-weight: 700;
+        }
+
+        /* ---------------------------------------------------------
+           Responsive design
+           --------------------------------------------------------- */
+
+        @media (max-width: 980px) {
+
+            .model-lifecycle {
+                grid-template-columns:
+                    repeat(3, minmax(0, 1fr));
+            }
+
+            .lifecycle-stage:nth-child(3)::after {
+                display: none;
+            }
+
+        }
+
+        @media (max-width: 720px) {
+
+            .week-four-introduction::after {
+                display: none;
+            }
+
+            .notes-index {
+                justify-content: flex-start;
+            }
+
+            .notes-index a {
+                flex: 1 1 calc(50% - 0.75rem);
+                text-align: center;
+            }
+
+            .study-content {
+                padding: 1rem;
+            }
+
+            .study-section > summary {
+                font-size: 1.1rem;
+            }
+
+            .model-lifecycle {
+                grid-template-columns: 1fr;
+            }
+
+            .lifecycle-stage:not(:last-child)::after {
+                content: "↓";
+
+                top: auto;
+                right: 50%;
+                bottom: -0.8rem;
+
+                transform: translateX(50%);
+            }
+
+            .lifecycle-stage:nth-child(3)::after {
+                display: grid;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="container">
+
+        <h1>
+            Structured Academic Notes
+        </h1>
+
+        <p>
+            Artificial Intelligence, Ethics and Professional Development
+        </p>
+
+    </div>
+
+</header>
+
+<nav
+    class="navigation"
+    aria-label="Week 4 navigation"
+>
+
+    <div class="container">
+
+        <a href="../../index.html">
+            Home
+        </a>
+
+        <a href="../week4.html">
+            Week 4
+        </a>
+
+        <a
+            href="notes.html"
+            class="active"
+            aria-current="page"
+        >
+            Notes
+        </a>
+
+        <a href="machine-learning.html">
+            Machine Learning
+        </a>
+
+        <a href="ai-glossary.html">
+            AI Glossary
+        </a>
+
+        <a href="ethics.html">
+            Ethics
+        </a>
+
+        <a href="swot.html">
+            SWOT
+        </a>
+
+        <a href="smart-targets.html">
+            SMART Targets
+        </a>
+
+        <a href="references.html">
+            References
+        </a>
+
+    </div>
+
+</nav>
+
+<main class="container week-four-notes">
+
+    <section class="card week-four-introduction">
+
+        <h2>
+            Introduction
+        </h2>
+
+        <p>
+            Artificial intelligence refers to computer systems that
+            perform tasks associated with human intelligence, such as
+            recognising patterns, making predictions, interpreting
+            language and selecting actions. Modern AI systems are
+            commonly based on machine learning, where models identify
+            patterns from data rather than relying only on rules
+            written directly by a programmer.
+        </p>
+
+        <p>
+            AI can improve efficiency and support decision-making,
+            but its use also creates ethical and professional
+            responsibilities. Developers must consider data quality,
+            privacy, fairness, explainability, security and the
+            consequences of incorrect outputs. NIST treats these
+            characteristics as interdependent elements of trustworthy
+            AI rather than optional additions applied after
+            development (National Institute of Standards and
+            Technology, 2023).
+        </p>
+
+        <div class="notes-controls">
+
+            <button
+                class="notes-control"
+                id="open-all-sections"
+                type="button"
+            >
+                Open all sections
+            </button>
+
+            <button
+                class="notes-control"
+                id="close-all-sections"
+                type="button"
+            >
+                Close all sections
+            </button>
+
+        </div>
+
+    </section>
+
+    <nav
+        class="notes-index"
+        aria-label="Week 4 note sections"
+    >
+
+        <a href="#artificial-intelligence">
+            Artificial Intelligence
+        </a>
+
+        <a href="#machine-learning">
+            Machine Learning
+        </a>
+
+        <a href="#ml-approaches">
+            ML Approaches
+        </a>
+
+        <a href="#model-development">
+            Model Development
+        </a>
+
+        <a href="#ai-ethics">
+            AI Ethics
+        </a>
+
+        <a href="#professional-development">
+            Professional Development
+        </a>
+
+    </nav>
+
+    <details
+        class="study-section"
+        id="artificial-intelligence"
+        open
+    >
+
+        <summary>
+            <span class="study-number">1.</span>
+            Artificial Intelligence
+        </summary>
+
+        <div class="study-content">
+
+            <h2>
+                Definition and Scope
+            </h2>
+
+            <p>
+                Artificial intelligence is a broad field concerned
+                with developing computer systems that can perform
+                tasks involving perception, reasoning, learning or
+                decision-making.
+            </p>
+
+            <p>
+                Examples include recommendation systems, speech
+                recognition, fraud detection, computer vision,
+                route-planning software and automated language
+                systems.
+            </p>
+
+            <div class="diagram-placeholder">
+
+                <img src="/assets/images/ai-landscape.png" alt="">
+
+            </div>
+
+            <div class="comparison-grid">
+
+                <article class="comparison-card">
+
+                    <h3>
+                        Narrow AI
+                    </h3>
+
+                    <p>
+                        Narrow AI is designed for a defined task or
+                        limited group of tasks. A recommendation model
+                        may predict products that a user is likely to
+                        select, but it does not possess general
+                        intelligence.
+                    </p>
+
+                    <p>
+                        Existing production AI systems should normally
+                        be understood as specialised systems.
+                    </p>
+
+                </article>
+
+                <article class="comparison-card">
+
+                    <h3>
+                        Artificial General Intelligence
+                    </h3>
+
+                    <p>
+                        Artificial general intelligence would be able
+                        to perform a wide range of intellectual tasks
+                        with adaptability comparable to a human.
+                    </p>
+
+                    <p>
+                        Fluent output or broad task coverage does not
+                        establish human-like understanding or autonomy
+                        (Russell and Norvig, 2021).
+                    </p>
+
+                </article>
+
+            </div>
+
+            <h2>
+                Rule-Based Systems and Machine Learning
+            </h2>
+
+            <div class="comparison-grid">
+
+                <article class="comparison-card">
+
+                    <h3>
+                        Rule-Based Systems
+                    </h3>
+
+                    <p>
+                        A rule-based system follows explicit
+                        conditions written by developers.
+                    </p>
+
+                    <p>
+                        Rules are normally transparent and
+                        predictable, but may become difficult to
+                        maintain when a problem contains many
+                        exceptions.
+                    </p>
+
+                </article>
+
+                <article class="comparison-card">
+
+                    <h3>
+                        Machine Learning
+                    </h3>
+
+                    <p>
+                        A machine learning system develops a
+                        mathematical model from examples.
+                    </p>
+
+                    <p>
+                        It can identify complex patterns that are
+                        difficult to express as fixed rules, although
+                        the resulting behaviour may be harder to
+                        explain.
+                    </p>
+
+                </article>
+
+            </div>
+
+            <div class="key-takeaway">
+
+                <h3>
+                    Key takeaway
+                </h3>
+
+                <p>
+                    Artificial intelligence is a broad discipline.
+                    Machine learning is one approach within AI rather
+                    than a synonym for the entire field.
+                </p>
+
+            </div>
+
+        </div>
+
+    </details>
+
+    <details
+        class="study-section"
+        id="machine-learning"
+    >
+
+        <summary>
+            <span class="study-number">2.</span>
+            Types of Machine Learning
+        </summary>
+
+        <div class="study-content">
+
+            <div class="topic-grid">
+
+                <article class="topic-card">
+
+                    <h3>
+                        Supervised Learning
+                    </h3>
+
+                    <p>
+                        Supervised learning uses labelled training
+                        data. Each example contains input values and a
+                        known output.
+                    </p>
+
+                    <p>
+                        It includes:
+                    </p>
+
+                    <ul>
+                        <li>
+                            <strong>Regression:</strong>
+                            predicts continuous values.
+                        </li>
+
+                        <li>
+                            <strong>Classification:</strong>
+                            predicts categories.
+                        </li>
+                    </ul>
+
+                    <p>
+                        Its main limitation is the need for reliable
+                        labelled data. Labels can be expensive,
+                        incomplete or biased (Géron, 2023).
+                    </p>
+
+                </article>
+
+                <article class="topic-card">
+
+                    <h3>
+                        Unsupervised Learning
+                    </h3>
+
+                    <p>
+                        Unsupervised learning uses data without known
+                        output labels and attempts to identify
+                        structure or unusual patterns.
+                    </p>
+
+                    <ul>
+                        <li>clustering;</li>
+                        <li>dimensionality reduction;</li>
+                        <li>anomaly detection.</li>
+                    </ul>
+
+                    <p>
+                        Discovered patterns may not always have a
+                        useful interpretation, and evaluation can be
+                        difficult without a known correct answer.
+                    </p>
+
+                </article>
+
+                <article class="topic-card">
+
+                    <h3>
+                        Reinforcement Learning
+                    </h3>
+
+                    <p>
+                        Reinforcement learning involves an agent
+                        interacting with an environment and receiving
+                        rewards or penalties.
+                    </p>
+
+                    <p>
+                        Applications include robotics, game-playing,
+                        resource allocation and automated control.
+                    </p>
+
+                    <p>
+                        Poorly designed rewards may encourage
+                        unintended behaviour because the agent
+                        optimises the formal reward rather than the
+                        designer's unstated intention (Russell and
+                        Norvig, 2021).
+                    </p>
+
+                </article>
+
+            </div>
+
+            <div class="diagram-placeholder">
+
+                <img src="/assets/images/machine-learning.png" alt="">
+
+            </div>
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Learning Type</th>
+                            <th>Training Signal</th>
+                            <th>Typical Tasks</th>
+                            <th>Main Limitation</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>Supervised</td>
+                            <td>Labelled examples</td>
+                            <td>
+                                Classification and regression
+                            </td>
+                            <td>
+                                Requires appropriate labelled data
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Unsupervised</td>
+                            <td>No known output labels</td>
+                            <td>
+                                Clustering and anomaly detection
+                            </td>
+                            <td>
+                                Results may be difficult to interpret
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Reinforcement</td>
+                            <td>Rewards and penalties</td>
+                            <td>
+                                Control, robotics and game-playing
+                            </td>
+                            <td>
+                                Reward design and training cost
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <div class="key-takeaway">
+
+                <h3>
+                    Key takeaway
+                </h3>
+
+                <p>
+                    The appropriate learning approach depends on the
+                    available data, the form of the required output
+                    and whether feedback can be provided during
+                    training.
+                </p>
+
+            </div>
+
+        </div>
+
+    </details>
+
+    <details
+        class="study-section"
+        id="ml-approaches"
+    >
+
+        <summary>
+            <span class="study-number">3.</span>
+            Machine-Learning Approaches
+        </summary>
+
+        <div class="study-content">
+
+            <div class="topic-grid">
+
+                <article class="topic-card">
+
+                    <h3>
+                        Linear Regression
+                    </h3>
+
+                    <p>
+                        Models the relationship between input
+                        variables and a continuous target using a
+                        linear function.
+                    </p>
+
+                    <p>
+                        It is useful for simple forecasting and
+                        interpretation, but cannot represent complex
+                        non-linear relationships without additional
+                        feature engineering.
+                    </p>
+
+                </article>
+
+                <article class="topic-card">
+
+                    <h3>
+                        Logistic Regression
+                    </h3>
+
+                    <p>
+                        Estimates the probability that an example
+                        belongs to a class and can use a threshold to
+                        produce a final decision.
+                    </p>
+
+                    <p>
+                        It is efficient and comparatively
+                        interpretable, but may struggle with complex
+                        decision boundaries.
+                    </p>
+
+                </article>
+
+                <article class="topic-card">
+
+                    <h3>
+                        Decision Trees
+                    </h3>
+
+                    <p>
+                        Divide data using a sequence of conditions.
+                        Branches represent outcomes and leaf nodes
+                        provide predictions.
+                    </p>
+
+                    <p>
+                        Trees are easy to visualise but deep trees may
+                        overfit the training data.
+                    </p>
+
+                </article>
+
+                <article class="topic-card">
+
+                    <h3>
+                        Support Vector Machines
+                    </h3>
+
+                    <p>
+                        Attempt to identify a decision boundary that
+                        separates classes with the largest possible
+                        margin.
+                    </p>
+
+                    <p>
+                        Kernel functions support non-linear
+                        classification, although training can become
+                        expensive on very large datasets.
+                    </p>
+
+                </article>
+
+                <article class="topic-card">
+
+                    <h3>
+                        Neural Networks
+                    </h3>
+
+                    <p>
+                        Contain connected layers of artificial neurons
+                        whose weighted connections are adjusted during
+                        training.
+                    </p>
+
+                    <p>
+                        Deep networks can model complex patterns in
+                        images, sound and language, but often require
+                        significant data and computing resources.
+                    </p>
+
+                </article>
+
+            </div>
+
+            <div class="diagram-placeholder">
+
+                <img src="/assets/images/algorithm.png" alt="">
+
+            </div>
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Approach</th>
+                            <th>Typical Output</th>
+                            <th>Strength</th>
+                            <th>Limitation</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>Linear regression</td>
+                            <td>Continuous value</td>
+                            <td>Simple and interpretable</td>
+                            <td>Assumes a linear relationship</td>
+                        </tr>
+
+                        <tr>
+                            <td>Logistic regression</td>
+                            <td>Class probability</td>
+                            <td>Efficient and explainable</td>
+                            <td>
+                                Limited with complex boundaries
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Decision tree</td>
+                            <td>Value or category</td>
+                            <td>Easy to visualise</td>
+                            <td>Can overfit</td>
+                        </tr>
+
+                        <tr>
+                            <td>Support vector machine</td>
+                            <td>Category</td>
+                            <td>Effective decision margins</td>
+                            <td>
+                                Can be expensive at large scale
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Neural network</td>
+                            <td>Varied</td>
+                            <td>Models complex relationships</td>
+                            <td>
+                                High cost and lower interpretability
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <div class="key-takeaway">
+
+                <h3>
+                    Key takeaway
+                </h3>
+
+                <p>
+                    More complex models are not automatically better.
+                    The best approach balances predictive performance,
+                    interpretability, data availability, development
+                    cost and operational risk.
+                </p>
+
+            </div>
+
+        </div>
+
+    </details>
+
+        <details
+        class="study-section"
+        id="model-development"
+    >
+
+        <summary>
+            <span class="study-number">4.</span>
+            Model Development and Evaluation
+        </summary>
+
+        <div class="study-content">
+
+            <h2>
+                Model-Development Lifecycle
+            </h2>
+
+            <div class="model-lifecycle">
+
+                <article class="lifecycle-stage">
+
+                    <strong>
+                        1. Define
+                    </strong>
+
+                    <p>
+                        Identify the problem, intended users and
+                        success criteria.
+                    </p>
+
+                </article>
+
+                <article class="lifecycle-stage">
+
+                    <strong>
+                        2. Prepare
+                    </strong>
+
+                    <p>
+                        Collect, clean, label and assess the quality of
+                        the data.
+                    </p>
+
+                </article>
+
+                <article class="lifecycle-stage">
+
+                    <strong>
+                        3. Train
+                    </strong>
+
+                    <p>
+                        Fit model parameters using the training data.
+                    </p>
+
+                </article>
+
+                <article class="lifecycle-stage">
+
+                    <strong>
+                        4. Validate
+                    </strong>
+
+                    <p>
+                        Compare models and tune settings using
+                        validation data.
+                    </p>
+
+                </article>
+
+                <article class="lifecycle-stage">
+
+                    <strong>
+                        5. Test
+                    </strong>
+
+                    <p>
+                        Evaluate final performance using unseen test
+                        data.
+                    </p>
+
+                </article>
+
+                <article class="lifecycle-stage">
+
+                    <strong>
+                        6. Monitor
+                    </strong>
+
+                    <p>
+                        Track accuracy, fairness, security and model
+                        drift after deployment.
+                    </p>
+
+                </article>
+
+            </div>
+
+            <h2>
+                Training, Validation and Testing
+            </h2>
+
+            <div class="comparison-grid">
+
+                <article class="comparison-card">
+
+                    <h3>
+                        Training Set
+                    </h3>
+
+                    <p>
+                        Used to adjust model parameters and learn
+                        relationships from the available examples.
+                    </p>
+
+                </article>
+
+                <article class="comparison-card">
+
+                    <h3>
+                        Validation Set
+                    </h3>
+
+                    <p>
+                        Used to compare approaches, tune
+                        hyperparameters and support model selection.
+                    </p>
+
+                </article>
+
+                <article class="comparison-card">
+
+                    <h3>
+                        Test Set
+                    </h3>
+
+                    <p>
+                        Used for final evaluation on data that did not
+                        influence model development.
+                    </p>
+
+                </article>
+
+            </div>
+
+            <p>
+                Repeatedly using the test set during development can
+                produce an over-optimistic result because design
+                decisions gradually become adapted to that data. The
+                test set should therefore remain separate until final
+                evaluation, while validation or cross-validation
+                supports model selection (Géron, 2023).
+            </p>
+
+            <h2>
+                Features and Labels
+            </h2>
+
+            <p>
+                Features are the input values used by a model. A label
+                is the target output in supervised learning. Feature
+                selection and preparation can strongly affect model
+                performance.
+            </p>
+
+            <p>
+                Irrelevant, duplicated or misleading features may
+                reduce accuracy, create unstable predictions or
+                introduce unfair relationships.
+            </p>
+
+            <h2>
+                Overfitting and Underfitting
+            </h2>
+
+            <div class="comparison-grid">
+
+                <article class="comparison-card">
+
+                    <h3>
+                        Underfitting
+                    </h3>
+
+                    <p>
+                        The model is too simple to represent important
+                        patterns. Performance is poor on both training
+                        and unseen data.
+                    </p>
+
+                </article>
+
+                <article class="comparison-card">
+
+                    <h3>
+                        Appropriate Fit
+                    </h3>
+
+                    <p>
+                        The model captures useful patterns and
+                        generalises effectively to unseen examples.
+                    </p>
+
+                </article>
+
+                <article class="comparison-card">
+
+                    <h3>
+                        Overfitting
+                    </h3>
+
+                    <p>
+                        The model learns the training examples too
+                        closely and performs poorly on new data.
+                    </p>
+
+                </article>
+
+            </div>
+
+            <div class="diagram-placeholder">
+
+                <img src="/assets/images/model-fit.png" alt="">
+
+            </div>
+
+            <h2>
+                Performance Metrics
+            </h2>
+
+            <p>
+                Accuracy measures the proportion of correct
+                predictions, but it can be misleading when one class
+                is much more common than another. Metric selection
+                should reflect the operational cost of false
+                positives and false negatives rather than relying on
+                one headline figure (scikit-learn Developers, 2026).
+            </p>
+
+            <div class="topic-grid">
+
+                <article class="topic-card">
+
+                    <h3>
+                        Accuracy
+                    </h3>
+
+                    <p>
+                        The proportion of all predictions that were
+                        correct.
+                    </p>
+
+                </article>
+
+                <article class="topic-card">
+
+                    <h3>
+                        Precision
+                    </h3>
+
+                    <p>
+                        The proportion of positive predictions that
+                        were correct.
+                    </p>
+
+                </article>
+
+                <article class="topic-card">
+
+                    <h3>
+                        Recall
+                    </h3>
+
+                    <p>
+                        The proportion of actual positive cases that
+                        were identified.
+                    </p>
+
+                </article>
+
+                <article class="topic-card">
+
+                    <h3>
+                        F1 Score
+                    </h3>
+
+                    <p>
+                        A combined measure that balances precision and
+                        recall.
+                    </p>
+
+                </article>
+
+            </div>
+
+            <div class="diagram-placeholder">
+
+                <img src="/assets/images/matrix.png" alt="">
+
+            </div>
+
+            <div class="key-takeaway">
+
+                <h3>
+                    Key takeaway
+                </h3>
+
+                <p>
+                    Model development is an iterative lifecycle.
+                    Evaluation must include unseen data and metrics
+                    selected according to the real consequences of
+                    incorrect predictions.
+                </p>
+
+            </div>
+
+        </div>
+
+    </details>
+
+    <details
+        class="study-section"
+        id="ai-ethics"
+    >
+
+        <summary>
+            <span class="study-number">5.</span>
+            AI Ethics and Responsible Development
+        </summary>
+
+        <div class="study-content">
+
+            <p>
+                Ethical AI requires more than high predictive
+                performance. Developers must consider how data is
+                obtained, who may be affected, whether outcomes are
+                fair and how decisions can be challenged.
+            </p>
+
+            <div class="ethics-grid">
+
+                <article class="ethics-card">
+
+                    <h3>
+                        Data Privacy
+                    </h3>
+
+                    <p>
+                        AI systems may process personal, behavioural,
+                        biometric or location data.
+                    </p>
+
+                    <p>
+                        Developers must consider necessity, lawful
+                        collection, secure storage, retention and the
+                        possibility of re-identification.
+                    </p>
+
+                </article>
+
+                <article class="ethics-card">
+
+                    <h3>
+                        Algorithmic Bias
+                    </h3>
+
+                    <p>
+                        Bias occurs when an AI system produces
+                        systematically unfair or unequal outcomes.
+                    </p>
+
+                    <p>
+                        It can enter through historical data,
+                        sampling, labelling, feature selection, target
+                        definitions and deployment decisions.
+                    </p>
+
+                </article>
+
+                <article class="ethics-card">
+
+                    <h3>
+                        Transparency
+                    </h3>
+
+                    <p>
+                        Transparency concerns whether stakeholders can
+                        understand how a system was developed, what
+                        data it uses and how it is governed.
+                    </p>
+
+                </article>
+
+                <article class="ethics-card">
+
+                    <h3>
+                        Explainability
+                    </h3>
+
+                    <p>
+                        Explainability concerns whether a particular
+                        output or decision can be understood.
+                    </p>
+
+                    <p>
+                        It is especially important in healthcare,
+                        finance, employment and criminal justice.
+                    </p>
+
+                </article>
+
+                <article class="ethics-card">
+
+                    <h3>
+                        Accountability
+                    </h3>
+
+                    <p>
+                        Organisations and professionals remain
+                        responsible for AI-related decisions.
+                    </p>
+
+                    <p>
+                        Describing an outcome as algorithmic does not
+                        remove professional or legal responsibility.
+                    </p>
+
+                </article>
+
+                <article class="ethics-card">
+
+                    <h3>
+                        Human Oversight
+                    </h3>
+
+                    <p>
+                        Appropriate human review should be available
+                        where automated decisions can materially
+                        affect individuals.
+                    </p>
+
+                </article>
+
+            </div>
+
+            <h2>
+                Responsible-AI Controls
+            </h2>
+
+            <ul class="responsible-ai-checklist">
+
+                <li>Data minimisation and privacy protection</li>
+                <li>Representative data assessment</li>
+                <li>Fairness and bias testing</li>
+                <li>Documented model limitations</li>
+                <li>Human review and escalation</li>
+                <li>Security testing</li>
+                <li>Performance monitoring</li>
+                <li>Model-drift detection</li>
+                <li>Audit records</li>
+                <li>Incident-response procedures</li>
+                <li>Processes for challenging decisions</li>
+                <li>Defined accountability</li>
+
+            </ul>
+
+            <div class="diagram-placeholder">
+
+                <img src="/assets/images/responisibleai.png" alt="">
+
+            </div>
+
+            <h2>
+                Wider Governance Context
+            </h2>
+
+            <p>
+                Responsible AI is an approach to designing, deploying
+                and governing AI systems in ways that are lawful,
+                ethical, secure and socially appropriate. UNESCO
+                (2021) places human rights, human dignity, fairness,
+                transparency and environmental responsibility within
+                this wider governance context.
+            </p>
+
+            <div class="key-takeaway">
+
+                <h3>
+                    Key takeaway
+                </h3>
+
+                <p>
+                    A technically accurate model may still be
+                    inappropriate if its data, deployment context,
+                    decision process or social consequences are not
+                    responsibly managed.
+                </p>
+
+            </div>
+
+        </div>
+
+    </details>
+
+    <details
+        class="study-section"
+        id="professional-development"
+    >
+
+        <summary>
+            <span class="study-number">6.</span>
+            Professional Skills and Employability
+        </summary>
+
+        <div class="study-content">
+
+            <div class="skills-grid">
+
+                <article class="skills-card">
+
+                    <h3>
+                        Technical Skills
+                    </h3>
+
+                    <p>
+                        Computing professionals require capability in
+                        programming, databases, networking, testing,
+                        security and software design.
+                    </p>
+
+                    <p>
+                        AI-related roles may also require statistics,
+                        data processing, model development and
+                        performance evaluation.
+                    </p>
+
+                </article>
+
+                <article class="skills-card">
+
+                    <h3>
+                        Transferable Skills
+                    </h3>
+
+                    <p>
+                        Employers value communication, teamwork,
+                        problem-solving, planning, adaptability and
+                        professional judgement.
+                    </p>
+
+                    <p>
+                        Technical knowledge has limited value when a
+                        professional cannot explain risks, document
+                        decisions or work effectively with others.
+                    </p>
+
+                </article>
+
+                <article class="skills-card">
+
+                    <h3>
+                        Professional Responsibility
+                    </h3>
+
+                    <p>
+                        Professionals must consider security, privacy,
+                        ethical consequences, legal requirements and
+                        the limitations of the systems they create.
+                    </p>
+
+                </article>
+
+            </div>
+
+            <h2>
+                Continuous Professional Development
+            </h2>
+
+            <p>
+                Computing changes rapidly, so professional
+                development cannot be treated as a one-off activity.
+                BCS (2026) identifies continuing professional
+                development as a means of maintaining competence,
+                recording learning and planning future improvement.
+            </p>
+
+            <div class="model-lifecycle">
+
+                <article class="lifecycle-stage">
+
+                    <strong>
+                        Reflect
+                    </strong>
+
+                    <p>
+                        Review current skills, experience and areas
+                        requiring improvement.
+                    </p>
+
+                </article>
+
+                <article class="lifecycle-stage">
+
+                    <strong>
+                        Plan
+                    </strong>
+
+                    <p>
+                        Set realistic objectives based on career and
+                        learning priorities.
+                    </p>
+
+                </article>
+
+                <article class="lifecycle-stage">
+
+                    <strong>
+                        Learn
+                    </strong>
+
+                    <p>
+                        Complete formal study, projects, courses,
+                        reading or professional activities.
+                    </p>
+
+                </article>
+
+                <article class="lifecycle-stage">
+
+                    <strong>
+                        Apply
+                    </strong>
+
+                    <p>
+                        Use the learning in practical technical or
+                        professional work.
+                    </p>
+
+                </article>
+
+                <article class="lifecycle-stage">
+
+                    <strong>
+                        Evidence
+                    </strong>
+
+                    <p>
+                        Record outputs, feedback, completed work and
+                        measurable results.
+                    </p>
+
+                </article>
+
+                <article class="lifecycle-stage">
+
+                    <strong>
+                        Review
+                    </strong>
+
+                    <p>
+                        Evaluate progress and update future
+                        development priorities.
+                    </p>
+
+                </article>
+
+            </div>
+
+            <h2>
+                SWOT Analysis
+            </h2>
+
+            <div class="comparison-grid">
+
+                <article class="comparison-card">
+
+                    <h3>
+                        Strengths
+                    </h3>
+
+                    <p>
+                        Internal capabilities and positive attributes
+                        that can support progress.
+                    </p>
+
+                </article>
+
+                <article class="comparison-card">
+
+                    <h3>
+                        Weaknesses
+                    </h3>
+
+                    <p>
+                        Internal limitations or skills that require
+                        development.
+                    </p>
+
+                </article>
+
+                <article class="comparison-card">
+
+                    <h3>
+                        Opportunities
+                    </h3>
+
+                    <p>
+                        External circumstances that may support
+                        learning, employment or career development.
+                    </p>
+
+                </article>
+
+                <article class="comparison-card">
+
+                    <h3>
+                        Threats
+                    </h3>
+
+                    <p>
+                        External risks or barriers that may affect
+                        progress.
+                    </p>
+
+                </article>
+
+            </div>
+
+            <h2>
+                Personal Development Plans
+            </h2>
+
+            <p>
+                A personal development plan translates reflection
+                into defined actions. Effective targets should
+                identify the skill to be developed, the evidence
+                required, the support or resources needed and a
+                realistic deadline.
+            </p>
+
+            <h2>
+                Digital Professional Portfolios
+            </h2>
+
+            <p>
+                A digital portfolio provides evidence of knowledge,
+                practical projects, reflection and professional
+                development. It can demonstrate capability more
+                clearly than a list of skills alone.
+            </p>
+
+            <div class="topic-grid">
+
+                <article class="topic-card">
+
+                    <h3>
+                        Context
+                    </h3>
+
+                    <p>
+                        Explain the purpose of the work and the problem
+                        being addressed.
+                    </p>
+
+                </article>
+
+                <article class="topic-card">
+
+                    <h3>
+                        Technical Decisions
+                    </h3>
+
+                    <p>
+                        Explain tools, methods, architecture and key
+                        design choices.
+                    </p>
+
+                </article>
+
+                <article class="topic-card">
+
+                    <h3>
+                        Evidence
+                    </h3>
+
+                    <p>
+                        Include appropriate screenshots, diagrams,
+                        testing records and source-code examples.
+                    </p>
+
+                </article>
+
+                <article class="topic-card">
+
+                    <h3>
+                        Reflection
+                    </h3>
+
+                    <p>
+                        Evaluate challenges, outcomes, limitations and
+                        lessons learned.
+                    </p>
+
+                </article>
+
+            </div>
+
+            <div class="diagram-placeholder">
+
+                <img src="/assets/images/Profdev.png" alt="">
+
+            </div>
+
+            <div class="key-takeaway">
+
+                <h3>
+                    Key takeaway
+                </h3>
+
+                <p>
+                    Employability requires evidence of both technical
+                    competence and professional behaviours. Continuous
+                    reflection and structured development help keep
+                    those capabilities current.
+                </p>
+
+            </div>
+
+        </div>
+
+    </details>
+
+    <section class="callout">
+
+        <h2>
+            Overall Evaluation
+        </h2>
+
+        <p>
+            Artificial intelligence combines technical design with
+            ethical and professional responsibility. A successful AI
+            system must do more than produce accurate outputs. It
+            should use data appropriately, avoid unreasonable
+            discrimination, support meaningful oversight and remain
+            secure and maintainable after deployment.
+        </p>
+
+    </section>
+
+    <div class="page-navigation">
+
+        <a
+            class="button"
+            href="../week4.html"
+        >
+            Back to Week 4
+        </a>
+
+        <a
+            class="button"
+            href="machine-learning.html"
+        >
+            Next: Machine Learning
+        </a>
+
+    </div>
+
+</main>
+
+<footer>
+
+    <p>
+        David's Computing Portfolio
+        &copy;
+        <span data-current-year></span>
+    </p>
+
+</footer>
+
+<script src="../../assets/js/script.js"></script>
+
+<script>
+    const studySections = document.querySelectorAll(
+        ".study-section"
+    );
+
+    const openAllButton = document.querySelector(
+        "#open-all-sections"
+    );
+
+    const closeAllButton = document.querySelector(
+        "#close-all-sections"
+    );
+
+    if (openAllButton && closeAllButton) {
+
+        openAllButton.addEventListener("click", () => {
+
+            studySections.forEach((section) => {
+                section.open = true;
+            });
+
+        });
+
+        closeAllButton.addEventListener("click", () => {
+
+            studySections.forEach((section) => {
+                section.open = false;
+            });
+
+        });
+
+    }
+</script>
+
+</body>
+
+</html>

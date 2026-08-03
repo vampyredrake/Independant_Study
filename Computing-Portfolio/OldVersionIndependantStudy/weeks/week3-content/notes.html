@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Structured Week 3 academic notes covering networks, cloud computing and cybersecurity."
+    >
+
+    <title>
+        Week 3 Notes | David's Computing Portfolio
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../../assets/css/style.css"
+    >
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="container">
+
+        <h1>
+            Structured Academic Notes
+        </h1>
+
+        <p>
+            Cloud Computing, Networks and Cybersecurity
+        </p>
+
+    </div>
+
+</header>
+
+<nav
+    class="navigation"
+    aria-label="Week 3 navigation"
+>
+
+    <div class="container">
+
+        <a href="../../index.html">
+            Home
+        </a>
+
+        <a href="../week3.html">
+            Week 3
+        </a>
+
+        <a
+            href="notes.html"
+            aria-current="page"
+        >
+            Notes
+        </a>
+
+        <a href="osi-model.html">
+            OSI Model
+        </a>
+
+        <a href="cloud-services.html">
+            Cloud Services
+        </a>
+
+        <a href="threat-analysis.html">
+            Threat Analysis
+        </a>
+
+        <a href="cia-triad.html">
+            CIA Triad
+        </a>
+
+        <a href="reflection.html">
+            Reflection
+        </a>
+
+        <a href="references.html">
+            References
+        </a>
+
+    </div>
+
+</nav>
+
+<main class="container">
+
+    <section class="card">
+
+        <h2>
+            Introduction
+        </h2>
+
+        <p>
+            Modern organisations depend on networks and cloud
+            platforms to deliver applications, store information and
+            support communication. These technologies create
+            significant operational benefits, but they also expand
+            the number of systems, identities and communication paths
+            that must be protected.
+        </p>
+
+        <p>
+            Networking, cloud computing and cybersecurity should not
+            be treated as separate subjects. Security controls depend
+            on understanding how information moves through a network,
+            where services are hosted and which organisation is
+            responsible for each technical layer. This systems view
+            is consistent with the NIST Cybersecurity Framework,
+            which treats governance, protection, detection, response
+            and recovery as related risk-management activities
+            (National Institute of Standards and Technology, 2024).
+        </p>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            1. Network Models
+        </h2>
+
+        <h3>
+            The OSI Seven-Layer Model
+        </h3>
+
+        <p>
+            The Open Systems Interconnection model divides network
+            communication into seven conceptual layers. Each layer
+            performs a particular function and provides services to
+            the layer above it.
+        </p>
+
+        <p>
+            The model is valuable for explaining network behaviour
+            and troubleshooting. For example, a broken cable is a
+            physical-layer problem, while an incorrect IP route is a
+            network-layer problem. However, modern protocols do not
+            always fit neatly into one OSI layer, so the model should
+            be treated as a conceptual framework rather than an exact
+            implementation (Kurose and Ross, 2021).
+        </p>
+
+        <ol>
+            <li>
+                <strong>Physical:</strong>
+                transmits bits using electrical, optical or wireless
+                signals.
+            </li>
+
+            <li>
+                <strong>Data Link:</strong>
+                transfers frames across a local network and uses
+                hardware addresses.
+            </li>
+
+            <li>
+                <strong>Network:</strong>
+                provides logical addressing and routing between
+                networks.
+            </li>
+
+            <li>
+                <strong>Transport:</strong>
+                manages end-to-end communication, reliability and
+                ports.
+            </li>
+
+            <li>
+                <strong>Session:</strong>
+                establishes, maintains and ends communication
+                sessions.
+            </li>
+
+            <li>
+                <strong>Presentation:</strong>
+                handles data representation, encryption and
+                compression.
+            </li>
+
+            <li>
+                <strong>Application:</strong>
+                provides network services used by applications and
+                users.
+            </li>
+        </ol>
+
+        <h3>
+            The TCP/IP Protocol Suite
+        </h3>
+
+        <p>
+            TCP/IP is the practical protocol suite used by the
+            internet. It is commonly represented using four layers:
+            application, transport, internet and network access.
+        </p>
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>TCP/IP Layer</th>
+                    <th>Related OSI Layers</th>
+                    <th>Examples</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>Application</td>
+                    <td>Application, presentation and session</td>
+                    <td>HTTP, HTTPS, DNS, SMTP and SSH</td>
+                </tr>
+
+                <tr>
+                    <td>Transport</td>
+                    <td>Transport</td>
+                    <td>TCP and UDP</td>
+                </tr>
+
+                <tr>
+                    <td>Internet</td>
+                    <td>Network</td>
+                    <td>IPv4, IPv6 and ICMP</td>
+                </tr>
+
+                <tr>
+                    <td>Network access</td>
+                    <td>Data link and physical</td>
+                    <td>Ethernet and Wi-Fi</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+        <p>
+            Transmission Control Protocol provides reliable,
+            connection-oriented communication. It uses sequencing,
+            acknowledgements and retransmission to increase the
+            likelihood that data arrives correctly and in order.
+        </p>
+
+        <p>
+            User Datagram Protocol is connectionless and has lower
+            overhead. It is useful where low delay is more important
+            than guaranteed delivery, such as voice calls, video
+            streaming and some online games.
+        </p>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            2. IPv4, IPv6 and Subnetting
+        </h2>
+
+        <h3>
+            IPv4
+        </h3>
+
+        <p>
+            Internet Protocol version 4 uses 32-bit addresses,
+            normally written as four decimal values separated by
+            full stops. An example is
+            <code>192.168.1.20</code>.
+        </p>
+
+        <p>
+            A 32-bit address space provides approximately 4.3 billion
+            possible addresses. The practical number available for
+            public use is lower because some ranges are reserved.
+            Network Address Translation has extended the usable life
+            of IPv4 by allowing many private devices to share one or
+            more public addresses.
+        </p>
+
+        <h3>
+            IPv6
+        </h3>
+
+        <p>
+            Internet Protocol version 6 uses 128-bit addresses,
+            written as hexadecimal groups separated by colons. An
+            example is:
+        </p>
+
+        <pre><code>2001:0db8:85a3:0000:0000:8a2e:0370:7334</code></pre>
+
+        <p>
+            Repeated zero groups can be compressed:
+        </p>
+
+        <pre><code>2001:db8:85a3::8a2e:370:7334</code></pre>
+
+        <p>
+            IPv6 provides a vastly larger address space and supports
+            more efficient address assignment (Internet Engineering
+            Task Force, 2017). It does not make a network secure
+            automatically. Firewalls, access controls and secure
+            configuration are still required, and organisations must
+            avoid assuming that address-space size is itself a
+            security control.
+        </p>
+
+        <h3>
+            IP Addressing
+        </h3>
+
+        <p>
+            An IP address contains a network portion and a host
+            portion. The subnet mask or prefix length determines
+            which bits identify the network.
+        </p>
+
+        <p>
+            The address
+            <code>192.168.10.25/24</code>
+            uses the first 24 bits for the network. The remaining
+            eight bits identify hosts within that network.
+        </p>
+
+        <pre><code>Network address:   192.168.10.0
+Usable range:      192.168.10.1 - 192.168.10.254
+Broadcast address: 192.168.10.255</code></pre>
+
+        <h3>
+            Subnetting
+        </h3>
+
+        <p>
+            Subnetting divides a larger address range into smaller
+            networks. It can reduce broadcast traffic, organise
+            departments and support security segmentation.
+        </p>
+
+        <p>
+            A
+            <code>/24</code>
+            network divided into four equal subnets produces four
+            <code>/26</code>
+            networks:
+        </p>
+
+        <pre><code>192.168.10.0/26
+192.168.10.64/26
+192.168.10.128/26
+192.168.10.192/26</code></pre>
+
+        <p>
+            Each subnet contains 64 total addresses. In a standard
+            IPv4 subnet, the network and broadcast addresses cannot
+            normally be assigned to hosts, leaving 62 usable host
+            addresses.
+        </p>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            3. Cloud Computing
+        </h2>
+
+        <h3>
+            Cloud-Computing Concepts
+        </h3>
+
+        <p>
+            Cloud computing provides shared computing resources over
+            a network. These resources may include servers, storage,
+            databases, networking, applications and development
+            platforms.
+        </p>
+
+        <p>
+            Cloud services are normally designed for on-demand access,
+            rapid scaling and measured usage. NIST identifies
+            on-demand self-service, broad network access, resource
+            pooling, rapid elasticity and measured service as the
+            defining characteristics of cloud computing (Mell and
+            Grance, 2011). Organisations can obtain infrastructure
+            without purchasing and maintaining every physical
+            component themselves, although responsibility for data,
+            identities and configuration is not transferred
+            automatically to the provider.
+        </p>
+
+        <p>
+            Cloud deployment models include public cloud, private
+            cloud, hybrid cloud and multi-cloud. A public cloud uses
+            shared provider infrastructure. A private cloud is
+            dedicated to one organisation. A hybrid model combines
+            local or private systems with public-cloud services.
+        </p>
+
+        <h3>
+            Infrastructure as a Service
+        </h3>
+
+        <p>
+            IaaS provides virtual machines, storage and networking.
+            The provider manages the physical infrastructure, while
+            the customer normally manages operating systems,
+            applications, data and many security settings.
+        </p>
+
+        <h3>
+            Platform as a Service
+        </h3>
+
+        <p>
+            PaaS provides an application platform, runtime and managed
+            infrastructure. Development teams deploy code without
+            managing every server or operating-system component.
+        </p>
+
+        <h3>
+            Software as a Service
+        </h3>
+
+        <p>
+            SaaS provides a complete application accessed through a
+            browser or client. The provider manages most of the
+            application stack, while the customer manages users,
+            permissions, configuration and data-handling decisions.
+        </p>
+
+        <h3>
+            Serverless Architecture
+        </h3>
+
+        <p>
+            Serverless computing allows developers to deploy
+            functions or managed services without directly managing
+            servers. The term does not mean that servers do not
+            exist. It means the provider manages provisioning,
+            scaling and much of the infrastructure.
+        </p>
+
+        <p>
+            Serverless services are useful for event-driven tasks,
+            APIs and workloads with irregular demand. Limitations can
+            include execution-time restrictions, cold-start delay,
+            monitoring complexity and vendor lock-in.
+        </p>
+
+        <h3>
+            Virtualisation and Hypervisors
+        </h3>
+
+        <p>
+            Virtualisation allows one physical computer to operate
+            multiple isolated virtual machines. Each virtual machine
+            can have its own operating system and allocated resources.
+        </p>
+
+        <p>
+            A Type 1 hypervisor runs directly on physical hardware.
+            This model is common in data centres. A Type 2 hypervisor
+            runs on top of a host operating system and is often used
+            for desktop testing or development.
+        </p>
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Hypervisor Type</th>
+                    <th>Operation</th>
+                    <th>Typical Use</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>Type 1</td>
+                    <td>Runs directly on hardware</td>
+                    <td>Servers, data centres and cloud platforms</td>
+                </tr>
+
+                <tr>
+                    <td>Type 2</td>
+                    <td>Runs inside a host operating system</td>
+                    <td>Development, testing and desktop use</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            4. Threat Actors and Attack Vectors
+        </h2>
+
+        <h3>
+            Threat Actors
+        </h3>
+
+        <p>
+            A threat actor is an individual or group capable of
+            causing harm to a system. Threat actors differ in
+            motivation, resources and technical skill.
+        </p>
+
+        <ul>
+            <li>
+                <strong>Cybercriminals:</strong>
+                commonly motivated by financial gain.
+            </li>
+
+            <li>
+                <strong>Nation-state groups:</strong>
+                may conduct espionage, disruption or political
+                operations.
+            </li>
+
+            <li>
+                <strong>Insiders:</strong>
+                may act maliciously or cause accidental harm.
+            </li>
+
+            <li>
+                <strong>Hacktivists:</strong>
+                normally act in support of an ideological or
+                political cause.
+            </li>
+
+            <li>
+                <strong>Competitors:</strong>
+                may seek commercial intelligence or strategic
+                advantage.
+            </li>
+        </ul>
+
+        <h3>
+            Attack Vectors
+        </h3>
+
+        <p>
+            An attack vector is the path or method used to compromise
+            a system. Examples include email, exposed remote services,
+            stolen credentials, vulnerable web applications,
+            malicious software updates and misconfigured cloud
+            storage.
+        </p>
+
+        <h3>
+            Denial of Service and Distributed Denial of Service
+        </h3>
+
+        <p>
+            A denial-of-service attack attempts to make a system
+            unavailable by exhausting bandwidth, processing capacity,
+            memory or application resources.
+        </p>
+
+        <p>
+            A distributed denial-of-service attack uses traffic from
+            multiple systems, often compromised devices in a botnet.
+            Distribution makes the attack more difficult to block
+            because the traffic does not come from one source.
+        </p>
+
+        <p>
+            Mitigations include traffic filtering, rate limiting,
+            content delivery networks, load balancing, additional
+            capacity and specialist DDoS protection services.
+        </p>
+
+        <h3>
+            SQL Injection
+        </h3>
+
+        <p>
+            SQL injection occurs when untrusted input is interpreted
+            as part of a database command. An attacker may retrieve,
+            modify or delete information, depending on the database
+            account's permissions.
+        </p>
+
+        <p>
+            Parameterised queries are the primary control because
+            they separate data from SQL instructions. Additional
+            controls include allow-list input validation,
+            least-privilege database accounts and secure error
+            handling (OWASP Foundation, 2026a). Input validation
+            alone is insufficient because syntactically valid input
+            may still alter a query when unsafe string construction
+            is used.
+        </p>
+
+        <h3>
+            Cross-Site Scripting
+        </h3>
+
+        <p>
+            Cross-site scripting occurs when attacker-controlled
+            content is executed in another user's browser. It can be
+            reflected, stored or caused by unsafe client-side code.
+        </p>
+
+        <p>
+            XSS may allow account impersonation, page modification,
+            false forms or unauthorised actions. Controls include
+            context-appropriate output encoding, safe templating,
+            appropriate sanitisation and a restrictive Content
+            Security Policy (OWASP Foundation, 2026b). Content
+            Security Policy is a defence-in-depth measure rather than
+            a substitute for correct output handling.
+        </p>
+
+        <h3>
+            Phishing
+        </h3>
+
+        <p>
+            Phishing uses deceptive messages or websites to persuade
+            users to reveal information, approve access or execute a
+            harmful action. Modern phishing may target passwords,
+            multifactor authentication prompts, OAuth permissions or
+            financial processes.
+        </p>
+
+        <p>
+            Technical controls should support user awareness.
+            Effective measures include phishing-resistant
+            authentication, email filtering, domain protection,
+            restricted application consent and procedures for
+            verifying financial requests.
+        </p>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            5. Information-Security Principles
+        </h2>
+
+        <h3>
+            Confidentiality
+        </h3>
+
+        <p>
+            Confidentiality protects information from unauthorised
+            disclosure. Controls include encryption, authentication,
+            access control, data classification and least privilege.
+        </p>
+
+        <h3>
+            Integrity
+        </h3>
+
+        <p>
+            Integrity protects information from unauthorised or
+            accidental modification. Controls include hashes,
+            digital signatures, validation, audit logs and change
+            control.
+        </p>
+
+        <h3>
+            Availability
+        </h3>
+
+        <p>
+            Availability ensures that authorised users can access
+            systems and information when required. Controls include
+            backups, redundancy, fault tolerance, monitoring,
+            capacity planning and incident response.
+        </p>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            6. Cryptography
+        </h2>
+
+        <h3>
+            Symmetric Encryption
+        </h3>
+
+        <p>
+            Symmetric encryption uses the same secret key to encrypt
+            and decrypt information. It is efficient and suitable for
+            protecting large amounts of data.
+        </p>
+
+        <p>
+            The main challenge is secure key distribution. Anyone who
+            obtains the key may be able to decrypt the protected
+            information.
+        </p>
+
+        <h3>
+            AES
+        </h3>
+
+        <p>
+            The Advanced Encryption Standard is a widely used
+            symmetric block cipher standardised by NIST. AES supports
+            key lengths of 128, 192 and 256 bits (National Institute
+            of Standards and Technology, 2001).
+        </p>
+
+        <p>
+            Encryption strength depends on more than the algorithm.
+            Secure modes of operation, random nonces, authentication
+            and safe key storage are also required.
+        </p>
+
+        <h3>
+            Asymmetric Encryption
+        </h3>
+
+        <p>
+            Asymmetric cryptography uses a public key and a private
+            key. Information encrypted for a recipient can be
+            protected using the recipient's public key and recovered
+            using the corresponding private key.
+        </p>
+
+        <p>
+            Asymmetric methods can also support digital signatures.
+            A private key is used to create a signature, while the
+            public key is used to verify it.
+        </p>
+
+        <h3>
+            RSA
+        </h3>
+
+        <p>
+            RSA is an asymmetric cryptographic algorithm used for
+            encryption and digital signatures. It is computationally
+            more expensive than symmetric encryption and is therefore
+            normally used for smaller values, signatures or key
+            establishment rather than bulk data encryption.
+        </p>
+
+        <h3>
+            Hashing
+        </h3>
+
+        <p>
+            A cryptographic hash function converts input into a
+            fixed-length digest. A small change to the input should
+            produce a significantly different digest.
+        </p>
+
+        <p>
+            Hashing is one-way and is not encryption. It supports
+            integrity checking, digital signatures and secure
+            password storage. Passwords should be processed using a
+            purpose-designed password-hashing function with unique
+            salts rather than a fast general-purpose hash alone.
+        </p>
+
+        <h3>
+            SSL and TLS
+        </h3>
+
+        <p>
+            Transport Layer Security protects communication between
+            applications. TLS 1.3 provides confidentiality, integrity
+            and server authentication, while client authentication
+            may also be configured (Internet Engineering Task Force,
+            2018). Its protection is end-to-end only between the TLS
+            endpoints; compromised endpoints can still expose
+            plaintext data.
+        </p>
+
+        <p>
+            SSL is obsolete and has been replaced by TLS. The term
+            SSL is still sometimes used informally, but secure systems
+            should use supported TLS versions and configurations.
+        </p>
+
+        <p>
+            During a TLS connection, asymmetric cryptography and
+            certificates help authenticate the server and establish
+            session secrets. Symmetric encryption is then used for
+            the main data transfer because it is more efficient.
+        </p>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            7. Cloud Access Control and Security
+        </h2>
+
+        <h3>
+            Shared Responsibility
+        </h3>
+
+        <p>
+            Cloud security follows a shared-responsibility model. The
+            provider protects the underlying service, but the
+            customer remains responsible for areas such as account
+            security, access permissions, data handling and many
+            configuration decisions.
+        </p>
+
+        <p>
+            The exact division depends on the service model. A
+            customer using IaaS has more technical responsibility
+            than a customer using SaaS.
+        </p>
+
+        <h3>
+            Identity and Access Management
+        </h3>
+
+        <p>
+            Cloud identity and access management controls which users,
+            applications and services may access resources. Policies
+            should follow least privilege so that each identity has
+            only the permissions required for its role.
+        </p>
+
+        <p>
+            Effective controls include:
+        </p>
+
+        <ul>
+            <li>multifactor authentication;</li>
+            <li>role-based access control;</li>
+            <li>conditional access policies;</li>
+            <li>short-lived credentials;</li>
+            <li>privileged-access management;</li>
+            <li>regular access reviews;</li>
+            <li>logging and alerting;</li>
+            <li>separation of development and production accounts.</li>
+        </ul>
+
+        <h3>
+            Cloud Misconfiguration
+        </h3>
+
+        <p>
+            Cloud incidents frequently involve valid services that
+            have been configured insecurely. Examples include public
+            storage, unrestricted firewall rules, excessive
+            permissions and exposed management interfaces.
+        </p>
+
+        <p>
+            Infrastructure as code, automated policy checks,
+            configuration baselines and continuous monitoring can
+            reduce these risks. Automation must still be reviewed,
+            because an incorrect template can reproduce the same
+            weakness across many environments.
+        </p>
+
+        <h3>
+            Zero-Trust Principles
+        </h3>
+
+        <p>
+            Zero trust avoids treating network location as sufficient
+            evidence of trust. Each access request should be evaluated
+            using identity, device state, permissions, resource
+            sensitivity and current risk.
+        </p>
+
+        <p>
+            Zero trust is not one product. It is an architectural
+            approach involving identity controls, segmentation,
+            continuous verification, monitoring and limited access.
+        </p>
+
+    </section>
+
+    <section class="callout">
+
+        <h2>
+            Overall Evaluation
+        </h2>
+
+        <p>
+            Cloud platforms and modern networks increase flexibility,
+            but they also make identity, configuration and
+            communication security more important. Effective security
+            requires layered controls across users, applications,
+            networks, data and cloud-management systems.
+        </p>
+
+    </section>
+
+    <div class="page-navigation">
+
+        <a
+            class="button"
+            href="../week3.html"
+        >
+            Back to Week 3
+        </a>
+
+        <a
+            class="button"
+            href="osi-model.html"
+        >
+            Next: OSI Model
+        </a>
+
+    </div>
+
+</main>
+
+<footer>
+
+    <p>
+        David's Computing Portfolio
+        &copy;
+        <span data-current-year></span>
+    </p>
+
+</footer>
+
+<script src="../../assets/js/script.js"></script>
+
+</body>
+
+</html>

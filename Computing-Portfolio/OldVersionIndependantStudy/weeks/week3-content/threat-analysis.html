@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="A cybersecurity threat analysis covering less commonly selected modern attack types."
+    >
+
+    <title>
+        Cybersecurity Threat Analysis | David's Computing Portfolio
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../../assets/css/style.css"
+    >
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="container">
+
+        <h1>
+            Cybersecurity Threat Analysis
+        </h1>
+
+      
+
+    </div>
+
+</header>
+
+<nav
+    class="navigation"
+    aria-label="Week 3 navigation"
+>
+
+    <div class="container">
+
+        <a href="../../index.html">
+            Home
+        </a>
+
+        <a href="../week3.html">
+            Week 3
+        </a>
+
+        <a href="notes.html">
+            Notes
+        </a>
+
+        <a href="osi-model.html">
+            OSI Model
+        </a>
+
+        <a href="cloud-services.html">
+            Cloud Services
+        </a>
+
+        <a
+            href="threat-analysis.html"
+            aria-current="page"
+        >
+            Threat Analysis
+        </a>
+
+        <a href="cia-triad.html">
+            CIA Triad
+        </a>
+
+        <a href="reflection.html">
+            Reflection
+        </a>
+
+        <a href="references.html">
+            References
+        </a>
+
+    </div>
+
+</nav>
+
+<main class="container">
+
+    <section class="card">
+
+        <h2>
+            Assessment Approach
+        </h2>
+
+        <p>
+            This analysis focuses on threats that are less commonly
+            selected than standard examples such as ransomware,
+            ordinary password phishing or generic malware.
+        </p>
+
+        <p>
+            Likelihood is expressed qualitatively as low, medium or
+            high. These ratings are comparative judgements rather
+            than statistical probabilities. The actual likelihood
+            for an organisation depends on its systems, suppliers,
+            exposure, threat intelligence and existing controls.
+            NIST CSF 2.0 recommends that cybersecurity outcomes are
+            prioritised in relation to organisational context and
+            risk (National Institute of Standards and Technology,
+            2024).
+        </p>
+
+    </section>
+
+    <section>
+
+        <h2>
+            Threat Table
+        </h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Attack Type</th>
+                    <th>Potential Impact</th>
+                    <th>Likelihood</th>
+                    <th>Appropriate Mitigation</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>
+                        <strong>
+                            Cloud metadata service exploitation
+                        </strong>
+                    </td>
+
+                    <td>
+                        Theft of temporary cloud credentials,
+                        unauthorised access to storage or databases,
+                        privilege escalation and movement into other
+                        cloud resources.
+                    </td>
+
+                    <td>
+                        Medium
+                    </td>
+
+                    <td>
+                        Use hardened metadata-service configurations,
+                        block unnecessary workload access, apply
+                        least-privilege cloud roles, restrict
+                        server-side request destinations, segment
+                        workloads and monitor unusual credential use.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <strong>
+                            Dependency confusion
+                        </strong>
+                    </td>
+
+                    <td>
+                        Malicious software packages may execute during
+                        development or automated builds, leading to
+                        credential theft, source-code compromise,
+                        backdoors or distribution of infected
+                        software.
+                    </td>
+
+                    <td>
+                        Medium
+                    </td>
+
+                    <td>
+                        Reserve internal package names, use trusted
+                        private repositories, pin dependency versions,
+                        verify package sources, use lock files,
+                        introduce software composition analysis and
+                        restrict build-system network access.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <strong>
+                            OAuth consent phishing
+                        </strong>
+                    </td>
+
+                    <td>
+                        An attacker may obtain persistent permission to
+                        access cloud email, documents or contacts
+                        without directly stealing a password.
+                    </td>
+
+                    <td>
+                        Medium to high
+                    </td>
+
+                    <td>
+                        Restrict third-party application consent, use
+                        administrator approval, review granted
+                        permissions, monitor unusual token use,
+                        revoke suspicious applications and educate
+                        users about consent screens.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <strong>
+                            BGP route hijacking
+                        </strong>
+                    </td>
+
+                    <td>
+                        Internet traffic may be redirected,
+                        intercepted or made unavailable. Users may be
+                        sent through an unauthorised network path.
+                    </td>
+
+                    <td>
+                        Low to medium
+                    </td>
+
+                    <td>
+                        Use Route Origin Authorisation and RPKI,
+                        monitor route announcements, work with
+                        providers that validate routes, maintain
+                        incident contacts and use end-to-end encrypted
+                        protocols such as TLS.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <strong>
+                            Domain shadowing
+                        </strong>
+                    </td>
+
+                    <td>
+                        Attackers compromise a legitimate domain
+                        account and create malicious subdomains for
+                        phishing, malware distribution or
+                        command-and-control systems.
+                    </td>
+
+                    <td>
+                        Medium
+                    </td>
+
+                    <td>
+                        Protect registrar accounts with strong
+                        multifactor authentication, restrict DNS
+                        changes, monitor certificate and DNS records,
+                        use registry locks and investigate unexpected
+                        subdomains.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <strong>
+                            Hypervisor escape
+                        </strong>
+                    </td>
+
+                    <td>
+                        Malicious code inside a virtual machine may
+                        break isolation and affect the host or other
+                        virtual machines, potentially creating a
+                        large-scale compromise.
+                    </td>
+
+                    <td>
+                        Low
+                    </td>
+
+                    <td>
+                        Patch hypervisors promptly, minimise host
+                        services, separate workloads by sensitivity,
+                        use secure boot and hardware protections,
+                        restrict administrative access and monitor the
+                        virtualisation layer.
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            1. Cloud Metadata Service Exploitation
+        </h2>
+
+        <p>
+            Cloud virtual machines may use a metadata service to
+            obtain configuration information and temporary
+            credentials. This service is intended to be accessible
+            from the workload rather than the public internet.
+        </p>
+
+        <p>
+            A vulnerable application may allow an attacker to make
+            requests from the server. This is known as server-side
+            request forgery. The attacker may direct the server toward
+            its metadata service and attempt to obtain cloud
+            credentials.
+        </p>
+
+        <p>
+            The seriousness depends on the permissions attached to
+            the workload. A narrowly restricted role may limit the
+            damage, whereas an overprivileged role could allow access
+            to storage, secrets or additional services. AWS
+            recommends controls such as IMDSv2 and limiting metadata
+            access, but secure configuration must be combined with
+            protection against server-side request forgery
+            (Amazon Web Services, 2026).
+        </p>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            2. Dependency Confusion
+        </h2>
+
+        <p>
+            Modern applications rely on packages from public and
+            private repositories. Dependency confusion occurs when a
+            package manager retrieves an attacker-controlled public
+            package instead of the intended internal package.
+        </p>
+
+        <p>
+            The attacker selects a name matching an organisation's
+            private dependency and publishes a package with a version
+            number or configuration likely to be preferred by the
+            package-management process.
+        </p>
+
+        <p>
+            This threat is significant because malicious code may
+            execute inside trusted development or build
+            infrastructure. It may therefore access source
+            repositories, signing keys, environment variables or
+            deployment credentials. A software bill of materials can
+            improve component visibility, but it does not establish
+            that a component is trustworthy or uncompromised
+            (Cybersecurity and Infrastructure Security Agency, 2021).
+        </p>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            3. OAuth Consent Phishing
+        </h2>
+
+        <p>
+            OAuth consent phishing does not always require an
+            attacker to obtain a user's password. The user is
+            persuaded to authorise a malicious application to access
+            cloud information.
+        </p>
+
+        <p>
+            A user may see a legitimate provider login page followed
+            by a request for permissions. If those permissions are
+            approved, the application may receive tokens that allow
+            continuing access.
+        </p>
+
+        <p>
+            Conventional password changes may not remove the
+            malicious application's permission. Organisations must
+            therefore monitor application consent and revoke
+            unauthorised tokens or applications. Restricting user
+            consent and requiring administrative approval for
+            high-risk permissions reduces exposure, although it also
+            creates an approval workload that must be managed
+            effectively (Microsoft, 2026).
+        </p>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            4. BGP Route Hijacking
+        </h2>
+
+        <p>
+            Border Gateway Protocol is used to exchange routing
+            information between large networks. A route hijack occurs
+            when incorrect route information causes traffic to travel
+            toward an unauthorised network.
+        </p>
+
+        <p>
+            Some incidents are accidental, while others may be
+            deliberate. The result can include traffic disruption,
+            interception or redirection.
+        </p>
+
+        <p>
+            RPKI and route-origin validation can help networks verify
+            whether an autonomous system is authorised to originate a
+            particular address range. These controls reduce invalid
+            route announcements but do not prove that every accepted
+            path is safe. TLS also reduces the value of intercepted
+            traffic because communication remains encrypted and
+            authenticated when correctly configured (Internet
+            Engineering Task Force, 2018).
+        </p>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            5. Domain Shadowing
+        </h2>
+
+        <p>
+            Domain shadowing occurs when attackers obtain access to a
+            legitimate domain-management account and create
+            unauthorised subdomains. The original website may remain
+            unchanged, making the compromise less obvious.
+        </p>
+
+        <p>
+            The malicious subdomains benefit from the reputation of
+            the legitimate parent domain. They may be used for
+            phishing or malware delivery until detected.
+        </p>
+
+        <p>
+            Monitoring DNS changes and certificate issuance can help
+            identify unexpected domain activity. Registrar accounts
+            should be protected as privileged systems through strong
+            authentication, restricted administration and verified
+            recovery procedures. Monitoring is detective rather than
+            preventive, so rapid ownership and incident-response
+            processes remain necessary.
+        </p>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            6. Hypervisor Escape
+        </h2>
+
+        <p>
+            Virtual machines depend on the hypervisor to maintain
+            isolation. A hypervisor-escape vulnerability could allow
+            code inside a guest virtual machine to reach the host or
+            another guest.
+        </p>
+
+        <p>
+            These attacks are relatively uncommon because they
+            normally require a specific vulnerability and technical
+            conditions. The potential impact is severe because the
+            virtualisation layer may support several important
+            systems.
+        </p>
+
+        <p>
+            Isolation should therefore be combined with patching,
+            workload separation and strong administrative controls.
+        </p>
+
+    </section>
+
+    <section class="card">
+
+        <h2>
+            Overall Evaluation
+        </h2>
+
+        <p>
+            The selected threats show that modern attacks often target
+            trust relationships rather than only individual devices.
+            Cloud roles trust workloads, build systems trust package
+            repositories, users trust consent screens and networks
+            trust routing announcements.
+        </p>
+
+        <p>
+            Controls must therefore validate where requests,
+            identities, software and network information originate.
+            Monitoring is also necessary because preventative controls
+            cannot remove every risk.
+        </p>
+
+    </section>
+
+    <div class="page-navigation">
+
+        <a
+            class="button"
+            href="cloud-services.html"
+        >
+            Previous: Cloud Services
+        </a>
+
+        <a
+            class="button"
+            href="../week3.html"
+        >
+            Back to Week 3
+        </a>
+
+        <a
+            class="button"
+            href="cia-triad.html"
+        >
+            Next: CIA Triad
+        </a>
+
+    </div>
+
+</main>
+
+<footer>
+
+    <p>
+        David's Computing Portfolio
+        &copy;
+        <span data-current-year></span>
+    </p>
+
+</footer>
+
+<script src="../../assets/js/script.js"></script>
+
+</body>
+
+</html>

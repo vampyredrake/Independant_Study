@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="A labelled OSI seven-layer diagram with explanations of each network layer."
+    >
+
+    <title>
+        OSI Seven-Layer Model | David's Computing Portfolio
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../../assets/css/style.css"
+    >
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="container">
+
+        <h1>
+            OSI Seven-Layer Model
+        </h1>
+
+        <p>
+            A Labelled Network Communication Diagram
+        </p>
+
+    </div>
+
+</header>
+
+<nav
+    class="navigation"
+    aria-label="Week 3 navigation"
+>
+
+    <div class="container">
+
+        <a href="../../index.html">
+            Home
+        </a>
+
+        <a href="../week3.html">
+            Week 3
+        </a>
+
+        <a href="notes.html">
+            Notes
+        </a>
+
+        <a
+            href="osi-model.html"
+            aria-current="page"
+        >
+            OSI Model
+        </a>
+
+        <a href="cloud-services.html">
+            Cloud Services
+        </a>
+
+        <a href="threat-analysis.html">
+            Threat Analysis
+        </a>
+
+        <a href="cia-triad.html">
+            CIA Triad
+        </a>
+
+        <a href="reflection.html">
+            Reflection
+        </a>
+
+        <a href="references.html">
+            References
+        </a>
+
+    </div>
+
+</nav>
+
+<main class="container">
+
+    <section class="card">
+
+        <h2>
+            Purpose of the Model
+        </h2>
+
+        <p>
+            The OSI model separates network communication into seven
+            conceptual layers. This makes complex communication
+            easier to explain and troubleshoot because each layer has
+            a defined purpose. It is primarily an analytical model,
+            whereas the internet is implemented through the TCP/IP
+            protocol suite (Kurose and Ross, 2021).
+        </p>
+
+        <p>
+            During transmission, information moves from the
+            application layer down toward the physical layer.
+            Receiving systems process the information in the opposite
+            direction.
+        </p>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            Labelled OSI Diagram
+        </h2>
+
+        <div
+            class="osi-diagram"
+            role="img"
+            aria-label="Diagram showing all seven layers of the OSI model"
+        >
+
+            <div class="card">
+
+                <h3>
+                    Layer 7: Application
+                </h3>
+
+                <p>
+                    Provides network services used by applications.
+                </p>
+
+                <p>
+                    <strong>Examples:</strong>
+                    HTTP, HTTPS, DNS, SMTP and FTP
+                </p>
+
+                <p>
+                    <strong>Data unit:</strong>
+                    Data
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>
+                    Layer 6: Presentation
+                </h3>
+
+                <p>
+                    Translates data formats and may perform
+                    encryption, decryption and compression.
+                </p>
+
+                <p>
+                    <strong>Examples:</strong>
+                    character encoding, image formats and encryption
+                    formats
+                </p>
+
+                <p>
+                    <strong>Data unit:</strong>
+                    Data
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>
+                    Layer 5: Session
+                </h3>
+
+                <p>
+                    Establishes, manages and terminates communication
+                    sessions between applications.
+                </p>
+
+                <p>
+                    <strong>Examples:</strong>
+                    session control, checkpoints and dialog management
+                </p>
+
+                <p>
+                    <strong>Data unit:</strong>
+                    Data
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>
+                    Layer 4: Transport
+                </h3>
+
+                <p>
+                    Provides end-to-end communication, segmentation,
+                    ports, reliability and flow control.
+                </p>
+
+                <p>
+                    <strong>Examples:</strong>
+                    TCP and UDP
+                </p>
+
+                <p>
+                    <strong>Data unit:</strong>
+                    Segment or datagram
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>
+                    Layer 3: Network
+                </h3>
+
+                <p>
+                    Provides logical addressing and routing between
+                    different networks.
+                </p>
+
+                <p>
+                    <strong>Examples:</strong>
+                    IPv4, IPv6, ICMP and routers
+                </p>
+
+                <p>
+                    <strong>Data unit:</strong>
+                    Packet
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>
+                    Layer 2: Data Link
+                </h3>
+
+                <p>
+                    Transfers frames across a local network and uses
+                    hardware addresses for local delivery.
+                </p>
+
+                <p>
+                    <strong>Examples:</strong>
+                    Ethernet, Wi-Fi, MAC addresses and switches
+                </p>
+
+                <p>
+                    <strong>Data unit:</strong>
+                    Frame
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>
+                    Layer 1: Physical
+                </h3>
+
+                <p>
+                    Transmits raw bits using electrical, optical or
+                    wireless signals.
+                </p>
+
+                <p>
+                    <strong>Examples:</strong>
+                    cables, connectors, radio signals and network
+                    interface hardware
+                </p>
+
+                <p>
+                    <strong>Data unit:</strong>
+                    Bits
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section>
+
+        <h2>
+            Layer-by-Layer Explanation
+        </h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Layer</th>
+                    <th>Main Purpose</th>
+                    <th>Example Failure</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>7. Application</td>
+                    <td>
+                        Provides network functions directly used by
+                        software applications.
+                    </td>
+                    <td>
+                        A web server returns an application error.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>6. Presentation</td>
+                    <td>
+                        Ensures data is represented in an agreed
+                        format.
+                    </td>
+                    <td>
+                        The sender and receiver use incompatible
+                        character encodings.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>5. Session</td>
+                    <td>
+                        Coordinates ongoing communication between
+                        applications.
+                    </td>
+                    <td>
+                        A session expires or is unexpectedly
+                        terminated.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>4. Transport</td>
+                    <td>
+                        Delivers data between application processes
+                        and manages ports.
+                    </td>
+                    <td>
+                        A firewall blocks the required TCP port.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>3. Network</td>
+                    <td>
+                        Routes packets using logical addresses.
+                    </td>
+                    <td>
+                        An incorrect route prevents packets reaching
+                        another network.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>2. Data Link</td>
+                    <td>
+                        Moves frames between devices on the same local
+                        network.
+                    </td>
+                    <td>
+                        A switching or VLAN configuration is
+                        incorrect.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>1. Physical</td>
+                    <td>
+                        Carries signals through the transmission
+                        medium.
+                    </td>
+                    <td>
+                        A damaged cable prevents any connection.
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            Encapsulation
+        </h2>
+
+        <p>
+            Encapsulation occurs when protocol layers add headers,
+            and sometimes trailers, as data moves down the network
+            stack. At the destination, the corresponding information
+            is interpreted and removed as the data moves upward.
+            This abstraction is useful, although real implementations
+            may combine functions that the OSI model separates
+            (Stallings, 2020).
+        </p>
+
+        <pre><code>Application data
+      ↓
+Transport segment
+      ↓
+Network packet
+      ↓
+Data-link frame
+      ↓
+Physical bits</code></pre>
+
+        <p>
+            For example, an HTTP request is carried inside a TCP
+            segment. The segment is carried inside an IP packet, and
+            the packet is carried inside an Ethernet or Wi-Fi frame.
+        </p>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            OSI and TCP/IP Comparison
+        </h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>OSI Model</th>
+                    <th>TCP/IP Model</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>
+                        Application, presentation and session
+                    </td>
+                    <td>
+                        Application
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Transport
+                    </td>
+                    <td>
+                        Transport
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Network
+                    </td>
+                    <td>
+                        Internet
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Data link and physical
+                    </td>
+                    <td>
+                        Network access
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+        <p>
+            The OSI model is more detailed and is widely used for
+            teaching and troubleshooting. TCP/IP more closely
+            represents the protocol suite used by operational
+            internet systems. The mapping is therefore approximate:
+            protocols such as TLS and QUIC cross boundaries that a
+            simplified layer diagram may imply are rigid.
+        </p>
+
+    </section>
+
+    <section class="card">
+
+        <h2>
+            Critical Evaluation
+        </h2>
+
+        <p>
+            The OSI model is useful because it provides a common
+            vocabulary. A technician can describe a problem as
+            physical, transport or application related without first
+            explaining the entire system. Its value is diagnostic
+            rather than predictive: assigning a fault to one layer
+            does not prove that dependencies at other layers are
+            functioning correctly.
+        </p>
+
+        <p>
+            Its limitation is that modern protocols sometimes span
+            several layers. TLS, for example, performs functions
+            associated with presentation security but operates
+            alongside application and transport protocols.
+        </p>
+
+        <p>
+            The model should therefore guide analysis without being
+            treated as a rigid description of every network
+            implementation.
+        </p>
+
+    </section>
+
+    <div class="page-navigation">
+
+        <a
+            class="button"
+            href="notes.html"
+        >
+            Previous: Notes
+        </a>
+
+        <a
+            class="button"
+            href="../week3.html"
+        >
+            Back to Week 3
+        </a>
+
+        <a
+            class="button"
+            href="cloud-services.html"
+        >
+            Next: Cloud Services
+        </a>
+
+    </div>
+
+</main>
+
+<footer>
+
+    <p>
+        David's Computing Portfolio
+        &copy;
+        <span data-current-year></span>
+    </p>
+
+</footer>
+
+<script src="../../assets/js/script.js"></script>
+
+</body>
+
+</html>

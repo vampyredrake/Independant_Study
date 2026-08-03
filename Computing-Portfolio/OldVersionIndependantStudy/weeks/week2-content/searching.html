@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Search Algorithm Comparison | David's Computing Portfolio
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../../assets/css/style.css"
+    >
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="container">
+
+        <h1>
+            Search Algorithm Comparison
+        </h1>
+
+        <p>
+            Linear Search and Binary Search
+        </p>
+
+    </div>
+
+</header>
+
+<nav
+    class="navigation"
+    aria-label="Week 2 navigation"
+>
+
+    <div class="container">
+
+        <a href="../../index.html">Home</a>
+        <a href="../week2.html">Week 2</a>
+        <a href="notes.html">Notes</a>
+        <a href="data-structures.html">Data Structures</a>
+        <a href="searching.html">Searching</a>
+        <a href="complexity.html">Complexity</a>
+        <a href="databases.html">Databases</a>
+        <a href="reflection.html">Reflection</a>
+        <a href="references.html">References</a>
+
+    </div>
+
+</nav>
+
+<main class="container">
+
+    <section class="card">
+
+        <h2>
+            Overview
+        </h2>
+
+        <p>
+            Searching algorithms locate a target value within a
+            collection. Linear search prioritises simplicity and
+            flexibility, while binary search prioritises efficiency
+            but requires ordered data and suitable indexed access
+            (Cormen et al., 2022).
+        </p>
+
+    </section>
+
+    <section>
+
+        <h2>
+            Comparison Table
+        </h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Characteristic</th>
+                    <th>Linear Search</th>
+                    <th>Binary Search</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>Data order</td>
+                    <td>Works with sorted or unsorted data.</td>
+                    <td>Requires sorted data.</td>
+                </tr>
+
+                <tr>
+                    <td>Method</td>
+                    <td>Checks each item sequentially.</td>
+                    <td>Repeatedly halves the search area.</td>
+                </tr>
+
+                <tr>
+                    <td>Best case</td>
+                    <td>O(1)</td>
+                    <td>O(1)</td>
+                </tr>
+
+                <tr>
+                    <td>Average case</td>
+                    <td>O(n)</td>
+                    <td>O(log n)</td>
+                </tr>
+
+                <tr>
+                    <td>Worst case</td>
+                    <td>O(n)</td>
+                    <td>O(log n)</td>
+                </tr>
+
+                <tr>
+                    <td>Implementation</td>
+                    <td>Simple.</td>
+                    <td>More complex.</td>
+                </tr>
+
+                <tr>
+                    <td>Suitable structures</td>
+                    <td>Arrays, lists and sequential data.</td>
+                    <td>Sorted arrays or structures with fast indexing.</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            Linear Search
+        </h2>
+
+        <pre><code>FUNCTION linearSearch(items, target)
+
+    FOR each position in items
+
+        IF items[position] equals target
+            RETURN position
+
+    RETURN not found</code></pre>
+
+        <p>
+            Linear search is appropriate where the dataset is small,
+            unsorted or searched only occasionally. Sorting a
+            collection purely to perform one search may cost more
+            than checking the items sequentially.
+        </p>
+
+        <p>
+            It is also suitable for linked lists because moving
+            directly to a middle position is not efficient in a
+            linked structure.
+        </p>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            Binary Search
+        </h2>
+
+        <pre><code>FUNCTION binarySearch(items, target)
+
+    low = 0
+    high = length of items - 1
+
+    WHILE low is less than or equal to high
+
+        middle = floor((low + high) / 2)
+
+        IF items[middle] equals target
+            RETURN middle
+
+        IF items[middle] is less than target
+            low = middle + 1
+
+        ELSE
+            high = middle - 1
+
+    RETURN not found</code></pre>
+
+        <p>
+            Binary search becomes valuable when the collection is
+            large, sorted and searched repeatedly. Each comparison
+            eliminates approximately half of the remaining values.
+        </p>
+
+        <p>
+            For a collection containing approximately one million
+            sorted items, binary search requires around twenty
+            comparisons in the worst case because each comparison
+            halves the remaining range. Linear search may require
+            close to one million comparisons. This comparison shows
+            the difference in growth rate, but not the cost of first
+            sorting the data or maintaining its order.
+        </p>
+
+    </section>
+
+    <section class="card">
+
+        <h2>
+            Evaluation
+        </h2>
+
+        <p>
+            Binary search has better asymptotic performance, but it
+            is not automatically the correct choice. The cost of
+            sorting and maintaining order must also be considered.
+            Wengrow (2020) argues that algorithm selection should
+            follow the real use case: a theoretically faster search
+            can still be inefficient if its prerequisites are costly
+            or rarely reused.
+        </p>
+
+        <p>
+            A small unsorted collection searched once is likely to
+            favour linear search. A large sorted index searched many
+            times is likely to favour binary search.
+        </p>
+
+        <p>
+            The underlying data structure also matters. Binary search
+            is efficient on an array because the middle element can
+            be accessed directly. On a linked list, locating the
+            middle element requires traversal, reducing the benefit.
+        </p>
+
+    </section>
+
+    <div class="page-navigation">
+
+    <a class="button" href="data-structures.html">
+        Previous: Data Structures
+    </a>
+
+    <a class="button" href="../week2.html">
+        Back to Week 2
+    </a>
+
+    <a class="button" href="complexity.html">
+        Next: Complexity
+    </a>
+
+</div>
+
+</main>
+
+<footer>
+
+    <p>
+        David's Computing Portfolio
+        &copy;
+        <span data-current-year></span>
+    </p>
+
+</footer>
+
+<script src="../../assets/js/script.js"></script>
+
+</body>
+
+</html>

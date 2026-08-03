@@ -1,0 +1,2416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Structured Week 2 academic notes covering data structures, algorithms, complexity, databases and data analysis."
+    >
+
+    <title>
+        Week 2 Notes | David's Computing Portfolio
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../../assets/css/style.css"
+    >
+
+    <style>
+        /* ---------------------------------------------------------
+           Week 2 notes page
+           --------------------------------------------------------- */
+
+        .week-two-notes {
+            max-width: 1200px;
+        }
+
+        .week-two-notes p {
+            max-width: none;
+        }
+
+        /* ---------------------------------------------------------
+           Introduction
+           --------------------------------------------------------- */
+
+        .week-two-introduction {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .week-two-introduction::after {
+            content: "{ }";
+
+            position: absolute;
+            top: 50%;
+            right: 2rem;
+
+            color: rgba(56, 189, 248, 0.055);
+
+            font-family:
+                Consolas,
+                Monaco,
+                "Courier New",
+                monospace;
+
+            font-size: clamp(6rem, 16vw, 11rem);
+            font-weight: 800;
+            line-height: 1;
+
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+
+        .week-two-introduction > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ---------------------------------------------------------
+           Controls and section index
+           --------------------------------------------------------- */
+
+        .notes-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+
+            margin-top: 1.5rem;
+        }
+
+        .notes-control {
+            min-height: 42px;
+            padding: 0.55rem 0.9rem;
+
+            color: var(--text-primary);
+            background: transparent;
+
+            border: 1px solid var(--border);
+            border-radius: var(--radius-small);
+
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .notes-control:hover,
+        .notes-control:focus {
+            color: #ffffff;
+            background: var(--surface-light);
+        }
+
+        .notes-index {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.75rem;
+
+            margin-block: 1.5rem 2rem;
+            padding: 1rem;
+
+            background: rgba(30, 41, 59, 0.75);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            border-radius: var(--radius-medium);
+        }
+
+        .notes-index a {
+            padding: 0.6rem 0.85rem;
+
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.04);
+
+            border: 1px solid var(--border);
+            border-radius: var(--radius-small);
+
+            font-weight: 700;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .notes-index a:hover,
+        .notes-index a:focus {
+            color: #ffffff;
+            background: var(--surface-light);
+            text-decoration: none;
+        }
+
+        /* ---------------------------------------------------------
+           Collapsible sections
+           --------------------------------------------------------- */
+
+        .study-section {
+            margin-block: 1.25rem;
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    var(--surface),
+                    #172033
+                );
+
+            border: 1px solid rgba(148, 163, 184, 0.22);
+            border-left: 4px solid var(--accent);
+            border-radius: var(--radius-medium);
+            box-shadow: var(--shadow);
+
+            scroll-margin-top: 6rem;
+        }
+
+        .study-section[open] {
+            border-color: rgba(56, 189, 248, 0.5);
+        }
+
+        .study-section > summary {
+            position: relative;
+
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+
+            min-height: 76px;
+            padding: 1.2rem 4rem 1.2rem 1.25rem;
+
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.025);
+
+            font-size: 1.25rem;
+            font-weight: 700;
+            line-height: 1.35;
+
+            cursor: pointer;
+            list-style: none;
+        }
+
+        .study-section > summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .study-section > summary::marker {
+            content: "";
+        }
+
+        .study-section > summary::after {
+            content: "+";
+
+            position: absolute;
+            top: 50%;
+            right: 1.25rem;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 32px;
+            height: 32px;
+
+            color: #ffffff;
+            background: var(--accent-dark);
+            border-radius: 50%;
+
+            font-size: 1.3rem;
+            line-height: 1;
+
+            transform: translateY(-50%);
+        }
+
+        .study-section[open] > summary::after {
+            content: "−";
+        }
+
+        .study-number {
+            color: var(--accent);
+        }
+
+        .study-content {
+            margin: 0 !important;
+            padding: 1.5rem;
+
+            border-top: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        .study-content > :first-child {
+            margin-top: 0;
+        }
+
+        /* ---------------------------------------------------------
+           Cards
+           --------------------------------------------------------- */
+
+        .topic-grid,
+        .comparison-grid,
+        .structure-grid,
+        .analytics-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+
+            gap: 1rem;
+            margin-block: 1.25rem;
+        }
+
+        .topic-card,
+        .comparison-card,
+        .structure-card,
+        .analytics-card {
+            padding: 1.2rem;
+
+            background: rgba(2, 6, 23, 0.28);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            border-radius: var(--radius-small);
+        }
+
+        .topic-card h3,
+        .comparison-card h3,
+        .structure-card h3,
+        .analytics-card h3 {
+            margin-top: 0;
+        }
+
+        .topic-card p:last-child,
+        .comparison-card p:last-child,
+        .structure-card p:last-child,
+        .analytics-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .comparison-card {
+            background: rgba(56, 189, 248, 0.055);
+            border-color: rgba(56, 189, 248, 0.25);
+        }
+
+        .comparison-card h3 {
+            color: var(--accent);
+        }
+
+        .structure-card {
+            background: rgba(34, 197, 94, 0.05);
+            border-color: rgba(34, 197, 94, 0.24);
+        }
+
+        .analytics-card {
+            background: rgba(168, 85, 247, 0.05);
+            border-color: rgba(168, 85, 247, 0.24);
+        }
+
+        /* ---------------------------------------------------------
+           Visual labels
+           --------------------------------------------------------- */
+
+        .complexity-badge {
+            display: inline-block;
+
+            margin-top: 0.45rem;
+            padding: 0.2rem 0.55rem;
+
+            color: #bae6fd;
+            background: rgba(2, 132, 199, 0.16);
+
+            border: 1px solid rgba(56, 189, 248, 0.32);
+            border-radius: 999px;
+
+            font-family:
+                Consolas,
+                Monaco,
+                "Courier New",
+                monospace;
+
+            font-size: 0.82rem;
+            font-weight: 700;
+        }
+
+        /* ---------------------------------------------------------
+           Complexity scale
+           --------------------------------------------------------- */
+
+        .complexity-scale {
+            display: grid;
+            gap: 0.75rem;
+
+            margin-block: 1.5rem;
+        }
+
+        .complexity-row {
+            display: grid;
+            grid-template-columns: 110px 1fr minmax(190px, 0.8fr);
+            align-items: center;
+            gap: 1rem;
+
+            padding: 0.85rem 1rem;
+
+            background: rgba(2, 6, 23, 0.28);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            border-radius: var(--radius-small);
+        }
+
+        .complexity-row code {
+            justify-self: start;
+            font-weight: 700;
+        }
+
+        .complexity-track {
+            height: 12px;
+            overflow: hidden;
+
+            background: var(--surface-light);
+            border-radius: 999px;
+        }
+
+        .complexity-fill {
+            height: 100%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--accent-dark),
+                    var(--accent)
+                );
+
+            border-radius: inherit;
+        }
+
+        .complexity-constant {
+            width: 12%;
+        }
+
+        .complexity-logarithmic {
+            width: 27%;
+        }
+
+        .complexity-linear {
+            width: 48%;
+        }
+
+        .complexity-linearithmic {
+            width: 69%;
+        }
+
+        .complexity-quadratic {
+            width: 100%;
+        }
+
+        .complexity-description {
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+        }
+
+        /* ---------------------------------------------------------
+           Search process
+           --------------------------------------------------------- */
+
+        .search-flow {
+            display: grid;
+            grid-template-columns:
+                repeat(4, minmax(0, 1fr));
+
+            gap: 0.65rem;
+            margin-block: 1.5rem;
+        }
+
+        .search-step {
+            position: relative;
+
+            min-height: 125px;
+            padding: 1rem;
+
+            text-align: center;
+
+            background: rgba(2, 6, 23, 0.3);
+            border: 1px solid rgba(56, 189, 248, 0.28);
+            border-radius: var(--radius-small);
+        }
+
+        .search-step:not(:last-child)::after {
+            content: "→";
+
+            position: absolute;
+            top: 50%;
+            right: -0.75rem;
+            z-index: 2;
+
+            display: grid;
+            place-items: center;
+
+            width: 1.5rem;
+            height: 1.5rem;
+
+            color: var(--accent);
+            background: var(--background);
+
+            font-weight: 800;
+
+            transform: translateY(-50%);
+        }
+
+        .search-step strong {
+            display: block;
+            margin-bottom: 0.35rem;
+
+            color: var(--accent);
+        }
+
+        .search-step p {
+            margin: 0;
+            font-size: 0.92rem;
+        }
+
+        /* ---------------------------------------------------------
+           Diagrams and callouts
+           --------------------------------------------------------- */
+
+        .diagram-placeholder {
+            display: grid;
+            place-items: center;
+
+            min-height: 250px;
+            margin-block: 1.5rem;
+            padding: 2rem;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(2, 6, 23, 0.7),
+                    rgba(15, 23, 42, 0.9)
+                );
+
+            border: 2px dashed rgba(56, 189, 248, 0.42);
+            border-radius: var(--radius-medium);
+        }
+
+        .diagram-placeholder strong {
+            display: block;
+            margin-bottom: 0.5rem;
+
+            color: var(--accent);
+            font-size: 1.1rem;
+        }
+
+        .diagram-placeholder p {
+            max-width: 62ch;
+            margin: 0 auto;
+        }
+
+        .key-takeaway,
+        .professional-relevance,
+        .important-note {
+            margin-top: 1.5rem;
+            padding: 1rem 1.2rem;
+
+            border-radius: var(--radius-small);
+        }
+
+        .key-takeaway {
+            background: rgba(34, 197, 94, 0.075);
+            border: 1px solid rgba(34, 197, 94, 0.35);
+            border-left: 4px solid var(--success);
+        }
+
+        .professional-relevance {
+            background: rgba(56, 189, 248, 0.075);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            border-left: 4px solid var(--accent);
+        }
+
+        .important-note {
+            background: rgba(245, 158, 11, 0.075);
+            border: 1px solid rgba(245, 158, 11, 0.35);
+            border-left: 4px solid var(--warning);
+        }
+
+        .key-takeaway h3,
+        .professional-relevance h3,
+        .important-note h3 {
+            margin-top: 0;
+        }
+
+        .key-takeaway h3 {
+            color: #dcfce7;
+        }
+
+        .professional-relevance h3 {
+            color: #bae6fd;
+        }
+
+        .important-note h3 {
+            color: #fef3c7;
+        }
+
+        .key-takeaway p:last-child,
+        .professional-relevance p:last-child,
+        .important-note p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ---------------------------------------------------------
+           Responsive design
+           --------------------------------------------------------- */
+
+        @media (max-width: 900px) {
+
+            .search-flow {
+                grid-template-columns: 1fr;
+            }
+
+            .search-step:not(:last-child)::after {
+                content: "↓";
+
+                top: auto;
+                right: 50%;
+                bottom: -0.8rem;
+
+                transform: translateX(50%);
+            }
+
+            .complexity-row {
+                grid-template-columns: 90px 1fr;
+            }
+
+            .complexity-description {
+                grid-column: 1 / -1;
+            }
+
+        }
+
+        @media (max-width: 720px) {
+
+            .week-two-introduction::after {
+                display: none;
+            }
+
+            .notes-index {
+                justify-content: flex-start;
+            }
+
+            .notes-index a {
+                flex: 1 1 calc(50% - 0.75rem);
+            }
+
+            .study-content {
+                padding: 1rem;
+            }
+
+            .study-section > summary {
+                font-size: 1.1rem;
+            }
+
+            .complexity-row {
+                grid-template-columns: 1fr;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="container">
+
+        <h1>
+            Structured Academic Notes
+        </h1>
+
+        <p>
+            Data Structures, Algorithms, Complexity and Data Analysis
+        </p>
+
+        <p class="subtitle">
+            Week 2 Independent Study
+        </p>
+
+    </div>
+
+</header>
+
+<nav
+    class="navigation"
+    aria-label="Week 2 navigation"
+>
+
+    <div class="container">
+
+        <a href="../../index.html">
+            Home
+        </a>
+
+        <a href="../week2.html">
+            Week 2
+        </a>
+
+        <a
+            href="notes.html"
+            class="active"
+            aria-current="page"
+        >
+            Notes
+        </a>
+
+        <a href="data-structures.html">
+            Data Structures
+        </a>
+
+        <a href="searching.html">
+            Searching
+        </a>
+
+        <a href="complexity.html">
+            Complexity
+        </a>
+
+        <a href="databases.html">
+            Databases
+        </a>
+
+        <a href="reflection.html">
+            Reflection
+        </a>
+
+        <a href="references.html">
+            References
+        </a>
+
+    </div>
+
+</nav>
+
+<main class="container week-two-notes">
+
+    <section class="card week-two-introduction">
+
+        <h2>
+            Introduction
+        </h2>
+
+        <p>
+            Software systems depend on data being organised in forms
+            that support the operations they need to perform. An
+            appropriate data structure can make searching, insertion
+            and removal efficient, while an unsuitable choice can
+            create unnecessary processing and memory costs.
+        </p>
+
+        <p>
+            Algorithms must also be evaluated according to how their
+            behaviour changes as the amount of data increases.
+            Asymptotic analysis allows algorithms to be compared
+            independently of a particular machine. Performance should
+            therefore be considered during software design, while
+            profiling should later confirm whether the theoretical
+            model reflects the real workload (Cormen et al., 2022).
+        </p>
+
+        <div class="notes-controls">
+
+            <button
+                class="notes-control"
+                id="open-all-sections"
+                type="button"
+            >
+                Open all sections
+            </button>
+
+            <button
+                class="notes-control"
+                id="close-all-sections"
+                type="button"
+            >
+                Close all sections
+            </button>
+
+        </div>
+
+    </section>
+
+    <nav
+        class="notes-index"
+        aria-label="Week 2 note sections"
+    >
+
+        <a href="#data-structures">
+            Data Structures
+        </a>
+
+        <a href="#searching-sorting">
+            Searching and Sorting
+        </a>
+
+        <a href="#algorithmic-efficiency">
+            Algorithmic Efficiency
+        </a>
+
+        <a href="#storage-formats">
+            Storage Formats
+        </a>
+
+        <a href="#database-systems">
+            Databases
+        </a>
+
+        <a href="#data-analytics">
+            Data Analytics
+        </a>
+
+    </nav>
+
+    <details
+        class="study-section"
+        id="data-structures"
+        open
+    >
+
+        <summary>
+            <span class="study-number">1.</span>
+            Data Structures
+        </summary>
+
+        <div class="study-content">
+
+            <h2>
+                Purpose of Data Structures
+            </h2>
+
+            <p>
+                A data structure organises values so that particular
+                operations can be performed efficiently. No single
+                structure is best for every task. Selection depends on
+                access patterns, insertion and deletion requirements,
+                ordering, memory use and expected data volume.
+            </p>
+
+            <div class="structure-grid">
+
+                <article class="structure-card">
+
+                    <h3>
+                        Stack
+                    </h3>
+
+                    <p>
+                        A stack follows the Last In, First Out
+                        principle. The most recently added item is the
+                        first item removed.
+                    </p>
+
+                    <p>
+                        Typical operations are
+                        <strong>push</strong>,
+                        <strong>pop</strong>
+                        and
+                        <strong>peek</strong>.
+                    </p>
+
+                    <span class="complexity-badge">
+                        Push/Pop: O(1)
+                    </span>
+
+                </article>
+
+                <article class="structure-card">
+
+                    <h3>
+                        Queue
+                    </h3>
+
+                    <p>
+                        A queue follows the First In, First Out
+                        principle. Items are normally processed in
+                        arrival order.
+                    </p>
+
+                    <p>
+                        Priority queues modify this rule by allowing
+                        urgent work to be processed first.
+                    </p>
+
+                    <span class="complexity-badge">
+                        Enqueue/Dequeue: O(1)
+                    </span>
+
+                </article>
+
+                <article class="structure-card">
+
+                    <h3>
+                        Linked List
+                    </h3>
+
+                    <p>
+                        A linked list contains nodes that store values
+                        and references to other nodes.
+                    </p>
+
+                    <p>
+                        It supports dynamic growth, but direct indexed
+                        access normally requires traversal from an
+                        earlier node.
+                    </p>
+
+                    <span class="complexity-badge">
+                        Indexed Access: O(n)
+                    </span>
+
+                </article>
+
+                <article class="structure-card">
+
+                    <h3>
+                        Binary Search Tree
+                    </h3>
+
+                    <p>
+                        A binary search tree places smaller values to
+                        the left and larger values to the right.
+                    </p>
+
+                    <p>
+                        Balanced trees support efficient ordered
+                        operations, but an unbalanced tree can
+                        deteriorate into a list-like structure.
+                    </p>
+
+                    <span class="complexity-badge">
+                        Balanced Search: O(log n)
+                    </span>
+
+                </article>
+
+                <article class="structure-card">
+
+                    <h3>
+                        Graph
+                    </h3>
+
+                    <p>
+                        A graph represents relationships through
+                        vertices and edges. Edges may be directed,
+                        undirected or weighted.
+                    </p>
+
+                    <p>
+                        Graphs support route planning, recommendations,
+                        dependencies and network analysis.
+                    </p>
+
+                    <span class="complexity-badge">
+                        Depends on representation
+                    </span>
+
+                </article>
+
+            </div>
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Structure</th>
+                            <th>Access Pattern</th>
+                            <th>Main Strength</th>
+                            <th>Typical Application</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>
+                                <strong>Stack</strong>
+                            </td>
+                            <td>Top item only</td>
+                            <td>
+                                Predictable LIFO operations
+                            </td>
+                            <td>
+                                Undo, function calls and history
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <strong>Queue</strong>
+                            </td>
+                            <td>Front and rear</td>
+                            <td>
+                                Preserves processing order
+                            </td>
+                            <td>
+                                Scheduling and message processing
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <strong>Linked List</strong>
+                            </td>
+                            <td>Sequential traversal</td>
+                            <td>
+                                Flexible insertion and deletion
+                            </td>
+                            <td>
+                                Dynamic collections
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <strong>Binary Search Tree</strong>
+                            </td>
+                            <td>Ordered branching</td>
+                            <td>
+                                Ordered searching and range access
+                            </td>
+                            <td>
+                                Indexes and dictionaries
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <strong>Graph</strong>
+                            </td>
+                            <td>Connected vertices</td>
+                            <td>
+                                Represents complex relationships
+                            </td>
+                            <td>
+                                Maps, networks and dependencies
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <p>
+                Wengrow (2020) emphasises that the practical value of
+                a structure depends on which operations are performed
+                most frequently rather than on one isolated
+                complexity measure.
+            </p>
+
+            <div class="important-note">
+
+                <h3>
+                    Important
+                </h3>
+
+                <p>
+                    A structure with favourable theoretical
+                    complexity can still perform poorly because of
+                    memory overhead, cache behaviour or unsuitable
+                    access patterns.
+                </p>
+
+            </div>
+
+            <div class="professional-relevance">
+
+                <h3>
+                    Professional relevance
+                </h3>
+
+                <p>
+                    Selecting an appropriate data structure can have a
+                    greater effect on performance and maintainability
+                    than attempting to optimise individual lines of
+                    code.
+                </p>
+
+            </div>
+
+            <div class="key-takeaway">
+
+                <h3>
+                    Key takeaway
+                </h3>
+
+                <p>
+                    Data structures should be selected according to
+                    the operations a system performs most often.
+                </p>
+
+            </div>
+
+        </div>
+
+    </details>
+
+    <details
+        class="study-section"
+        id="searching-sorting"
+    >
+
+        <summary>
+            <span class="study-number">2.</span>
+            Searching and Sorting Algorithms
+        </summary>
+
+        <div class="study-content">
+
+            <h2>
+                Searching Algorithms
+            </h2>
+
+            <div class="comparison-grid">
+
+                <article class="comparison-card">
+
+                    <h3>
+                        Linear Search
+                    </h3>
+
+                    <p>
+                        Linear search checks items sequentially until
+                        the target is found or the collection ends.
+                    </p>
+
+                    <p>
+                        It works with sorted and unsorted data and is
+                        appropriate for small or infrequently searched
+                        collections.
+                    </p>
+
+                    <span class="complexity-badge">
+                        Worst Case: O(n)
+                    </span>
+
+                </article>
+
+                <article class="comparison-card">
+
+                    <h3>
+                        Binary Search
+                    </h3>
+
+                    <p>
+                        Binary search checks the middle value of a
+                        sorted collection and removes half of the
+                        remaining search area after each comparison.
+                    </p>
+
+                    <p>
+                        It is efficient for large collections, but the
+                        data must be sorted and support efficient
+                        middle-item access.
+                    </p>
+
+                    <span class="complexity-badge">
+                        Worst Case: O(log n)
+                    </span>
+
+                </article>
+
+            </div>
+
+            <div class="search-flow">
+
+                <article class="search-step">
+
+                    <strong>
+                        1. Check Middle
+                    </strong>
+
+                    <p>
+                        Compare the target with the middle value.
+                    </p>
+
+                </article>
+
+                <article class="search-step">
+
+                    <strong>
+                        2. Compare
+                    </strong>
+
+                    <p>
+                        Determine whether the target is smaller,
+                        larger or equal.
+                    </p>
+
+                </article>
+
+                <article class="search-step">
+
+                    <strong>
+                        3. Remove Half
+                    </strong>
+
+                    <p>
+                        Discard the half that cannot contain the
+                        target.
+                    </p>
+
+                </article>
+
+                <article class="search-step">
+
+                    <strong>
+                        4. Repeat
+                    </strong>
+
+                    <p>
+                        Continue until the target is found or no data
+                        remains.
+                    </p>
+
+                </article>
+
+            </div>
+
+            <div class="important-note">
+
+                <h3>
+                    Binary-search requirement
+                </h3>
+
+                <p>
+                    Binary search only works correctly when the
+                    collection is ordered. The cost of creating and
+                    maintaining that order must be included in the
+                    design decision (Cormen et al., 2022).
+                </p>
+
+            </div>
+
+            <h2>
+                Sorting Algorithms
+            </h2>
+
+            <div class="comparison-grid">
+
+                <article class="comparison-card">
+
+                    <h3>
+                        Merge Sort
+                    </h3>
+
+                    <p>
+                        Merge sort divides data into smaller sections,
+                        sorts those sections and merges them back
+                        together.
+                    </p>
+
+                    <p>
+                        It provides predictable performance and is
+                        stable, but normally requires additional
+                        memory during merging.
+                    </p>
+
+                    <span class="complexity-badge">
+                        Best/Average/Worst: O(n log n)
+                    </span>
+
+                </article>
+
+                <article class="comparison-card">
+
+                    <h3>
+                        Quick Sort
+                    </h3>
+
+                    <p>
+                        Quick sort selects a pivot and partitions
+                        values into groups below and above that pivot.
+                    </p>
+
+                    <p>
+                        It often performs well in practice, but poor
+                        pivot selection can create quadratic
+                        worst-case behaviour.
+                    </p>
+
+                    <span class="complexity-badge">
+                        Average: O(n log n)
+                    </span>
+
+                </article>
+
+            </div>
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Algorithm</th>
+                            <th>Data Requirement</th>
+                            <th>Average Complexity</th>
+                            <th>Main Trade-off</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>Linear search</td>
+                            <td>None</td>
+                            <td>
+                                <code>O(n)</code>
+                            </td>
+                            <td>
+                                Simple but scales linearly
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Binary search</td>
+                            <td>Sorted data</td>
+                            <td>
+                                <code>O(log n)</code>
+                            </td>
+                            <td>
+                                Requires ordered, indexable data
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Merge sort</td>
+                            <td>None</td>
+                            <td>
+                                <code>O(n log n)</code>
+                            </td>
+                            <td>
+                                Predictable but uses extra memory
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Quick sort</td>
+                            <td>None</td>
+                            <td>
+                                <code>O(n log n)</code>
+                            </td>
+                            <td>
+                                Fast in practice but has an
+                                <code>O(n²)</code>
+                                worst case
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <div class="professional-relevance">
+
+                <h3>
+                    Professional relevance
+                </h3>
+
+                <p>
+                    Search and sorting decisions should account for
+                    dataset size, existing order, memory limits,
+                    update frequency and the cost of unsuccessful
+                    searches.
+                </p>
+
+            </div>
+
+            <div class="key-takeaway">
+
+                <h3>
+                    Key takeaway
+                </h3>
+
+                <p>
+                    Faster lookup may require earlier preparation,
+                    additional memory or continuous maintenance of
+                    sorted data.
+                </p>
+
+            </div>
+
+        </div>
+
+    </details>
+
+    <details
+        class="study-section"
+        id="algorithmic-efficiency"
+    >
+
+        <summary>
+            <span class="study-number">3.</span>
+            Algorithmic Efficiency
+        </summary>
+
+        <div class="study-content">
+
+            <h2>
+                Time and Space Complexity
+            </h2>
+
+            <div class="comparison-grid">
+
+                <article class="comparison-card">
+
+                    <h3>
+                        Time Complexity
+                    </h3>
+
+                    <p>
+                        Describes how the number of operations grows as
+                        the amount of input data increases.
+                    </p>
+
+                    <p>
+                        It does not normally represent an exact
+                        execution time because hardware, language and
+                        implementation affect the result.
+                    </p>
+
+                </article>
+
+                <article class="comparison-card">
+
+                    <h3>
+                        Space Complexity
+                    </h3>
+
+                    <p>
+                        Describes how memory requirements grow with the
+                        input size.
+                    </p>
+
+                    <p>
+                        A fast algorithm may still be unsuitable when
+                        it creates excessive temporary data or exceeds
+                        available memory.
+                    </p>
+
+                </article>
+
+            </div>
+
+            <h2>
+                Common Big-O Growth Rates
+            </h2>
+
+            <div class="complexity-scale">
+
+                <div class="complexity-row">
+
+                    <code>O(1)</code>
+
+                    <div class="complexity-track">
+
+                        <div
+                            class="complexity-fill complexity-constant"
+                        ></div>
+
+                    </div>
+
+                    <div class="complexity-description">
+                        Constant growth
+                    </div>
+
+                </div>
+
+                <div class="complexity-row">
+
+                    <code>O(log n)</code>
+
+                    <div class="complexity-track">
+
+                        <div
+                            class="complexity-fill complexity-logarithmic"
+                        ></div>
+
+                    </div>
+
+                    <div class="complexity-description">
+                        Logarithmic growth
+                    </div>
+
+                </div>
+
+                <div class="complexity-row">
+
+                    <code>O(n)</code>
+
+                    <div class="complexity-track">
+
+                        <div
+                            class="complexity-fill complexity-linear"
+                        ></div>
+
+                    </div>
+
+                    <div class="complexity-description">
+                        Linear growth
+                    </div>
+
+                </div>
+
+                <div class="complexity-row">
+
+                    <code>O(n log n)</code>
+
+                    <div class="complexity-track">
+
+                        <div
+                            class="complexity-fill complexity-linearithmic"
+                        ></div>
+
+                    </div>
+
+                    <div class="complexity-description">
+                        Linearithmic growth
+                    </div>
+
+                </div>
+
+                <div class="complexity-row">
+
+                    <code>O(n²)</code>
+
+                    <div class="complexity-track">
+
+                        <div
+                            class="complexity-fill complexity-quadratic"
+                        ></div>
+
+                    </div>
+
+                    <div class="complexity-description">
+                        Quadratic growth
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="diagram-placeholder">
+
+                <div>
+
+                    <strong>
+                        Diagram placeholder: Big-O complexity
+                    </strong>
+
+                    <p>
+                        Insert a graph comparing constant,
+                        logarithmic, linear, linearithmic and
+                        quadratic growth as input size increases.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <h2>
+                Limits of Big-O Analysis
+            </h2>
+
+            <p>
+                Big-O notation describes growth rather than complete
+                real-world performance. Execution can also be affected
+                by constant factors, memory access, caching, input
+                distribution and dataset size.
+            </p>
+
+            <div class="important-note">
+
+                <h3>
+                    Remember
+                </h3>
+
+                <p>
+                    An
+                    <code>O(n)</code>
+                    implementation may outperform an
+                    <code>O(log n)</code>
+                    implementation on a very small dataset because
+                    complexity notation removes constant costs and
+                    implementation details.
+                </p>
+
+            </div>
+
+            <p>
+                Complexity analysis should guide design decisions
+                rather than replace benchmarking and profiling with
+                representative data.
+            </p>
+
+            <div class="professional-relevance">
+
+                <h3>
+                    Professional relevance
+                </h3>
+
+                <p>
+                    Complexity analysis allows developers to identify
+                    solutions that may become impractical as user
+                    numbers and data volumes increase.
+                </p>
+
+            </div>
+
+            <div class="key-takeaway">
+
+                <h3>
+                    Key takeaway
+                </h3>
+
+                <p>
+                    Big-O predicts scalability. Profiling measures the
+                    performance of a specific implementation under a
+                    particular workload.
+                </p>
+
+            </div>
+
+        </div>
+
+    </details>
+
+        <details
+        class="study-section"
+        id="storage-formats"
+    >
+
+        <summary>
+            <span class="study-number">4.</span>
+            Data Storage Formats
+        </summary>
+
+        <div class="study-content">
+
+            <h2>
+                CSV and JSON
+            </h2>
+
+            <p>
+                File formats provide portable ways to exchange and
+                store data. The appropriate format depends on whether
+                the information is tabular, nested, strongly typed or
+                intended for communication with a web service.
+            </p>
+
+            <div class="comparison-grid">
+
+                <article class="comparison-card">
+
+                    <h3>
+                        CSV
+                    </h3>
+
+                    <p>
+                        CSV stores tabular information as plain text.
+                        Each line represents a row, while delimiters
+                        separate individual values.
+                    </p>
+
+                    <h4>
+                        Strengths
+                    </h4>
+
+                    <ul>
+                        <li>simple and compact;</li>
+                        <li>widely supported;</li>
+                        <li>appropriate for flat tabular data;</li>
+                        <li>easy to import into analysis tools.</li>
+                    </ul>
+
+                    <h4>
+                        Limitations
+                    </h4>
+
+                    <ul>
+                        <li>weak data-type preservation;</li>
+                        <li>no standard nested structure;</li>
+                        <li>no built-in relationships;</li>
+                        <li>
+                            delimiter and encoding differences can
+                            cause compatibility problems.
+                        </li>
+                    </ul>
+
+                </article>
+
+                <article class="comparison-card">
+
+                    <h3>
+                        JSON
+                    </h3>
+
+                    <p>
+                        JSON represents information using objects,
+                        arrays, strings, numbers, Boolean values and
+                        null values.
+                    </p>
+
+                    <h4>
+                        Strengths
+                    </h4>
+
+                    <ul>
+                        <li>supports nested information;</li>
+                        <li>maps naturally to programming objects;</li>
+                        <li>widely used by web APIs;</li>
+                        <li>human-readable structure.</li>
+                    </ul>
+
+                    <h4>
+                        Limitations
+                    </h4>
+
+                    <ul>
+                        <li>more verbose than CSV for simple tables;</li>
+                        <li>does not provide database transactions;</li>
+                        <li>does not enforce a schema by itself;</li>
+                        <li>
+                            large documents may be inefficient to
+                            process as one unit.
+                        </li>
+                    </ul>
+
+                </article>
+
+            </div>
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Requirement</th>
+                            <th>CSV</th>
+                            <th>JSON</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>Flat tabular data</td>
+                            <td>Well suited</td>
+                            <td>Supported but more verbose</td>
+                        </tr>
+
+                        <tr>
+                            <td>Nested information</td>
+                            <td>Poor support</td>
+                            <td>Well suited</td>
+                        </tr>
+
+                        <tr>
+                            <td>Web API communication</td>
+                            <td>Possible</td>
+                            <td>Commonly used</td>
+                        </tr>
+
+                        <tr>
+                            <td>Strong schema enforcement</td>
+                            <td>No</td>
+                            <td>No, unless additional validation is used</td>
+                        </tr>
+
+                        <tr>
+                            <td>Human readability</td>
+                            <td>Good for simple data</td>
+                            <td>Good for structured data</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <div class="important-note">
+
+                <h3>
+                    File format versus database
+                </h3>
+
+                <p>
+                    CSV and JSON provide data representation, but they
+                    do not independently provide indexing,
+                    concurrency control, validation, querying or
+                    reliable multi-step transactions.
+                </p>
+
+            </div>
+
+            <div class="professional-relevance">
+
+                <h3>
+                    Professional relevance
+                </h3>
+
+                <p>
+                    Selecting an appropriate exchange format reduces
+                    conversion work and helps preserve the intended
+                    structure of data between systems.
+                </p>
+
+            </div>
+
+            <div class="key-takeaway">
+
+                <h3>
+                    Key takeaway
+                </h3>
+
+                <p>
+                    CSV is most appropriate for straightforward
+                    tables, while JSON is better suited to nested
+                    structures and API communication.
+                </p>
+
+            </div>
+
+        </div>
+
+    </details>
+
+    <details
+        class="study-section"
+        id="database-systems"
+    >
+
+        <summary>
+            <span class="study-number">5.</span>
+            Database Systems
+        </summary>
+
+        <div class="study-content">
+
+            <h2>
+                Relational and NoSQL Databases
+            </h2>
+
+            <div class="comparison-grid">
+
+                <article class="comparison-card">
+
+                    <h3>
+                        Relational Databases
+                    </h3>
+
+                    <p>
+                        Relational databases organise data into tables
+                        containing rows and columns. Relationships are
+                        formed using primary and foreign keys.
+                    </p>
+
+                    <p>
+                        SQL is used to define, retrieve, modify and
+                        control the stored information.
+                    </p>
+
+                    <h4>
+                        Appropriate when
+                    </h4>
+
+                    <ul>
+                        <li>data has a defined structure;</li>
+                        <li>relationships must be enforced;</li>
+                        <li>transactions require strong consistency;</li>
+                        <li>complex queries are required.</li>
+                    </ul>
+
+                </article>
+
+                <article class="comparison-card">
+
+                    <h3>
+                        NoSQL Databases
+                    </h3>
+
+                    <p>
+                        NoSQL describes non-relational approaches such
+                        as document, key-value, column-family and graph
+                        databases.
+                    </p>
+
+                    <p>
+                        These systems may support flexible schemas,
+                        distributed operation and horizontal scaling.
+                    </p>
+
+                    <h4>
+                        Appropriate when
+                    </h4>
+
+                    <ul>
+                        <li>data structures change frequently;</li>
+                        <li>high-volume distribution is required;</li>
+                        <li>specialised access patterns dominate;</li>
+                        <li>
+                            strict relational modelling is not the
+                            main requirement.
+                        </li>
+                    </ul>
+
+                </article>
+
+            </div>
+
+            <div class="diagram-placeholder">
+
+                <div>
+
+                    <strong>
+                        Diagram placeholder: Relational database
+                    </strong>
+
+                    <p>
+                        Insert an entity-relationship diagram showing
+                        students, modules and enrolments connected by
+                        primary and foreign keys.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <h2>
+                Keys and Relationships
+            </h2>
+
+            <div class="topic-grid">
+
+                <article class="topic-card">
+
+                    <h3>
+                        Primary Key
+                    </h3>
+
+                    <p>
+                        Uniquely identifies each record within a
+                        table.
+                    </p>
+
+                </article>
+
+                <article class="topic-card">
+
+                    <h3>
+                        Foreign Key
+                    </h3>
+
+                    <p>
+                        References a key in another table and creates
+                        a relationship between records.
+                    </p>
+
+                </article>
+
+                <article class="topic-card">
+
+                    <h3>
+                        Referential Integrity
+                    </h3>
+
+                    <p>
+                        Prevents relationships from referring to
+                        records that do not exist.
+                    </p>
+
+                </article>
+
+                <article class="topic-card">
+
+                    <h3>
+                        Index
+                    </h3>
+
+                    <p>
+                        Creates an additional lookup structure that
+                        can improve retrieval speed but increases
+                        storage and update cost.
+                    </p>
+
+                </article>
+
+            </div>
+
+            <h2>
+                Transactions
+            </h2>
+
+            <p>
+                A transaction groups related database operations into
+                one logical unit. A transfer between bank accounts,
+                for example, should not remove money from one account
+                unless it can also add the amount to the other.
+            </p>
+
+            <div class="topic-grid">
+
+                <article class="topic-card">
+
+                    <h3>
+                        Atomicity
+                    </h3>
+
+                    <p>
+                        All operations succeed together or the entire
+                        transaction is reversed.
+                    </p>
+
+                </article>
+
+                <article class="topic-card">
+
+                    <h3>
+                        Consistency
+                    </h3>
+
+                    <p>
+                        The transaction preserves defined rules and
+                        valid database state.
+                    </p>
+
+                </article>
+
+                <article class="topic-card">
+
+                    <h3>
+                        Isolation
+                    </h3>
+
+                    <p>
+                        Concurrent transactions should not interfere
+                        in ways that produce invalid results.
+                    </p>
+
+                </article>
+
+                <article class="topic-card">
+
+                    <h3>
+                        Durability
+                    </h3>
+
+                    <p>
+                        Committed changes remain stored after a system
+                        failure.
+                    </p>
+
+                </article>
+
+            </div>
+
+            <div class="important-note">
+
+                <h3>
+                    Schema flexibility has a cost
+                </h3>
+
+                <p>
+                    A flexible NoSQL schema can support rapid change,
+                    but weaker database-level constraints may move
+                    validation and consistency responsibilities into
+                    application code.
+                </p>
+
+            </div>
+
+            <div class="professional-relevance">
+
+                <h3>
+                    Professional relevance
+                </h3>
+
+                <p>
+                    Database selection should reflect consistency,
+                    scalability, relationship complexity, query
+                    patterns and operational expertise rather than
+                    following a technology trend.
+                </p>
+
+            </div>
+
+            <div class="key-takeaway">
+
+                <h3>
+                    Key takeaway
+                </h3>
+
+                <p>
+                    Relational and NoSQL databases address different
+                    modelling and operational requirements. Neither
+                    category is universally superior.
+                </p>
+
+            </div>
+
+        </div>
+
+    </details>
+
+    <details
+        class="study-section"
+        id="data-analytics"
+    >
+
+        <summary>
+            <span class="study-number">6.</span>
+            Data Processing and Analytics
+        </summary>
+
+        <div class="study-content">
+
+            <h2>
+                Python Data-Analysis Tools
+            </h2>
+
+            <div class="analytics-grid">
+
+                <article class="analytics-card">
+
+                    <h3>
+                        pandas
+                    </h3>
+
+                    <p>
+                        pandas provides DataFrame and Series
+                        structures for loading, cleaning, reshaping,
+                        grouping and analysing structured data.
+                    </p>
+
+                    <p>
+                        It is useful for CSV files and database query
+                        results, although memory use can become
+                        restrictive when datasets are much larger than
+                        available RAM (pandas Development Team, 2026).
+                    </p>
+
+                </article>
+
+                <article class="analytics-card">
+
+                    <h3>
+                        NumPy
+                    </h3>
+
+                    <p>
+                        NumPy provides efficient multidimensional
+                        arrays and vectorised numerical operations.
+                    </p>
+
+                    <p>
+                        Vectorisation can reduce slow explicit Python
+                        loops, but some operations create temporary
+                        arrays and increase memory use (NumPy
+                        Developers, 2026).
+                    </p>
+
+                </article>
+
+                <article class="analytics-card">
+
+                    <h3>
+                        Matplotlib
+                    </h3>
+
+                    <p>
+                        Matplotlib provides detailed control over chart
+                        structure, axes, labels and visual
+                        presentation.
+                    </p>
+
+                    <p>
+                        This flexibility supports customised
+                        visualisations but can require more
+                        configuration.
+                    </p>
+
+                </article>
+
+                <article class="analytics-card">
+
+                    <h3>
+                        Seaborn
+                    </h3>
+
+                    <p>
+                        Seaborn builds on Matplotlib and offers
+                        higher-level functions for statistical
+                        visualisation.
+                    </p>
+
+                    <p>
+                        It can produce effective exploratory charts
+                        quickly, but chart selection and interpretation
+                        still require human judgement.
+                    </p>
+
+                </article>
+
+            </div>
+
+            <h2>
+                Data-Analysis Process
+            </h2>
+
+            <div class="search-flow">
+
+                <article class="search-step">
+
+                    <strong>
+                        1. Load
+                    </strong>
+
+                    <p>
+                        Read data from a file, API or database.
+                    </p>
+
+                </article>
+
+                <article class="search-step">
+
+                    <strong>
+                        2. Clean
+                    </strong>
+
+                    <p>
+                        Handle missing values, duplicates and invalid
+                        records.
+                    </p>
+
+                </article>
+
+                <article class="search-step">
+
+                    <strong>
+                        3. Analyse
+                    </strong>
+
+                    <p>
+                        Group, transform and calculate relevant
+                        measures.
+                    </p>
+
+                </article>
+
+                <article class="search-step">
+
+                    <strong>
+                        4. Communicate
+                    </strong>
+
+                    <p>
+                        Present findings using appropriate tables,
+                        charts and written interpretation.
+                    </p>
+
+                </article>
+
+            </div>
+
+            <h2>
+                Responsible Visualisation
+            </h2>
+
+            <p>
+                A visualisation should communicate a specific finding
+                rather than provide decoration. Chart type, scales,
+                labels and context affect the conclusions a reader may
+                draw.
+            </p>
+
+            <div class="comparison-grid">
+
+                <article class="comparison-card">
+
+                    <h3>
+                        Effective Practice
+                    </h3>
+
+                    <ul>
+                        <li>select a chart that matches the data;</li>
+                        <li>use clear labels and units;</li>
+                        <li>retain relevant context;</li>
+                        <li>use consistent scales;</li>
+                        <li>explain uncertainty or missing data.</li>
+                    </ul>
+
+                </article>
+
+                <article class="comparison-card">
+
+                    <h3>
+                        Misleading Practice
+                    </h3>
+
+                    <ul>
+                        <li>truncated or inconsistent axes;</li>
+                        <li>excessive visual decoration;</li>
+                        <li>inappropriate three-dimensional effects;</li>
+                        <li>omitting relevant categories;</li>
+                        <li>presenting correlation as causation.</li>
+                    </ul>
+
+                </article>
+
+            </div>
+
+            <div class="important-note">
+
+                <h3>
+                    Analysis requires interpretation
+                </h3>
+
+                <p>
+                    Software can calculate and visualise patterns, but
+                    it cannot determine automatically whether those
+                    patterns are meaningful, causal or ethically
+                    appropriate to use.
+                </p>
+
+            </div>
+
+            <div class="professional-relevance">
+
+                <h3>
+                    Professional relevance
+                </h3>
+
+                <p>
+                    Data professionals must combine technical
+                    processing with critical interpretation,
+                    documentation and transparent communication.
+                </p>
+
+            </div>
+
+            <div class="key-takeaway">
+
+                <h3>
+                    Key takeaway
+                </h3>
+
+                <p>
+                    Analysis is not complete when a chart is produced.
+                    The method, assumptions, limitations and meaning
+                    of the result must also be explained.
+                </p>
+
+            </div>
+
+        </div>
+
+    </details>
+
+    <section class="callout">
+
+        <h2>
+            Overall Evaluation
+        </h2>
+
+        <p>
+            The most appropriate technical solution depends on the
+            operations a system performs most frequently. Data
+            structures, algorithms, storage formats, databases and
+            analysis tools should therefore be selected together
+            rather than as isolated technologies.
+        </p>
+
+        <p>
+            Theoretical complexity supports early design decisions,
+            while representative testing confirms whether those
+            decisions perform effectively in practice. A solution
+            that is theoretically efficient may still be unsuitable
+            when it introduces excessive memory use, weak data
+            integrity or unnecessary maintenance complexity.
+        </p>
+
+    </section>
+
+    <div class="page-navigation">
+
+        <a
+            class="button"
+            href="../week2.html"
+        >
+            Back to Week 2
+        </a>
+
+        <a
+            class="button"
+            href="data-structures.html"
+        >
+            Next: Data Structures
+        </a>
+
+    </div>
+
+</main>
+
+<footer>
+
+    <p>
+        David's Computing Portfolio
+        &copy;
+        <span data-current-year></span>
+    </p>
+
+</footer>
+
+<script src="../../assets/js/script.js"></script>
+
+<script>
+    const studySections = document.querySelectorAll(
+        ".study-section"
+    );
+
+    const openAllButton = document.querySelector(
+        "#open-all-sections"
+    );
+
+    const closeAllButton = document.querySelector(
+        "#close-all-sections"
+    );
+
+    if (openAllButton && closeAllButton) {
+
+        openAllButton.addEventListener("click", () => {
+
+            studySections.forEach((section) => {
+                section.open = true;
+            });
+
+        });
+
+        closeAllButton.addEventListener("click", () => {
+
+            studySections.forEach((section) => {
+                section.open = false;
+            });
+
+        });
+
+    }
+</script>
+
+</body>
+
+</html>

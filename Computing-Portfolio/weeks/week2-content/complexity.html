@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Algorithm Complexity | David's Computing Portfolio
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../../assets/css/style.css"
+    >
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="container">
+
+        <h1>
+            Algorithm Complexity
+        </h1>
+
+        <p>
+            Big-O, Time Complexity and Space Complexity
+        </p>
+
+    </div>
+
+</header>
+
+<nav
+    class="navigation"
+    aria-label="Week 2 navigation"
+>
+
+    <div class="container">
+
+        <a href="../../index.html">Home</a>
+        <a href="../week2.html">Week 2</a>
+        <a href="notes.html">Notes</a>
+        <a href="data-structures.html">Data Structures</a>
+        <a href="searching.html">Searching</a>
+        <a href="complexity.html">Complexity</a>
+        <a href="databases.html">Databases</a>
+        <a href="reflection.html">Reflection</a>
+        <a href="references.html">References</a>
+
+    </div>
+
+</nav>
+
+<main class="container">
+
+    <section class="card portfolio-overview">
+
+        <h2>
+            Big-O Notation
+        </h2>
+
+        <p>
+            Big-O notation describes an asymptotic upper bound on
+            how an algorithm's resource requirements grow as the
+            input size increases. It focuses on the dominant growth
+            term and ignores fixed constants and smaller terms
+            (Cormen et al., 2022).
+        </p>
+
+        <p>
+            For example, an operation count of
+            <code>3n + 10</code> is described as O(n), because the
+            linear term dominates as the input becomes large.
+        </p>
+
+    </section>
+
+    <section>
+
+        <h2>
+            Common Complexity Classes
+        </h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Complexity</th>
+                    <th>Name</th>
+                    <th>Typical Example</th>
+                    <th>Effect of Growth</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>O(1)</td>
+                    <td>Constant</td>
+                    <td>Accessing an array item by index</td>
+                    <td>Work remains approximately unchanged.</td>
+                </tr>
+
+                <tr>
+                    <td>O(log n)</td>
+                    <td>Logarithmic</td>
+                    <td>Binary search</td>
+                    <td>Input can grow significantly with little extra work.</td>
+                </tr>
+
+                <tr>
+                    <td>O(n)</td>
+                    <td>Linear</td>
+                    <td>Linear search</td>
+                    <td>Work grows in proportion to input size.</td>
+                </tr>
+
+                <tr>
+                    <td>O(n log n)</td>
+                    <td>Linearithmic</td>
+                    <td>Merge sort</td>
+                    <td>Efficient for general comparison sorting.</td>
+                </tr>
+
+                <tr>
+                    <td>O(n²)</td>
+                    <td>Quadratic</td>
+                    <td>Nested comparison loops</td>
+                    <td>Becomes expensive as the dataset grows.</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            Time and Space Complexity
+        </h2>
+
+        <p>
+            Time complexity represents the growth in processing
+            operations. Space complexity represents growth in memory
+            use, including temporary structures and recursive call
+            stacks.
+        </p>
+
+        <p>
+            A faster algorithm may require more memory. Merge sort,
+            for example, provides predictable O(n log n) time but
+            commonly requires O(n) additional space. An in-place
+            quick sort implementation may use less additional memory,
+            but its worst-case execution time is O(n²). The decision
+            is therefore a time-space trade-off rather than a simple
+            choice between a fast and a slow algorithm
+            (Cormen et al., 2022).
+        </p>
+
+    </section>
+
+    <section>
+
+        <h2>
+            Algorithm Comparison
+        </h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Algorithm</th>
+                    <th>Best Case</th>
+                    <th>Average Case</th>
+                    <th>Worst Case</th>
+                    <th>Additional Space</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>Linear search</td>
+                    <td>O(1)</td>
+                    <td>O(n)</td>
+                    <td>O(n)</td>
+                    <td>O(1)</td>
+                </tr>
+
+                <tr>
+                    <td>Binary search</td>
+                    <td>O(1)</td>
+                    <td>O(log n)</td>
+                    <td>O(log n)</td>
+                    <td>O(1) iterative</td>
+                </tr>
+
+                <tr>
+                    <td>Merge sort</td>
+                    <td>O(n log n)</td>
+                    <td>O(n log n)</td>
+                    <td>O(n log n)</td>
+                    <td>Usually O(n)</td>
+                </tr>
+
+                <tr>
+                    <td>Quick sort</td>
+                    <td>O(n log n)</td>
+                    <td>O(n log n)</td>
+                    <td>O(n²)</td>
+                    <td>Depends on implementation</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+    <section class="note-section">
+
+        <h2>
+            Merge Sort and Quick Sort
+        </h2>
+
+        <h3>
+            Merge Sort
+        </h3>
+
+        <p>
+            Merge sort has predictable performance and is stable,
+            meaning equal values retain their original order. This
+            is useful where records contain several fields and the
+            existing order has meaning.
+        </p>
+
+        <p>
+            Its main disadvantage is the additional storage normally
+            required when merging sections.
+        </p>
+
+        <h3>
+            Quick Sort
+        </h3>
+
+        <p>
+            Quick sort frequently performs well because its memory
+            access pattern can be efficient. Performance depends on
+            selecting a suitable pivot.
+        </p>
+
+        <p>
+            If the pivot repeatedly creates highly unequal
+            partitions, the algorithm approaches O(n²). Randomised
+            or median-based pivot selection can reduce this risk.
+        </p>
+
+    </section>
+
+    <section class="card portfolio-overview">
+
+        <h2>
+            Limitations of Big-O
+        </h2>
+
+        <p>
+            Big-O does not provide an exact execution time. Two O(n)
+            algorithms may have very different constants and
+            implementation costs.
+        </p>
+
+        <p>
+            Small datasets may not show a meaningful difference
+            between algorithms. Hardware caching, disk access,
+            network delays and programming-language overhead can
+            also dominate theoretical complexity.
+        </p>
+
+        <p>
+            Complexity analysis should therefore be combined with
+            profiling and testing using realistic data. This is
+            particularly important where cache behaviour, storage
+            latency or language runtime overhead is likely to
+            dominate the abstract operation count.
+        </p>
+
+    </section>
+
+    <div class="page-navigation">
+
+    <a class="button" href="searching.html">
+        Previous: Searching
+    </a>
+
+    <a class="button" href="../week2.html">
+        Back to Week 2
+    </a>
+
+    <a class="button" href="databases.html">
+        Next: Databases
+    </a>
+
+</div>
+
+</main>
+
+<footer>
+
+    <p>
+        David's Computing Portfolio
+        &copy;
+        <span data-current-year></span>
+    </p>
+
+</footer>
+
+<script src="../../assets/js/script.js"></script>
+
+</body>
+
+</html>
